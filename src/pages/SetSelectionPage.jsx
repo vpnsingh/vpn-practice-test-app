@@ -1,0 +1,127 @@
+function SetSelectionPage({
+  test,
+  mode,
+  parts,
+  sets,
+  onModeChange,
+  onBack,
+  onStartPractice,
+  onStartStudy
+}) {
+  const isGh300 = test.key === 'gh300'
+  const isClaudeAssociate = test.key === 'claude-associate'
+
+  return (
+    <div className="app-shell section-screen">
+      <main className="card section-card">
+        <header className="section-topbar">
+          <div>
+            <p className="eyebrow">{mode === 'study' ? 'Study library' : 'Practice section'}</p>
+            <h1>{test.name}</h1>
+          </div>
+          <button className="ghost-button" onClick={onBack}>← Back home</button>
+        </header>
+
+        <section className="set-selection-hero">
+          <div className="set-selection-copy">
+            <span className="set-selection-kicker">{mode === 'study' ? 'LEARN AT YOUR OWN PACE' : 'PREPARE WITH CONFIDENCE'}</span>
+            <h2>{mode === 'study' ? 'Choose a question collection to study' : 'Choose where to begin'}</h2>
+            <p>
+              {mode === 'study'
+                ? 'Questions are presented in order, ten at a time, with the correct answers clearly marked.'
+                : test.description}
+            </p>
+            <div className="set-selection-tags">
+              <span>✓ {mode === 'study' ? 'Answers revealed' : 'Instant feedback'}</span>
+              <span>✓ {isGh300 ? 'GH-300' : 'Claude Associate'} content</span>
+            </div>
+          </div>
+          <div className="set-selection-stat">
+            <span className="set-stat-icon" aria-hidden="true">{mode === 'study' ? '📚' : '🎯'}</span>
+            <strong>{isGh300 ? '180' : `${sets.filter((set) => set.ready).length}`}</strong>
+            <span>{isGh300 ? 'GH-300 questions' : 'available sets'}</span>
+            <small>{mode === 'study' ? 'Read and learn' : 'Pick your challenge'}</small>
+          </div>
+        </section>
+
+        <div className="mode-switch" role="group" aria-label="Choose a learning mode">
+          <button
+            className={mode === 'practice' ? 'active' : ''}
+            aria-pressed={mode === 'practice'}
+            onClick={() => onModeChange('practice')}
+          >
+            <span aria-hidden="true">✦</span> Practice quiz
+          </button>
+          <button
+            className={mode === 'study' ? 'active' : ''}
+            aria-pressed={mode === 'study'}
+            onClick={() => onModeChange('study')}
+          >
+            <span aria-hidden="true">▤</span> Study questions
+          </button>
+        </div>
+
+        <section className="set-list-section" aria-labelledby="set-list-heading">
+          <div className="set-list-heading">
+            <div>
+              <h2 id="set-list-heading">{isGh300 ? 'GH-300 question parts' : 'Claude Associate sets'}</h2>
+              <p>{isGh300 ? 'Choose a part, the full question bank, or a deduplicated set.' : 'Select one of the available question collections.'}</p>
+            </div>
+            <span className="set-count-badge">{isGh300 ? `${parts.length} collections` : `${sets.filter((set) => set.ready).length} sets`}</span>
+          </div>
+
+          {isGh300 ? (
+            <div className="study-grid set-selection-grid">
+              {parts.map((part, index) => (
+                <button
+                  key={part.key}
+                  className="study-card set-selection-card"
+                  onClick={() => mode === 'study' ? onStartStudy(part.key) : onStartPractice(part.key)}
+                >
+                  <span className="set-card-topline">
+                    <span className="study-label">{part.key}</span>
+                    <span className="set-card-index">{String(index + 1).padStart(2, '0')}</span>
+                  </span>
+                  <strong>{part.count ? `${part.count} questions` : 'Unique questions'}</strong>
+                  <small>{mode === 'study' ? 'Read questions and answers in order' : part.label}</small>
+                  <span className="set-card-action">{mode === 'study' ? 'Start learning' : 'Start practice'} <span aria-hidden="true">→</span></span>
+                </button>
+              ))}
+            </div>
+          ) : isClaudeAssociate ? (
+            <div className="study-grid set-selection-grid">
+              {sets.map((set, index) => (
+                <button
+                  key={set.key}
+                  className={`study-card set-selection-card ${set.ready ? '' : 'disabled-set'}`}
+                  onClick={() => {
+                    if (!set.ready) return
+                    if (mode === 'study') onStartStudy(set.key)
+                    else onStartPractice(set.key)
+                  }}
+                  disabled={!set.ready}
+                >
+                  <span className="set-card-topline">
+                    <span className="study-label">{set.ready ? set.label : 'Coming soon'}</span>
+                    <span className="set-card-index">{String(index + 1).padStart(2, '0')}</span>
+                  </span>
+                  <strong>{set.ready ? `${set.questions.length} questions` : 'Not available'}</strong>
+                  <small>{mode === 'study' ? 'Read questions and answers in order' : set.description}</small>
+                  <span className="set-card-action">{set.ready ? `${mode === 'study' ? 'Start learning' : 'Start practice'} →` : 'Coming soon'}</span>
+                </button>
+              ))}
+            </div>
+          ) : (
+            <div className="coming-soon-panel">
+              <h2>New practice content is coming soon.</h2>
+              <p>This section is ready for the next question set. Once it is available, it can use the same study and quiz experience.</p>
+              <button className="primary-button" onClick={onBack}>Return to dashboard</button>
+            </div>
+          )}
+        </section>
+      </main>
+    </div>
+  )
+}
+
+export default SetSelectionPage

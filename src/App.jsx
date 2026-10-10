@@ -39,6 +39,13 @@ function App() {
     [checkedAnswers]
   )
   const selectedPracticeTest = PRACTICE_TESTS.find((test) => test.key === selectedTest) || PRACTICE_TESTS[0]
+  const downloadUniquePdf = async () => {
+    const questions = selectedPracticeTest.key === 'gh300'
+      ? getGh300Questions('Unique')
+      : CLAUDE_ASSOCIATE_SETS.find((set) => set.key === 'set-unique').questions
+    const { downloadQuestionsPdf } = await import('./utils/downloadQuestionsPdf')
+    downloadQuestionsPdf(questions, `${selectedPracticeTest.name} Unique Questions and Answers`)
+  }
 
   const percentage = totalQuestions ? Math.round((correctCount / totalQuestions) * 100) : 0
   const passed = percentage >= 80
@@ -211,6 +218,7 @@ function App() {
         onStartStudy={(key) => selectedPracticeTest.key === 'gh300'
           ? startGh300Study(key)
           : startClaudeAssociateStudy(key)}
+        onDownloadUniquePdf={downloadUniquePdf}
       />
     )
   }
@@ -222,6 +230,7 @@ function App() {
         questions={activeQuestions}
         title={selectedPart}
         onBack={() => setMode('section')}
+        onDownloadUniquePdf={downloadUniquePdf}
       />
     )
   }

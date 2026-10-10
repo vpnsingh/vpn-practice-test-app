@@ -6,7 +6,8 @@ function SetSelectionPage({
   onModeChange,
   onBack,
   onStartPractice,
-  onStartStudy
+  onStartStudy,
+  onDownloadUniquePdf
 }) {
   const isGh300 = test.key === 'gh300'
   const isClaudeAssociate = test.key === 'claude-associate'
@@ -67,7 +68,14 @@ function SetSelectionPage({
               <h2 id="set-list-heading">{isGh300 ? 'GH-300 question parts' : 'Claude Associate sets'}</h2>
               <p>{isGh300 ? 'Choose a part, the full question bank, or a deduplicated set.' : 'Select one of the available question collections.'}</p>
             </div>
-            <span className="set-count-badge">{isGh300 ? `${parts.length} collections` : `${sets.filter((set) => set.ready).length} sets`}</span>
+            <div className="set-list-actions">
+              {mode === 'study' && (
+                <button className="secondary-button download-pdf-button" onClick={onDownloadUniquePdf}>
+                  ↓ Download Q&amp;A PDF
+                </button>
+              )}
+              <span className="set-count-badge">{isGh300 ? `${parts.length} collections` : `${sets.filter((set) => set.ready).length} sets`}</span>
+            </div>
           </div>
 
           {isGh300 ? (

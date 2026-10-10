@@ -10,7 +10,7 @@ function getPageNumbers(currentPage, totalPages) {
   return [...pages].filter((page) => page >= 1 && page <= totalPages).sort((a, b) => a - b)
 }
 
-function StudyPage({ questions, title, onBack }) {
+function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
   const [currentPage, setCurrentPage] = useState(1)
   const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE)
   const firstQuestionIndex = (currentPage - 1) * QUESTIONS_PER_PAGE
@@ -33,9 +33,14 @@ function StudyPage({ questions, title, onBack }) {
             <h1>{title}</h1>
             <p>Review the questions, compare every option, and learn at your own pace.</p>
           </div>
-          <button className="ghost-button" onClick={onBack}>
-            Back to sets
-          </button>
+          <div className="study-page-header-actions">
+            <button className="secondary-button download-pdf-button" onClick={onDownloadUniquePdf}>
+              ↓ Download Q&amp;A PDF
+            </button>
+            <button className="ghost-button" onClick={onBack}>
+              Back to sets
+            </button>
+          </div>
         </header>
 
         <section className="study-progress" aria-label="Study progress">

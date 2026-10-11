@@ -50,7 +50,7 @@ const rawClaudeAssociateSet5 = [
   },
   {
     "id": 5,
-    "question": "You are a Claude associate troubleshooting a recurring poor output. Which is the correct order of diagnostic steps?",
+    "question": "You are a Claude associate troubleshooting a recurring poor output. Which is the correct order of diagnostic steps? (1) Form a hypothesis about which prompt element most likely caused the deficiency. (2) Apply a single targeted change and observe the effect on the output. (3) Read the output end to end and identify the specific deficiency. (4) Compare the deficient output to the prompt to spot mismatches between input and output. (5) Document the root cause and the resolution for future reference.",
     "options": {
       "A": "3, 4, 1, 2, 5",
       "B": "3, 1, 4, 2, 5",
@@ -58,7 +58,7 @@ const rawClaudeAssociateSet5 = [
       "D": "1, 3, 4, 2, 5"
     },
     "answer": "A",
-    "explanation": "First identify the specific deficiency, compare it with the prompt, form a hypothesis, make one targeted change, observe the result, then document the root cause and resolution."
+    "explanation": "Read the output end to end and identify the specific deficiency (3), compare it with the prompt to spot input/output mismatches (4), form a hypothesis about the cause (1), apply a single targeted change and observe its effect (2), then document the root cause and resolution (5)."
   },
   {
     "id": 6,
@@ -429,7 +429,7 @@ const rawClaudeAssociateSet5 = [
   },
   {
     "id": 36,
-    "question": "You are running a weekly feedback-and-adjustment cycle. Which is the correct order of cycle steps?",
+    "question": "You are running a weekly feedback-and-adjustment cycle. Which is the correct order of cycle steps? (1) Translate feedback into one or two targeted adjustments for the next cycle. (2) Run the next cycle and compare results against the prior cycle. (3) Capture the specific feedback received during the review. (4) Document what changed, what effect it produced, and any remaining issues. (5) Decide whether to continue iterating, switch approach, or escalate.",
     "options": {
       "A": "2, 3, 1, 4, 5",
       "B": "3, 1, 2, 4, 5",
@@ -437,7 +437,7 @@ const rawClaudeAssociateSet5 = [
       "D": "3, 2, 1, 4, 5"
     },
     "answer": "B",
-    "explanation": "Capture feedback first, translate it into targeted adjustments, run the next cycle and compare results, document effects, then decide whether to continue, switch approach, or escalate."
+    "explanation": "Capture the specific feedback first (3), translate it into targeted adjustments (1), run the next cycle and compare results (2), document the changes and their effects (4), then decide whether to continue, switch approach, or escalate (5)."
   },
   {
     "id": 37,
@@ -515,7 +515,7 @@ const rawClaudeAssociateSet5 = [
   },
   {
     "id": 43,
-    "question": "You are a process consultant integrating Claude into an existing weekly workflow. Which is the correct order of integration steps?",
+    "question": "You are a process consultant integrating Claude into an existing weekly workflow. Which is the correct order of integration steps? (1) Pilot the integrated workflow with a small group and gather feedback. (2) Document the current workflow steps, owners, and decision points. (3) Update the documented workflow and roll it out to the broader team. (4) Identify the steps where Claude can augment work and where humans must remain. (5) Define the inputs Claude needs, the outputs Claude returns, and the hand-offs around each step.",
     "options": {
       "A": "2, 5, 4, 1, 3",
       "B": "4, 2, 5, 1, 3",
@@ -523,7 +523,7 @@ const rawClaudeAssociateSet5 = [
       "D": "1, 2, 4, 5, 3"
     },
     "answer": "C",
-    "explanation": "First document the current workflow, identify Claude-appropriate steps and human boundaries, define inputs/outputs/handoffs, pilot with a small group, then update and roll out."
+    "explanation": "Document the current workflow first (2), identify where Claude can augment work and where humans must remain (4), define Claude's inputs, outputs, and hand-offs (5), pilot the integrated workflow and gather feedback (1), then update the documentation and roll it out to the broader team (3)."
   },
   {
     "id": 44,

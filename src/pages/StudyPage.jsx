@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import StudyQuestionCard from '../components/StudyQuestionCard'
 
-const QUESTIONS_PER_PAGE = 10
+const PAGE_SIZE_OPTIONS = [10, 20, 50, 100]
 
 function getPageNumbers(currentPage, totalPages) {
   if (totalPages <= 7) return Array.from({ length: totalPages }, (_, index) => index + 1)
@@ -12,16 +12,36 @@ function getPageNumbers(currentPage, totalPages) {
 
 function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
   const [currentPage, setCurrentPage] = useState(1)
-  const totalPages = Math.ceil(questions.length / QUESTIONS_PER_PAGE)
-  const firstQuestionIndex = (currentPage - 1) * QUESTIONS_PER_PAGE
-  const pageQuestions = questions.slice(firstQuestionIndex, firstQuestionIndex + QUESTIONS_PER_PAGE)
+  const [questionsPerPage, setQuestionsPerPage] = useState(PAGE_SIZE_OPTIONS[0])
+  const [pageInput, setPageInput] = useState('1')
+  const totalPages = Math.max(1, Math.ceil(questions.length / questionsPerPage))
+  const firstQuestionIndex = (currentPage - 1) * questionsPerPage
+  const pageQuestions = questions.slice(firstQuestionIndex, firstQuestionIndex + questionsPerPage)
   const pageNumbers = getPageNumbers(currentPage, totalPages)
   const pageStart = firstQuestionIndex + 1
-  const pageEnd = Math.min(firstQuestionIndex + QUESTIONS_PER_PAGE, questions.length)
+  const pageEnd = Math.min(firstQuestionIndex + questionsPerPage, questions.length)
 
   const goToPage = (page) => {
-    setCurrentPage(Math.min(Math.max(page, 1), totalPages))
+    const nextPage = Math.min(Math.max(page, 1), totalPages)
+    setCurrentPage(nextPage)
+    setPageInput(String(nextPage))
     window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
+  const handlePageSizeChange = (event) => {
+    const nextPageSize = Number(event.target.value)
+    const firstVisibleQuestionIndex = (currentPage - 1) * questionsPerPage
+    const nextPage = Math.floor(firstVisibleQuestionIndex / nextPageSize) + 1
+
+    setQuestionsPerPage(nextPageSize)
+    setCurrentPage(nextPage)
+    setPageInput(String(nextPage))
+  }
+
+  const handlePageJump = (event) => {
+    event.preventDefault()
+    const page = Number(pageInput)
+    if (Number.isInteger(page) && page >= 1 && page <= totalPages) goToPage(page)
   }
 
   return (
@@ -63,6 +83,30 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
               questionNumber={firstQuestionIndex + index + 1}
             />
           ))}
+        </div>
+
+        <div className="study-pagination-controls">
+          <label className="study-page-size-control">
+            <span>Questions per page</span>
+            <select value={questionsPerPage} onChange={handlePageSizeChange}>
+              {PAGE_SIZE_OPTIONS.map((pageSize) => (
+                <option key={pageSize} value={pageSize}>{pageSize}</option>
+              ))}
+            </select>
+          </label>
+          <form className="study-page-jump" onSubmit={handlePageJump}>
+            <label htmlFor="study-page-input">Go to page</label>
+            <input
+              id="study-page-input"
+              type="number"
+              min="1"
+              max={totalPages}
+              required
+              value={pageInput}
+              onChange={(event) => setPageInput(event.target.value)}
+            />
+            <button className="secondary-button" type="submit">Go</button>
+          </form>
         </div>
 
         <nav className="study-pagination" aria-label="Study question pages">

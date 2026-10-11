@@ -28,6 +28,7 @@ function App() {
   const [selectedPart, setSelectedPart] = useState('')
   const [currentIndex, setCurrentIndex] = useState(0)
   const [selectedOptions, setSelectedOptions] = useState([])
+  const [navigationError, setNavigationError] = useState('')
   const [checkedAnswers, setCheckedAnswers] = useState({})
   const [showSummary, setShowSummary] = useState(false)
 
@@ -79,6 +80,7 @@ function App() {
 
     setCurrentIndex(0)
     setSelectedOptions([])
+    setNavigationError('')
     setCheckedAnswers({})
     setShowSummary(false)
     setMode('quiz')
@@ -92,6 +94,7 @@ function App() {
     setActiveQuestions(shuffleQuestions(set.questions))
     setCurrentIndex(0)
     setSelectedOptions([])
+    setNavigationError('')
     setCheckedAnswers({})
     setShowSummary(false)
     setMode('quiz')
@@ -147,10 +150,13 @@ function App() {
 
   const handleOptionSelect = (option) => {
     if (showSummary || currentChecked) return
+    setNavigationError('')
     if (isMultiAnswer) {
-      setSelectedOptions((prev) =>
-        prev.includes(option) ? prev.filter((item) => item !== option) : [...prev, option]
-      )
+      setSelectedOptions((prev) => {
+        if (prev.includes(option)) return prev.filter((item) => item !== option)
+        if (prev.length >= correctAnswers.length) return prev
+        return [...prev, option]
+      })
       return
     }
     setSelectedOptions([option])
@@ -162,6 +168,12 @@ function App() {
   }
 
   const handleNavigation = (direction) => {
+    if (direction > 0 && !currentChecked && !selectedOptions.length) {
+      setNavigationError('Select an answer before moving to the next question.')
+      return
+    }
+
+    setNavigationError('')
     saveCurrentSelection()
     setSelectedOptions([])
     setShowSummary(false)
@@ -172,6 +184,12 @@ function App() {
   }
 
   const handleFinish = () => {
+    if (!currentChecked && !selectedOptions.length) {
+      setNavigationError('Select an answer before finishing the quiz.')
+      return
+    }
+
+    setNavigationError('')
     saveCurrentSelection()
     setShowSummary(true)
   }
@@ -255,12 +273,12 @@ function App() {
     <QuizPage
       selectedPart={selectedPart}
       currentQuestion={currentQuestion}
-      activeQuestions={activeQuestions}
       currentIndex={currentIndex}
       currentChecked={currentChecked}
       selectedAnswers={selectedAnswers}
       correctAnswers={correctAnswers}
-      isMultiAnswer={isMultiAnswer}
+      maxSelectableAnswers={correctAnswers.length}
+      navigationError={navigationError}
       percentage={percentage}
       correctCount={correctCount}
       totalQuestions={totalQuestions}

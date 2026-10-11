@@ -10,6 +10,13 @@ const normalizeQuestionKey = (question) => {
   return normalizedText
 }
 
+const getQuestionDetailScore = (question) => {
+  const options = Array.isArray(question.options) ? question.options : []
+  return (question.question?.length || 0) +
+    options.reduce((total, option) => total + String(option).length, 0) +
+    (question.explanation?.length || 0)
+}
+
 export const claudeAssociateUniqueQuestions = (() => {
   const combinedSets = [
     claudeAssociateSet1Questions,
@@ -25,8 +32,12 @@ export const claudeAssociateUniqueQuestions = (() => {
   combinedSets.forEach((questionSet) => {
     questionSet.forEach((question) => {
       const key = normalizeQuestionKey(question)
-      if (!key || uniqueMap.has(key)) return
-      uniqueMap.set(key, question)
+      if (!key) return
+
+      const existingQuestion = uniqueMap.get(key)
+      if (!existingQuestion || getQuestionDetailScore(question) > getQuestionDetailScore(existingQuestion)) {
+        uniqueMap.set(key, question)
+      }
     })
   })
 

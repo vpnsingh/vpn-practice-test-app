@@ -680,8 +680,8 @@
 
 const normalizeChoiceText = (value) =>
   String(value || '')
-    .replace(/^[A-D]\.?\s*/i, '')
-    .replace(/\s*\n\s*(?=[A-D]\.)/gi, ' ')
+    .replace(/^[A-E][.)]\s*/i, '')
+    .replace(/\s*\n\s*(?=[A-E][.)])/gi, ' ')
     .replace(/\s+/g, ' ')
     .trim()
 
@@ -691,36 +691,27 @@ const normalizeOptions = (rawOptions) => {
   }
 
   if (rawOptions && typeof rawOptions === 'object') {
-    const values = Object.values(rawOptions)
-    const flattened = values.flatMap((item) => {
-      const text = String(item || '')
-      const matches = [...text.matchAll(/([A-D])\.\s*([^A-D]*?)(?=(?:\s+[A-D]\.)|$)/gi)]
-
-      if (matches.length > 0) {
-        return matches.map((match) => normalizeChoiceText(match[2]))
-      }
-
-      return [normalizeChoiceText(text)]
-    })
-
-    return flattened.filter(Boolean)
+    return Object.entries(rawOptions)
+      .sort(([left], [right]) => left.localeCompare(right))
+      .map(([, option]) => normalizeChoiceText(option))
+      .filter(Boolean)
   }
 
   return []
 }
 
 const normalizeAnswer = (rawAnswer, options) => {
-  const answerMap = { A: options[0], B: options[1], C: options[2], D: options[3] }
+  const answerMap = { A: options[0], B: options[1], C: options[2], D: options[3], E: options[4] }
 
   if (Array.isArray(rawAnswer)) {
     return rawAnswer.map((answer) => {
       const value = String(answer || '').trim()
-      return /^[A-D]$/i.test(value) ? answerMap[value.toUpperCase()] : normalizeChoiceText(answer)
+      return /^[A-E]$/i.test(value) ? answerMap[value.toUpperCase()] : normalizeChoiceText(answer)
     })
   }
 
   const value = String(rawAnswer || '').trim()
-  if (/^[A-D]$/i.test(value)) {
+  if (/^[A-E]$/i.test(value)) {
     return answerMap[value.toUpperCase()]
   }
 

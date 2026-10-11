@@ -113,7 +113,7 @@ function HomePage({ tests, onOpenTest }) {
         </div>
 
         <div className="home-footer">
-          <p>Best score wins! ✅ Pass with 80% or more.</p>
+          <p>{'Best score wins! \u2705 Pass with 80% or more.'}</p>
         </div>
       </div>
     </div>

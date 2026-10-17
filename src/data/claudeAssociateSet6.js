@@ -8,7 +8,7 @@ const rawClaudeAssociateSet6 = [
       "C": "Review the source material first, then determine whether the deliverable should be approved or revised based on the final output.",
       "D": "Inspect the draft for formatting, then verify whether the content exceeds the scope of the approved use case."
     },
-    "answer": "D",
+    "answer": "A",
     "explanation": "The review should first assess the content and risk, identify the audience and impact, make or escalate targeted changes, confirm transparency requirements, and document the outcome."
   },
   {
@@ -522,7 +522,7 @@ const rawClaudeAssociateSet6 = [
       "C": "1, 3, 5, 4, 2",
       "D": "5, 1, 3, 4, 2"
     },
-    "answer": "B",
+    "answer": "D",
     "explanation": "First establish audience and impact, then assess quality and unverified claims, compare risk with escalation criteria, decide the disposition, and document it."
   },
   {

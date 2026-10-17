@@ -252,8 +252,8 @@
       "C": "1,2,3,4,5",
       "D": "3,4,1,2,5"
     },
-    "answer": "A",
-    "explanation": "Correct: A. 3, 2, 4, 1, 5."
+    "answer": "B",
+    "explanation": "Correct: B. 2, 3, 4, 1, 5."
   },
   {
     "id": 23,

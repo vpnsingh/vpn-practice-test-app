@@ -47,6 +47,18 @@ function App() {
     const { downloadQuestionsPdf } = await import('./utils/downloadQuestionsPdf')
     downloadQuestionsPdf(questions, `${selectedPracticeTest.name} Unique Questions and Answers`)
   }
+  const downloadResultsPdf = async () => {
+    const { downloadQuizResultsPdf } = await import('./utils/downloadQuestionsPdf')
+    downloadQuizResultsPdf({
+      title: selectedPart,
+      percentage,
+      correctCount,
+      totalQuestions,
+      passed,
+      questions: activeQuestions,
+      checkedAnswers
+    })
+  }
 
   const percentage = totalQuestions ? Math.round((correctCount / totalQuestions) * 100) : 0
   const passed = percentage >= 80
@@ -263,6 +275,7 @@ function App() {
         passed={passed}
         activeQuestions={activeQuestions}
         checkedAnswers={checkedAnswers}
+        onDownloadResultsPdf={downloadResultsPdf}
         onHome={() => setMode('home')}
         onRestart={handleRestart}
       />

@@ -10,6 +10,7 @@ A React VPN practice test application built with Vite.
 - Check answer inline on the same screen
 - Previous / Next navigation
 - Final score summary with percentage, correct, incorrect, and pass/fail status
+- Downloadable quiz results PDF with the score and each question's selected and correct answers
 - Passing threshold set to 80%
 
 ## Run locally

@@ -1,3 +1,5 @@
+import ButtonIcon from '../components/ButtonIcon'
+
 function HomePage({ tests, onOpenTest }) {
   return (
     <div className="app-shell home-screen">
@@ -20,10 +22,10 @@ function HomePage({ tests, onOpenTest }) {
 
             <div className="cta-row">
               <button className="primary-button" onClick={() => onOpenTest('gh300')}>
-                Start GH-300
+                <ButtonIcon name="play" /> Start GH-300
               </button>
               <button className="secondary-button" onClick={() => onOpenTest('claude-associate')}>
-                Explore Claude sets
+                <ButtonIcon name="compass" /> Explore Claude Sets
               </button>
             </div>
 
@@ -104,9 +106,9 @@ function HomePage({ tests, onOpenTest }) {
               <h2>{test.name}</h2>
               <p>{test.description}</p>
               {test.ready ? (
-                <button className="primary-button full-width" onClick={() => onOpenTest(test.key)}>Open test</button>
+                <button className="primary-button full-width" onClick={() => onOpenTest(test.key)}><ButtonIcon name="open" /> Open Test</button>
               ) : (
-                <button className="secondary-button full-width disabled" disabled>Coming soon</button>
+                <button className="secondary-button full-width disabled" disabled><ButtonIcon name="clock" /> Coming Soon</button>
               )}
             </div>
           ))}

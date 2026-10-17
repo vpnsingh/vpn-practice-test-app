@@ -1,3 +1,5 @@
+import ButtonIcon from '../components/ButtonIcon'
+
 function SetSelectionPage({
   test,
   mode,
@@ -20,7 +22,7 @@ function SetSelectionPage({
             <p className="eyebrow">{mode === 'study' ? 'Study library' : 'Practice section'}</p>
             <h1>{test.name}</h1>
           </div>
-          <button className="ghost-button" onClick={onBack}>← Back home</button>
+          <button className="ghost-button" onClick={onBack}><ButtonIcon name="arrowLeft" /> Back Home</button>
         </header>
 
         <section className="set-selection-hero">
@@ -33,8 +35,8 @@ function SetSelectionPage({
                 : test.description}
             </p>
             <div className="set-selection-tags">
-              <span>✓ {mode === 'study' ? 'Answers revealed' : 'Instant feedback'}</span>
-              <span>✓ {isGh300 ? 'GH-300' : 'Claude Associate'} content</span>
+              <span>✓ {mode === 'study' ? 'Answers Revealed' : 'Instant Feedback'}</span>
+              <span>✓ {isGh300 ? 'GH-300' : 'Claude Associate'} Content</span>
             </div>
           </div>
           <div className="set-selection-stat">
@@ -51,14 +53,14 @@ function SetSelectionPage({
             aria-pressed={mode === 'practice'}
             onClick={() => onModeChange('practice')}
           >
-            <span aria-hidden="true">✦</span> Practice quiz
+            <ButtonIcon name="play" /> Practice Quiz
           </button>
           <button
             className={mode === 'study' ? 'active' : ''}
             aria-pressed={mode === 'study'}
             onClick={() => onModeChange('study')}
           >
-            <span aria-hidden="true">▤</span> Study questions
+            <ButtonIcon name="book" /> Study Questions
           </button>
         </div>
 
@@ -71,7 +73,7 @@ function SetSelectionPage({
             <div className="set-list-actions">
               {mode === 'study' && (
                 <button className="secondary-button download-pdf-button" onClick={onDownloadUniquePdf}>
-                  ↓ Download Q&amp;A PDF
+                  <ButtonIcon name="download" /> Download Q&amp;A PDF
                 </button>
               )}
               <span className="set-count-badge">{isGh300 ? `${parts.length} collections` : `${sets.filter((set) => set.ready).length} sets`}</span>
@@ -90,9 +92,9 @@ function SetSelectionPage({
                     <span className="study-label">{part.key}</span>
                     <span className="set-card-index">{String(index + 1).padStart(2, '0')}</span>
                   </span>
-                  <strong>{part.count ? `${part.count} questions` : 'Unique questions'}</strong>
-                  <small>{mode === 'study' ? 'Read questions and answers in order' : part.label}</small>
-                  <span className="set-card-action">{mode === 'study' ? 'Start learning' : 'Start practice'} <span aria-hidden="true">→</span></span>
+                  <strong>{part.count ? `${part.count} Questions` : 'Unique Questions'}</strong>
+                  <small>{mode === 'study' ? 'Read Questions And Answers In Order' : part.label}</small>
+                  <span className="set-card-action">{mode === 'study' ? 'Start Learning' : 'Start Practice'} <ButtonIcon name="arrowRight" /></span>
                 </button>
               ))}
             </div>
@@ -110,12 +112,12 @@ function SetSelectionPage({
                   disabled={!set.ready}
                 >
                   <span className="set-card-topline">
-                    <span className="study-label">{set.ready ? set.label : 'Coming soon'}</span>
+                    <span className="study-label">{set.ready ? set.label : 'Coming Soon'}</span>
                     <span className="set-card-index">{String(index + 1).padStart(2, '0')}</span>
                   </span>
-                  <strong>{set.ready ? `${set.questions.length} questions` : 'Not available'}</strong>
-                  <small>{mode === 'study' ? 'Read questions and answers in order' : set.description}</small>
-                  <span className="set-card-action">{set.ready ? `${mode === 'study' ? 'Start learning' : 'Start practice'} →` : 'Coming soon'}</span>
+                  <strong>{set.ready ? `${set.questions.length} Questions` : 'Not Available'}</strong>
+                  <small>{mode === 'study' ? 'Read Questions And Answers In Order' : set.description}</small>
+                  <span className="set-card-action">{set.ready ? (mode === 'study' ? 'Start Learning' : 'Start Practice') : 'Coming Soon'} {set.ready ? <ButtonIcon name="arrowRight" /> : <ButtonIcon name="clock" />}</span>
                 </button>
               ))}
             </div>
@@ -123,7 +125,7 @@ function SetSelectionPage({
             <div className="coming-soon-panel">
               <h2>New practice content is coming soon.</h2>
               <p>This section is ready for the next question set. Once it is available, it can use the same study and quiz experience.</p>
-              <button className="primary-button" onClick={onBack}>Return to dashboard</button>
+              <button className="primary-button" onClick={onBack}><ButtonIcon name="home" /> Return to Dashboard</button>
             </div>
           )}
         </section>

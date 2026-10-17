@@ -449,8 +449,8 @@
       "C": "4,1,3,2,5",
       "D": "4,3,1,2,5"
     },
-    "answer": "C",
-    "explanation": "Correct: C. 4, 1, 3, 2, 5."
+    "answer": "D",
+    "explanation": "Correct: D. 4, 3, 1, 2, 5."
   },
   {
     "id": 40,
@@ -524,8 +524,8 @@
       "D": "summarizing performance review notes across a team to support a manager's promotion decisions",
       "E": "drafting a legal summary that an attorney will review and edit before sharing with a client"
     },
-    "answer": ["B", "E"],
-    "explanation": "Correct choices: B, E. drafting an internal training summary from approved internal documentation; drafting a legal summary that an attorney will review and edit before sharing with a client."
+    "answer": ["B", "C"],
+    "explanation": "Correct choices: B, C. drafting an internal training summary from approved internal documentation; synthesizing themes across approved customer feedback under aggregation rules."
   },
   {
     "id": 47,

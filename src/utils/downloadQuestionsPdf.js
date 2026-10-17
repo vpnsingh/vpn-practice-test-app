@@ -87,3 +87,96 @@ export function downloadQuestionsPdf(questions, title) {
   const filename = `${title.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()}.pdf`
   pdf.save(filename)
 }
+
+export function downloadQuizResultsPdf({
+  title,
+  percentage,
+  correctCount,
+  totalQuestions,
+  passed,
+  questions,
+  checkedAnswers
+}) {
+  if (!Array.isArray(questions) || questions.length === 0) {
+    throw new Error('Cannot create a results PDF without questions.')
+  }
+
+  const pdf = new jsPDF({ unit: 'mm', format: 'a4' })
+  const pageWidth = pdf.internal.pageSize.getWidth()
+  const pageHeight = pdf.internal.pageSize.getHeight()
+  const contentWidth = pageWidth - PAGE_MARGIN * 2
+  let y = PAGE_MARGIN
+
+  const addPageIfNeeded = (height) => {
+    if (y + height > pageHeight - PAGE_MARGIN) {
+      pdf.addPage()
+      y = PAGE_MARGIN
+    }
+  }
+
+  const addText = (text, { size = 10, bold = false, color = [31, 41, 55], indent = 0 } = {}) => {
+    pdf.setFont('helvetica', bold ? 'bold' : 'normal')
+    pdf.setFontSize(size)
+    pdf.setTextColor(...color)
+
+    const lines = pdf.splitTextToSize(String(text), contentWidth - indent)
+    const lineHeight = size * 0.48
+
+    lines.forEach((line) => {
+      addPageIfNeeded(lineHeight)
+      pdf.text(line, PAGE_MARGIN + indent, y)
+      y += lineHeight
+    })
+  }
+
+  addText(`${title} Results`, { size: 18, bold: true, color: [49, 46, 129] })
+  y += 3
+  addText(`Score: ${percentage}%`, { size: 12, bold: true })
+  addText(`Marks: ${correctCount} / ${totalQuestions}`, { size: 10 })
+  addText(`Correct: ${correctCount}    Incorrect: ${totalQuestions - correctCount}`, { size: 10 })
+  addText(passed ? 'Result: Passed' : 'Result: Not passed', {
+    size: 10,
+    bold: true,
+    color: passed ? [21, 128, 61] : [185, 28, 28]
+  })
+  y += 5
+
+  questions.forEach((question, index) => {
+    const answerData = checkedAnswers[question.id]
+    const selected = answerData
+      ? Array.isArray(answerData.selected)
+        ? answerData.selected
+        : [answerData.selected]
+      : []
+    const correctAnswers = Array.isArray(question.answer) ? question.answer : [question.answer]
+    const questionCorrect = Boolean(answerData?.isCorrect)
+
+    addPageIfNeeded(16)
+    addText(`${index + 1}. ${questionCorrect ? 'Correct' : 'Incorrect'} - ${question.question}`, {
+      size: 11,
+      bold: true,
+      color: questionCorrect ? [21, 128, 61] : [185, 28, 28]
+    })
+    addText(`Your answer: ${selected.length ? selected.join(', ') : 'Not answered'}`, {
+      size: 9.5,
+      indent: 3
+    })
+    addText(`Correct answer: ${correctAnswers.join(', ')}`, {
+      size: 9.5,
+      indent: 3
+    })
+    y += 4
+  })
+
+  const pageCount = pdf.internal.getNumberOfPages()
+  for (let page = 1; page <= pageCount; page += 1) {
+    pdf.setPage(page)
+    pdf.setFont('helvetica', 'normal')
+    pdf.setFontSize(8)
+    pdf.setTextColor(100, 116, 139)
+    pdf.text(`Page ${page} of ${pageCount}`, pageWidth - PAGE_MARGIN, pageHeight - 9, { align: 'right' })
+  }
+
+  const filename = `${title} Results`.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase()
+  pdf.save(`${filename}.pdf`)
+}

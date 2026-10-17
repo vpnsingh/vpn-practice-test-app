@@ -212,6 +212,19 @@ button.ghost-button {
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
 }
 
+.button-icon {
+  display: inline-block;
+  width: 1.1em;
+  height: 1.1em;
+  margin-right: 0.4em;
+  vertical-align: -0.2em;
+  flex: 0 0 auto;
+}
+
+.set-card-action .button-icon {
+  margin: 0 0 0 0.3em;
+}
+
 button.primary-button {
   background: linear-gradient(135deg, var(--primary) 0%, #6d5ef3 100%);
   color: #ffffff;
@@ -1936,7 +1949,7 @@ button.secondary-button:disabled {
   justify-content: center;
   gap: 1rem;
   flex-wrap: wrap;
-  margin-top: 2rem;
+  margin: 0 0 2rem;
 }
 
 @media (max-width: 860px) {

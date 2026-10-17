@@ -1,3 +1,5 @@
+import ButtonIcon from '../components/ButtonIcon'
+
 function ResultsPage({
   selectedPart,
   percentage,
@@ -6,12 +8,18 @@ function ResultsPage({
   passed,
   activeQuestions,
   checkedAnswers,
+  onDownloadResultsPdf,
   onHome,
   onRestart
 }) {
   return (
     <div className="app-shell">
       <div className="card summary-card">
+        <div className="action-row summary-actions">
+          <button className="primary-button" onClick={onHome}><ButtonIcon name="home" /> Home</button>
+          <button className="secondary-button" onClick={onDownloadResultsPdf}><ButtonIcon name="download" /> Download Result PDF</button>
+          <button className="ghost-button" onClick={onRestart}><ButtonIcon name="restart" /> Restart This Part</button>
+        </div>
         <div className="summary-badge">Quiz Complete</div>
         <h1>{selectedPart} Results</h1>
         <div className="summary-grid">
@@ -55,10 +63,6 @@ function ResultsPage({
           })}
         </div>
 
-        <div className="action-row summary-actions">
-          <button className="secondary-button" onClick={onHome}>Home</button>
-          <button className="primary-button" onClick={onRestart}>Restart this part</button>
-        </div>
       </div>
     </div>
   )

@@ -281,7 +281,7 @@ const rawClaudeAssociateSet6 = [
   },
   {
     "id": 24,
-    "question": "You are a Claude associate assessing a proposed Claude use case before approving it for your team. Which is the correct order of assessment steps?",
+    "question": "You are a Claude associate assessing a proposed Claude use case before approving it for your team. Which is the correct order of assessment steps? (1) Compare the use case against the organization's policies and the relevant regulatory considerations. \n (2) Document the assessment outcome and the rationale for traceability.\n (3) Identify the audience, decision impact, and reversibility of the outputs. \n (4) Decide whether the use case proceeds, requires modification, or is declined. \n (5) Identify the data types involved and whether sensitive data is implicated.",
     "options": {
       "A": "3, 1, 5, 4, 2",
       "B": "1, 3, 5, 4, 2",

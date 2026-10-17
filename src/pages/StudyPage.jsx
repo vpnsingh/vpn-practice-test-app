@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import ButtonIcon from '../components/ButtonIcon'
 import StudyQuestionCard from '../components/StudyQuestionCard'
 
 const PAGE_SIZE_OPTIONS = [10, 20, 50, 100]
@@ -55,10 +56,10 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
           </div>
           <div className="study-page-header-actions">
             <button className="secondary-button download-pdf-button" onClick={onDownloadUniquePdf}>
-              ↓ Download Q&amp;A PDF
+              <ButtonIcon name="download" /> Download Q&amp;A PDF
             </button>
             <button className="ghost-button" onClick={onBack}>
-              Back to sets
+              <ButtonIcon name="arrowLeft" /> Back to Sets
             </button>
           </div>
         </header>
@@ -105,7 +106,7 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
               value={pageInput}
               onChange={(event) => setPageInput(event.target.value)}
             />
-            <button className="secondary-button" type="submit">Go</button>
+            <button className="secondary-button" type="submit"><ButtonIcon name="arrowRight" /> Go</button>
           </form>
         </div>
 
@@ -115,7 +116,7 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}
           >
-            ← Previous
+            <ButtonIcon name="arrowLeft" /> Previous
           </button>
           <div className="study-page-numbers">
             {pageNumbers.map((page, index) => {
@@ -140,7 +141,7 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}
           >
-            Next →
+            Next <ButtonIcon name="arrowRight" />
           </button>
         </nav>
       </main>

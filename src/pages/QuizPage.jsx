@@ -1,3 +1,5 @@
+import ButtonIcon from '../components/ButtonIcon'
+
 function QuizPage({
   selectedPart,
   currentQuestion,
@@ -137,15 +139,16 @@ function QuizPage({
 
         <div className="action-row">
           <button className="secondary-button" onClick={onCheckAnswer} disabled={!selectedAnswers.length || !!currentChecked}>
+            <ButtonIcon name="check" />
             Check Answer
           </button>
           <div className="nav-buttons">
-            <button className="ghost-button" onClick={onHome}>Home</button>
-            <button className="secondary-button" onClick={onPrevious} disabled={currentIndex === 0}>Previous</button>
+            <button className="ghost-button" onClick={onHome}><ButtonIcon name="home" /> Home</button>
+            <button className="secondary-button" onClick={onPrevious} disabled={currentIndex === 0}><ButtonIcon name="arrowLeft" /> Previous</button>
             {currentIndex < totalQuestions - 1 ? (
-              <button className="primary-button" onClick={onNext}>Next</button>
+              <button className="primary-button" onClick={onNext}>Next <ButtonIcon name="arrowRight" /></button>
             ) : (
-              <button className="primary-button" onClick={onFinish}>Finish</button>
+              <button className="primary-button" onClick={onFinish}><ButtonIcon name="check" /> Finish</button>
             )}
           </div>
         </div>

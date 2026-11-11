@@ -39,7 +39,16 @@ function AppHeader({ crumbs = [], onHome, actions }) {
           <span className="brand-mark" aria-hidden="true">
             <ButtonIcon name="sparkle" />
           </span>
-          <span className="brand-name">VPN <em>Practice</em></span>
+          <span className="brand-text">
+            <span className="brand-name">
+              <span className="brand-vpn">VPN</span>
+              <span className="brand-word">
+                <span className="brand-cred">Cred</span>
+                <em>Pilot</em>
+              </span>
+            </span>
+            <span className="brand-tagline">AI certification prep</span>
+          </span>
         </button>
 
         {crumbs.length > 0 && (

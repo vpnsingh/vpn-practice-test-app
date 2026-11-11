@@ -1,6 +1,6 @@
-# VPN Practice Test App
+# CredPilot
 
-A React VPN practice test application built with Vite.
+AI certification prep for Claude Certified (Associate & Developer) and GitHub Copilot (GH-300), built with React and Vite.
 
 ## Features
 - One question displayed at a time

@@ -2,6 +2,13 @@ import { useEffect, useState } from 'react'
 import AppHeader from '../components/AppHeader'
 import ArtifactPanel from '../components/ArtifactPanel'
 import ButtonIcon from '../components/ButtonIcon'
+import { CLAUDE_ASSOCIATE_SETS, CLAUDE_DEVELOPER_SETS, getGh300Questions } from '../data/testCatalog'
+
+const uniqueCount = (sets) => sets.find((set) => set.key === 'set-unique')?.questions.length || 0
+const TOTAL_UNIQUE_QUESTIONS =
+  getGh300Questions('Unique').length +
+  uniqueCount(CLAUDE_ASSOCIATE_SETS) +
+  uniqueCount(CLAUDE_DEVELOPER_SETS)
 
 const TRACK_META = {
   gh300: { code: 'GH-300', icon: 'layers', tone: 'teal' },
@@ -65,8 +72,8 @@ function HomePage({ tests, onOpenTest }) {
             </div>
 
             <dl className="stat-strip">
-              <div><dt>Tracks</dt><dd>{tests.length}</dd></div>
-              <div><dt>GH-300 bank</dt><dd>180</dd></div>
+              <div><dt>Certifications</dt><dd>{tests.length}</dd></div>
+              <div><dt>Unique questions</dt><dd>{TOTAL_UNIQUE_QUESTIONS}+</dd></div>
               <div><dt>Pass goal</dt><dd>80%</dd></div>
             </dl>
           </div>

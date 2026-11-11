@@ -6,6 +6,9 @@ import { claudeAssociateSet4Questions } from './claudeAssociateSet4'
 import { claudeAssociateSet5Questions } from './claudeAssociateSet5'
 import { claudeAssociateSet6Questions } from './claudeAssociateSet6'
 import { claudeAssociateUniqueQuestions } from './claudeAssociateUniqueSet'
+import { claudeDeveloperSet1Questions } from './claudeDeveloperSet1'
+import { claudeDeveloperSet2Questions } from './claudeDeveloperSet2'
+import { claudeDeveloperUniqueQuestions } from './claudeDeveloperUniqueSet'
 
 export const PARTS = [
   { key: 'Part 1', label: 'Part 1 - 60 questions', start: 0, count: 60 },
@@ -80,6 +83,30 @@ export const CLAUDE_ASSOCIATE_SETS = [
   }
 ]
 
+export const CLAUDE_DEVELOPER_SETS = [
+  {
+    key: 'set-1',
+    label: 'Set 1',
+    description: 'First 50 questions from the Claude Certified Developer Foundations (CCDV-F) question bank.',
+    ready: true,
+    questions: claudeDeveloperSet1Questions
+  },
+  {
+    key: 'set-2',
+    label: 'Set 2',
+    description: 'Remaining 51 questions from the Claude Certified Developer Foundations (CCDV-F) question bank.',
+    ready: true,
+    questions: claudeDeveloperSet2Questions
+  },
+  {
+    key: 'set-unique',
+    label: 'Unique Set',
+    description: 'Combined CCDV-F questions with repeated questions removed.',
+    ready: true,
+    questions: claudeDeveloperUniqueQuestions
+  }
+]
+
 export const PRACTICE_TESTS = [
   {
     key: 'gh300',
@@ -98,8 +125,8 @@ export const PRACTICE_TESTS = [
   {
     key: 'claude-developer',
     name: 'Claude Developer',
-    description: 'Future practice test for Claude Developer-focused prompts, workflows, and coding challenges.',
-    status: 'Coming soon',
-    ready: false
+    description: 'Practice Claude Certified Developer Foundations (CCDV-F) questions with answers and explanations.',
+    status: 'Available',
+    ready: true
   }
 ]

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import AppHeader from '../components/AppHeader'
 import ButtonIcon from '../components/ButtonIcon'
 import StudyQuestionCard from '../components/StudyQuestionCard'
 
@@ -46,86 +47,93 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
   }
 
   return (
-    <div className="app-shell study-screen">
-      <main className="card study-page">
-        <header className="study-page-header">
-          <div className="study-heading">
-            <p className="eyebrow">Study mode</p>
-            <h1>{title}</h1>
-            <p>Review the questions, compare every option, and learn at your own pace.</p>
-          </div>
-          <div className="study-page-header-actions">
-            <button className="secondary-button download-pdf-button" onClick={onDownloadUniquePdf}>
-              <ButtonIcon name="download" /> Download Q&amp;A PDF
-            </button>
-            <button className="ghost-button" onClick={onBack}>
-              <ButtonIcon name="arrowLeft" /> Back to Sets
-            </button>
-          </div>
-        </header>
+    <div className="page">
+      <AppHeader
+        onHome={onBack}
+        crumbs={[title, 'Study']}
+        actions={
+          <button className="btn btn-ghost btn-sm" onClick={onBack}>
+            <ButtonIcon name="arrowLeft" /> <span className="hide-sm">Sets</span>
+          </button>
+        }
+      />
 
-        <section className="study-progress" aria-label="Study progress">
-          <div>
-            <span className="study-progress-icon" aria-hidden="true">📖</span>
-            <span><strong>{questions.length}</strong> questions in this set</span>
+      <main className="container stack-lg">
+        <section className="page-hero compact reveal">
+          <div className="page-hero-copy">
+            <span className="eyebrow"><ButtonIcon name="book" /> Study mode</span>
+            <h1>{title}</h1>
+            <p className="lead">Review each question, compare every option and learn at your own pace.</p>
           </div>
-          <span className="study-page-count">Page {currentPage} of {totalPages}</span>
-          <div className="study-progress-track" aria-hidden="true">
-            <span style={{ width: `${(currentPage / totalPages) * 100}%` }} />
-          </div>
-          <p>Showing questions {pageStart}–{pageEnd}</p>
+          <button className="btn btn-secondary" onClick={onDownloadUniquePdf}>
+            <ButtonIcon name="download" /> Q&amp;A PDF
+          </button>
         </section>
 
-        <div className="study-question-list">
+        <div className="study-toolbar reveal" style={{ '--delay': '60ms' }}>
+          <div className="study-toolbar-info">
+            <strong>{pageStart}–{pageEnd}</strong>
+            <span>of {questions.length} questions · page {currentPage}/{totalPages}</span>
+            <div className="progress" aria-hidden="true">
+              <span style={{ width: `${(pageEnd / questions.length) * 100}%` }} />
+            </div>
+          </div>
+
+          <div className="study-toolbar-controls">
+            <label className="field">
+              <span>Per page</span>
+              <select value={questionsPerPage} onChange={handlePageSizeChange}>
+                {PAGE_SIZE_OPTIONS.map((pageSize) => (
+                  <option key={pageSize} value={pageSize}>{pageSize}</option>
+                ))}
+              </select>
+            </label>
+            <form className="field" onSubmit={handlePageJump}>
+              <label htmlFor="study-page-input">Page</label>
+              <input
+                id="study-page-input"
+                type="number"
+                min="1"
+                max={totalPages}
+                required
+                value={pageInput}
+                onChange={(event) => setPageInput(event.target.value)}
+              />
+              <button className="icon-button" type="submit" aria-label="Go to page">
+                <ButtonIcon name="arrowRight" />
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div className="study-list" key={`${currentPage}-${questionsPerPage}`}>
           {pageQuestions.map((question, index) => (
             <StudyQuestionCard
               key={`${question.id}-${firstQuestionIndex + index + 1}`}
               question={question}
               questionNumber={firstQuestionIndex + index + 1}
+              delay={Math.min(index, 8) * 40}
             />
           ))}
         </div>
 
-        <div className="study-pagination-controls">
-          <label className="study-page-size-control">
-            <span>Questions per page</span>
-            <select value={questionsPerPage} onChange={handlePageSizeChange}>
-              {PAGE_SIZE_OPTIONS.map((pageSize) => (
-                <option key={pageSize} value={pageSize}>{pageSize}</option>
-              ))}
-            </select>
-          </label>
-          <form className="study-page-jump" onSubmit={handlePageJump}>
-            <label htmlFor="study-page-input">Go to page</label>
-            <input
-              id="study-page-input"
-              type="number"
-              min="1"
-              max={totalPages}
-              required
-              value={pageInput}
-              onChange={(event) => setPageInput(event.target.value)}
-            />
-            <button className="secondary-button" type="submit"><ButtonIcon name="arrowRight" /> Go</button>
-          </form>
-        </div>
-
-        <nav className="study-pagination" aria-label="Study question pages">
+        <nav className="pagination" aria-label="Study question pages">
           <button
-            className="secondary-button"
+            className="btn btn-ghost"
             onClick={() => goToPage(currentPage - 1)}
             disabled={currentPage === 1}
+            aria-label="Previous page"
           >
-            <ButtonIcon name="arrowLeft" /> Previous
+            <ButtonIcon name="arrowLeft" /> <span className="hide-sm">Previous</span>
           </button>
-          <div className="study-page-numbers">
+          <div className="page-numbers">
             {pageNumbers.map((page, index) => {
               const previousPage = pageNumbers[index - 1]
               return (
-                <span className="study-page-number-group" key={page}>
-                  {previousPage && page - previousPage > 1 && <span className="study-page-ellipsis">…</span>}
+                <span className="page-number-group" key={page}>
+                  {previousPage && page - previousPage > 1 && <span className="page-ellipsis">…</span>}
                   <button
-                    className={`study-page-number ${page === currentPage ? 'active' : ''}`}
+                    className={`page-number ${page === currentPage ? 'active' : ''}`}
                     aria-label={`Page ${page}`}
                     aria-current={page === currentPage ? 'page' : undefined}
                     onClick={() => goToPage(page)}
@@ -137,11 +145,12 @@ function StudyPage({ questions, title, onBack, onDownloadUniquePdf }) {
             })}
           </div>
           <button
-            className="primary-button"
+            className="btn btn-primary"
             onClick={() => goToPage(currentPage + 1)}
             disabled={currentPage === totalPages}
+            aria-label="Next page"
           >
-            Next <ButtonIcon name="arrowRight" />
+            <span className="hide-sm">Next</span> <ButtonIcon name="arrowRight" />
           </button>
         </nav>
       </main>

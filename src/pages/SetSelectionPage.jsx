@@ -1,3 +1,4 @@
+import AppHeader from '../components/AppHeader'
 import ButtonIcon from '../components/ButtonIcon'
 
 function SetSelectionPage({
@@ -12,123 +13,140 @@ function SetSelectionPage({
   onDownloadUniquePdf
 }) {
   const isGh300 = test.key === 'gh300'
-  const isClaudeAssociate = test.key === 'claude-associate'
+  const isClaudeDeveloper = test.key === 'claude-developer'
+  const isClaudeCertification = test.key === 'claude-associate' || isClaudeDeveloper
+  const isStudy = mode === 'study'
+  const trackCode = isGh300 ? 'GH-300' : isClaudeDeveloper ? 'CCDV-F' : 'Claude Associate'
+
+  const items = isGh300
+    ? parts.map((part) => ({
+        key: part.key,
+        label: part.key,
+        ready: true,
+        count: part.count,
+        description: part.label
+      }))
+    : isClaudeCertification
+      ? sets.map((set) => ({
+          key: set.key,
+          label: set.ready ? set.label : 'Coming soon',
+          ready: set.ready,
+          count: set.ready ? set.questions.length : 0,
+          description: set.description
+        }))
+      : []
+
+  const readyCount = items.filter((item) => item.ready).length
+  const totalQuestions = isGh300 ? 180 : items.reduce((sum, item) => sum + (item.ready ? item.count : 0), 0)
+
+  const handleStart = (item) => {
+    if (!item.ready) return
+    if (isStudy) onStartStudy(item.key)
+    else onStartPractice(item.key)
+  }
 
   return (
-    <div className="app-shell section-screen">
-      <main className="card section-card">
-        <header className="section-topbar">
-          <div>
-            <p className="eyebrow">{mode === 'study' ? 'Study library' : 'Practice section'}</p>
-            <h1>{test.name}</h1>
-          </div>
-          <button className="ghost-button" onClick={onBack}><ButtonIcon name="arrowLeft" /> Back Home</button>
-        </header>
+    <div className="page">
+      <AppHeader
+        onHome={onBack}
+        crumbs={[test.name]}
+        actions={
+          <button className="btn btn-ghost btn-sm" onClick={onBack}>
+            <ButtonIcon name="arrowLeft" /> <span className="hide-sm">Home</span>
+          </button>
+        }
+      />
 
-        <section className="set-selection-hero">
-          <div className="set-selection-copy">
-            <span className="set-selection-kicker">{mode === 'study' ? 'LEARN AT YOUR OWN PACE' : 'PREPARE WITH CONFIDENCE'}</span>
-            <h2>{mode === 'study' ? 'Choose a question collection to study' : 'Choose where to begin'}</h2>
-            <p>
-              {mode === 'study'
-                ? 'Questions are presented in order, ten at a time, with the correct answers clearly marked.'
+      <main className="container stack-lg">
+        <section className="page-hero reveal">
+          <div className="page-hero-copy">
+            <span className="eyebrow">
+              <ButtonIcon name={isStudy ? 'book' : 'target'} />
+              {isStudy ? 'Study library' : 'Practice section'}
+            </span>
+            <h1>{test.name}</h1>
+            <p className="lead">
+              {isStudy
+                ? 'Questions are shown in order with the correct answers clearly marked. Learn at your own pace.'
                 : test.description}
             </p>
-            <div className="set-selection-tags">
-              <span>✓ {mode === 'study' ? 'Answers Revealed' : 'Instant Feedback'}</span>
-              <span>✓ {isGh300 ? 'GH-300' : 'Claude Associate'} Content</span>
+            <div className="tag-row">
+              <span className="tag"><ButtonIcon name="check" /> {isStudy ? 'Answers revealed' : 'Instant feedback'}</span>
+              <span className="tag"><ButtonIcon name="check" /> {trackCode} content</span>
             </div>
           </div>
-          <div className="set-selection-stat">
-            <span className="set-stat-icon" aria-hidden="true">{mode === 'study' ? '📚' : '🎯'}</span>
-            <strong>{isGh300 ? '180' : `${sets.filter((set) => set.ready).length}`}</strong>
-            <span>{isGh300 ? 'GH-300 questions' : 'available sets'}</span>
-            <small>{mode === 'study' ? 'Read and learn' : 'Pick your challenge'}</small>
-          </div>
+
+          <dl className="hero-stats">
+            <div><dt>{isGh300 ? 'Questions' : 'Total questions'}</dt><dd>{totalQuestions}</dd></div>
+            <div><dt>Collections</dt><dd>{readyCount}</dd></div>
+          </dl>
         </section>
 
-        <div className="mode-switch" role="group" aria-label="Choose a learning mode">
-          <button
-            className={mode === 'practice' ? 'active' : ''}
-            aria-pressed={mode === 'practice'}
-            onClick={() => onModeChange('practice')}
+        <div className="toolbar reveal" style={{ '--delay': '80ms' }}>
+          <div
+            className={`segmented ${isStudy ? 'is-second' : ''}`}
+            role="group"
+            aria-label="Choose a learning mode"
           >
-            <ButtonIcon name="play" /> Practice Quiz
-          </button>
-          <button
-            className={mode === 'study' ? 'active' : ''}
-            aria-pressed={mode === 'study'}
-            onClick={() => onModeChange('study')}
-          >
-            <ButtonIcon name="book" /> Study Questions
-          </button>
+            <span className="segmented-thumb" aria-hidden="true" />
+            <button aria-pressed={!isStudy} className={!isStudy ? 'active' : ''} onClick={() => onModeChange('practice')}>
+              <ButtonIcon name="play" /> Practice quiz
+            </button>
+            <button aria-pressed={isStudy} className={isStudy ? 'active' : ''} onClick={() => onModeChange('study')}>
+              <ButtonIcon name="book" /> Study questions
+            </button>
+          </div>
+
+          {isStudy && (
+            <button className="btn btn-secondary btn-sm" onClick={onDownloadUniquePdf}>
+              <ButtonIcon name="download" /> Q&amp;A PDF
+            </button>
+          )}
         </div>
 
-        <section className="set-list-section" aria-labelledby="set-list-heading">
-          <div className="set-list-heading">
-            <div>
-              <h2 id="set-list-heading">{isGh300 ? 'GH-300 question parts' : 'Claude Associate sets'}</h2>
-              <p>{isGh300 ? 'Choose a part, the full question bank, or a deduplicated set.' : 'Select one of the available question collections.'}</p>
+        {items.length ? (
+          <section className="stack" aria-labelledby="set-list-heading">
+            <div className="section-head">
+              <h2 id="set-list-heading">{isGh300 ? 'Question parts' : 'Question sets'}</h2>
+              <span className="chip chip-muted">{readyCount} available</span>
             </div>
-            <div className="set-list-actions">
-              {mode === 'study' && (
-                <button className="secondary-button download-pdf-button" onClick={onDownloadUniquePdf}>
-                  <ButtonIcon name="download" /> Download Q&amp;A PDF
-                </button>
-              )}
-              <span className="set-count-badge">{isGh300 ? `${parts.length} collections` : `${sets.filter((set) => set.ready).length} sets`}</span>
-            </div>
-          </div>
 
-          {isGh300 ? (
-            <div className="study-grid set-selection-grid">
-              {parts.map((part, index) => (
+            <div className="grid grid-sets" key={mode}>
+              {items.map((item, index) => (
                 <button
-                  key={part.key}
-                  className="study-card set-selection-card"
-                  onClick={() => mode === 'study' ? onStartStudy(part.key) : onStartPractice(part.key)}
+                  key={item.key}
+                  className={`set-card reveal ${item.ready ? '' : 'is-disabled'}`}
+                  style={{ '--delay': `${index * 45}ms` }}
+                  onClick={() => handleStart(item)}
+                  disabled={!item.ready}
                 >
-                  <span className="set-card-topline">
-                    <span className="study-label">{part.key}</span>
+                  <span className="set-card-top">
+                    <span className="set-card-label">{item.label}</span>
                     <span className="set-card-index">{String(index + 1).padStart(2, '0')}</span>
                   </span>
-                  <strong>{part.count ? `${part.count} Questions` : 'Unique Questions'}</strong>
-                  <small>{mode === 'study' ? 'Read Questions And Answers In Order' : part.label}</small>
-                  <span className="set-card-action">{mode === 'study' ? 'Start Learning' : 'Start Practice'} <ButtonIcon name="arrowRight" /></span>
+                  <strong className="set-card-count">
+                    {item.ready ? (item.count ? `${item.count}` : '—') : '—'}
+                    <small>{item.ready ? (item.count ? 'questions' : 'unique questions') : 'not available'}</small>
+                  </strong>
+                  <span className="set-card-desc">
+                    {isStudy ? 'Read questions and answers in order' : item.description}
+                  </span>
+                  <span className="set-card-action">
+                    {item.ready ? (isStudy ? 'Start learning' : 'Start practice') : 'Coming soon'}
+                    <ButtonIcon name={item.ready ? 'arrowRight' : 'clock'} />
+                  </span>
                 </button>
               ))}
             </div>
-          ) : isClaudeAssociate ? (
-            <div className="study-grid set-selection-grid">
-              {sets.map((set, index) => (
-                <button
-                  key={set.key}
-                  className={`study-card set-selection-card ${set.ready ? '' : 'disabled-set'}`}
-                  onClick={() => {
-                    if (!set.ready) return
-                    if (mode === 'study') onStartStudy(set.key)
-                    else onStartPractice(set.key)
-                  }}
-                  disabled={!set.ready}
-                >
-                  <span className="set-card-topline">
-                    <span className="study-label">{set.ready ? set.label : 'Coming Soon'}</span>
-                    <span className="set-card-index">{String(index + 1).padStart(2, '0')}</span>
-                  </span>
-                  <strong>{set.ready ? `${set.questions.length} Questions` : 'Not Available'}</strong>
-                  <small>{mode === 'study' ? 'Read Questions And Answers In Order' : set.description}</small>
-                  <span className="set-card-action">{set.ready ? (mode === 'study' ? 'Start Learning' : 'Start Practice') : 'Coming Soon'} {set.ready ? <ButtonIcon name="arrowRight" /> : <ButtonIcon name="clock" />}</span>
-                </button>
-              ))}
-            </div>
-          ) : (
-            <div className="coming-soon-panel">
-              <h2>New practice content is coming soon.</h2>
-              <p>This section is ready for the next question set. Once it is available, it can use the same study and quiz experience.</p>
-              <button className="primary-button" onClick={onBack}><ButtonIcon name="home" /> Return to Dashboard</button>
-            </div>
-          )}
-        </section>
+          </section>
+        ) : (
+          <section className="empty-state reveal">
+            <span className="feature-icon"><ButtonIcon name="clock" /></span>
+            <h2>New practice content is coming soon.</h2>
+            <p>Once available, this track will use the same study and quiz experience.</p>
+            <button className="btn btn-primary" onClick={onBack}><ButtonIcon name="home" /> Return to dashboard</button>
+          </section>
+        )}
       </main>
     </div>
   )

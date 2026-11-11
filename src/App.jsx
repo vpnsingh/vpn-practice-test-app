@@ -1,5 +1,5 @@
-import { useMemo, useState } from 'react'
-import { CLAUDE_ASSOCIATE_SETS, getGh300Questions, PARTS, PRACTICE_TESTS } from './data/testCatalog'
+import { useEffect, useMemo, useState } from 'react'
+import { CLAUDE_ASSOCIATE_SETS, CLAUDE_DEVELOPER_SETS, getGh300Questions, PARTS, PRACTICE_TESTS } from './data/testCatalog'
 import HomePage from './pages/HomePage'
 import QuizPage from './pages/QuizPage'
 import ResultsPage from './pages/ResultsPage'
@@ -32,6 +32,10 @@ function App() {
   const [checkedAnswers, setCheckedAnswers] = useState({})
   const [showSummary, setShowSummary] = useState(false)
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }, [mode, showSummary, currentIndex])
+
   const currentQuestion = activeQuestions[currentIndex]
   const currentChecked = currentQuestion ? checkedAnswers[currentQuestion.id] : undefined
   const totalQuestions = activeQuestions.length
@@ -40,10 +44,13 @@ function App() {
     [checkedAnswers]
   )
   const selectedPracticeTest = PRACTICE_TESTS.find((test) => test.key === selectedTest) || PRACTICE_TESTS[0]
+  const selectedClaudeSets = selectedTest === 'claude-developer'
+    ? CLAUDE_DEVELOPER_SETS
+    : CLAUDE_ASSOCIATE_SETS
   const downloadUniquePdf = async () => {
     const questions = selectedPracticeTest.key === 'gh300'
       ? getGh300Questions('Unique')
-      : CLAUDE_ASSOCIATE_SETS.find((set) => set.key === 'set-unique').questions
+      : selectedClaudeSets.find((set) => set.key === 'set-unique').questions
     const { downloadQuestionsPdf } = await import('./utils/downloadQuestionsPdf')
     downloadQuestionsPdf(questions, `${selectedPracticeTest.name} Unique Questions and Answers`)
   }
@@ -98,11 +105,11 @@ function App() {
     setMode('quiz')
   }
 
-  const startClaudeAssociateSet = (setKey) => {
-    const set = CLAUDE_ASSOCIATE_SETS.find((item) => item.key === setKey)
+  const startClaudeSet = (setKey) => {
+    const set = selectedClaudeSets.find((item) => item.key === setKey)
     if (!set || !set.ready || !set.questions.length) return
 
-    setSelectedPart(`Claude Associate - ${set.label}`)
+    setSelectedPart(`${selectedPracticeTest.name} - ${set.label}`)
     setActiveQuestions(shuffleQuestions(set.questions))
     setCurrentIndex(0)
     setSelectedOptions([])
@@ -129,11 +136,11 @@ function App() {
     if (questions.length) startStudyQuestions(questions, `GH-300 - ${partKey}`)
   }
 
-  const startClaudeAssociateStudy = (setKey) => {
-    const set = CLAUDE_ASSOCIATE_SETS.find((item) => item.key === setKey)
+  const startClaudeStudy = (setKey) => {
+    const set = selectedClaudeSets.find((item) => item.key === setKey)
     if (!set || !set.ready || !set.questions.length) return
 
-    startStudyQuestions(set.questions, `Claude Associate - ${set.label}`)
+    startStudyQuestions(set.questions, `${selectedPracticeTest.name} - ${set.label}`)
   }
 
   const handleOpenTest = (testKey) => {
@@ -212,16 +219,11 @@ function App() {
       return
     }
 
-    if (selectedPart.startsWith('Claude Associate')) {
-      if (selectedPart.includes('Unique Set')) {
-        startClaudeAssociateSet('set-unique')
-        return
-      }
-
-      const match = selectedPart.match(/Set\s+(\d+)/i)
-      const setKey = match ? `set-${match[1].toLowerCase()}` : null
-      if (setKey) {
-        startClaudeAssociateSet(setKey)
+    const claudeSetMatch = selectedPart.match(/^Claude (?:Associate|Developer) - (.+)$/)
+    if (claudeSetMatch) {
+      const set = selectedClaudeSets.find((item) => item.label === claudeSetMatch[1])
+      if (set) {
+        startClaudeSet(set.key)
         return
       }
     }
@@ -239,15 +241,15 @@ function App() {
         test={selectedPracticeTest}
         mode={sectionMode}
         parts={GH300_PARTS}
-        sets={CLAUDE_ASSOCIATE_SETS}
+        sets={selectedClaudeSets}
         onModeChange={setSectionMode}
         onBack={() => setMode('home')}
         onStartPractice={(key) => selectedPracticeTest.key === 'gh300'
           ? startQuiz(key)
-          : startClaudeAssociateSet(key)}
+          : startClaudeSet(key)}
         onStartStudy={(key) => selectedPracticeTest.key === 'gh300'
           ? startGh300Study(key)
-          : startClaudeAssociateStudy(key)}
+          : startClaudeStudy(key)}
         onDownloadUniquePdf={downloadUniquePdf}
       />
     )

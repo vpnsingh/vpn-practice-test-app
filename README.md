@@ -5,7 +5,7 @@ A React VPN practice test application built with Vite.
 ## Features
 - One question displayed at a time
 - Study questions in groups of 10 with paginated navigation and correct answers shown
-- Study GH-300 parts and available Claude Associate sets
+- Study GH-300 parts, Claude Associate sets, and Claude Certified Developer Foundations (CCDV-F) sets
 - Supports 4-5 options per question
 - Check answer inline on the same screen
 - Previous / Next navigation

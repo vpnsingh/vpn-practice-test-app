@@ -1,123 +1,149 @@
+import { useEffect, useState } from 'react'
+import AppHeader from '../components/AppHeader'
+import ArtifactPanel from '../components/ArtifactPanel'
 import ButtonIcon from '../components/ButtonIcon'
+
+const TRACK_META = {
+  gh300: { code: 'GH-300', icon: 'layers', tone: 'teal' },
+  'claude-associate': { code: 'CCA', icon: 'sparkle', tone: 'clay' },
+  'claude-developer': { code: 'CCDV-F', icon: 'compass', tone: 'ink' }
+}
+
+const FEATURES = [
+  { icon: 'book', title: 'Study flow', text: 'Every question with the correct answer revealed.' },
+  { icon: 'target', title: 'Instant feedback', text: 'Check answers and read explanations as you go.' },
+  { icon: 'chart', title: 'Track progress', text: 'Live score, pass target, and PDF result export.' }
+]
+
+const ROTATING_CERTS = [
+  'Claude Certified Associate',
+  'Claude Certified Developer',
+  'GitHub Copilot (GH-300)'
+]
+
+function RotatingWord({ words, interval = 2600 }) {
+  const [index, setIndex] = useState(0)
+
+  useEffect(() => {
+    const id = setInterval(() => setIndex((i) => (i + 1) % words.length), interval)
+    return () => clearInterval(id)
+  }, [words.length, interval])
+
+  return (
+    <span className="rotating-word" aria-live="polite">
+      <span key={index} className="rotating-word-inner">{words[index]}</span>
+    </span>
+  )
+}
 
 function HomePage({ tests, onOpenTest }) {
   return (
-    <div className="app-shell home-screen">
-      <div className="card home-card">
-        <div className="home-topbar">
-          <div className="brand-lockup">
-            <span className="brand-badge">VPN</span>
-            <span className="brand-text">Practice Test App</span>
-          </div>
-          <div className="status-pill">Live prep dashboard</div>
-        </div>
+    <div className="page">
+      <AppHeader onHome={() => {}} />
 
-        <div className="home-layout">
-          <div className="hero-copy-panel">
-            <p className="eyebrow">Certified readiness</p>
-            <h1>Practice with purpose. Pass with confidence.</h1>
+      <main className="container stack-lg">
+        <section className="hero">
+          <div className="hero-copy reveal">
+            <span className="eyebrow"><ButtonIcon name="sparkle" /> Certified readiness</span>
+            <h1>
+              Practice with purpose.<br />
+              <span className="text-gradient">Pass with confidence.</span>
+            </h1>
             <p className="lead">
-              Build exam confidence through structured GH-300 and Claude Associate practice sets designed to keep your learning focused, measurable, and momentum-driven.
+              Your AI certification journey starts here. Get exam-ready for{' '}
+              <RotatingWord words={ROTATING_CERTS} /> with real exam-style questions, instant
+              explanations and progress you can measure.
             </p>
 
-            <div className="cta-row">
-              <button className="primary-button" onClick={() => onOpenTest('gh300')}>
-                <ButtonIcon name="play" /> Start GH-300
+            <div className="btn-row">
+              <button className="btn btn-primary" onClick={() => onOpenTest('claude-associate')}>
+                <ButtonIcon name="sparkle" /> Claude Certified
               </button>
-              <button className="secondary-button" onClick={() => onOpenTest('claude-associate')}>
-                <ButtonIcon name="compass" /> Explore Claude Sets
+              <button className="btn btn-secondary" onClick={() => onOpenTest('gh300')}>
+                <ButtonIcon name="play" /> GitHub Copilot
               </button>
             </div>
 
-            <div className="metrics-strip">
-              <div className="metric-box"><strong>3</strong><span>Tracks</span></div>
-              <div className="metric-box"><strong>180</strong><span>GH-300</span></div>
-              <div className="metric-box"><strong>80%</strong><span>Pass goal</span></div>
+            <dl className="stat-strip">
+              <div><dt>Tracks</dt><dd>{tests.length}</dd></div>
+              <div><dt>GH-300 bank</dt><dd>180</dd></div>
+              <div><dt>Pass goal</dt><dd>80%</dd></div>
+            </dl>
+          </div>
+
+          <ArtifactPanel
+            className="hero-artifact reveal"
+            style={{ '--delay': '120ms' }}
+            title="practice-session.quiz"
+            meta={<span className="live-dot">Live</span>}
+            aria-hidden="true"
+          >
+            <div className="demo-progress"><span /></div>
+            <p className="demo-label">Question 07 of 60</p>
+            <p className="demo-question">Which feature helps a model ground answers in your own documents?</p>
+            <ul className="demo-options">
+              <li><b>A</b> Temperature sampling</li>
+              <li className="is-correct"><b>B</b> Retrieval-augmented generation <ButtonIcon name="check" /></li>
+              <li><b>C</b> Token streaming</li>
+            </ul>
+            <div className="demo-footer">
+              <span className="chip chip-success"><ButtonIcon name="check" /> Correct</span>
+              <span className="demo-score">Score <strong>86%</strong></span>
             </div>
+          </ArtifactPanel>
+        </section>
+
+        <section className="stack">
+          <div className="section-head">
+            <h2>Choose a track</h2>
+            <p>Pick a certification to practise or study.</p>
           </div>
 
-          <div className="hero-visual-panel" aria-label="Practice dashboard illustration">
-            <svg className="hero-illustration" viewBox="0 0 520 440" role="img" aria-hidden="true">
-              <defs>
-                <linearGradient id="heroGlow" x1="0%" x2="100%" y1="0%" y2="100%">
-                  <stop offset="0%" stopColor="#7c6df5" />
-                  <stop offset="100%" stopColor="#14b8a6" />
-                </linearGradient>
-                <linearGradient id="heroPanel" x1="0%" x2="100%" y1="0%" y2="100%">
-                  <stop offset="0%" stopColor="#ffffff" stopOpacity="0.9" />
-                  <stop offset="100%" stopColor="#edf2ff" stopOpacity="0.7" />
-                </linearGradient>
-              </defs>
-
-              <circle cx="260" cy="220" r="170" fill="url(#heroGlow)" opacity="0.12" />
-              <circle cx="260" cy="220" r="138" fill="none" stroke="rgba(124,109,245,0.35)" strokeWidth="1.5" strokeDasharray="8 12" className="orbit orbit-large" />
-              <circle cx="260" cy="220" r="96" fill="none" stroke="rgba(20,184,166,0.35)" strokeWidth="1.5" strokeDasharray="5 10" className="orbit orbit-small" />
-              <g className="floating-node node-1"><circle cx="130" cy="120" r="9" fill="#4f46e5" /></g>
-              <g className="floating-node node-2"><circle cx="370" cy="130" r="11" fill="#14b8a6" /></g>
-              <g className="floating-node node-3"><circle cx="390" cy="300" r="8" fill="#a78bfa" /></g>
-
-              <g className="dashboard-card">
-                <rect x="150" y="120" width="220" height="160" rx="28" fill="url(#heroPanel)" stroke="rgba(79,70,229,0.18)" />
-                <rect x="178" y="150" width="120" height="12" rx="6" fill="rgba(79,70,229,0.18)" />
-                <rect x="178" y="174" width="150" height="12" rx="6" fill="rgba(148,163,184,0.2)" />
-                <rect x="178" y="202" width="74" height="12" rx="6" fill="rgba(20,184,166,0.2)" />
-                <rect x="178" y="232" width="160" height="12" rx="6" fill="rgba(148,163,184,0.2)" />
-                <circle cx="315" cy="184" r="34" fill="url(#heroGlow)" opacity="0.92" />
-                <path d="M305 184l7 8 18-20" stroke="#fff" strokeWidth="7" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              </g>
-              <g className="mini-panel">
-                <rect x="82" y="260" width="120" height="70" rx="18" fill="rgba(255,255,255,0.78)" stroke="rgba(79,70,229,0.12)" />
-                <rect x="110" y="286" width="54" height="8" rx="4" fill="rgba(79,70,229,0.18)" />
-                <rect x="110" y="304" width="62" height="8" rx="4" fill="rgba(148,163,184,0.22)" />
-              </g>
-              <g className="mini-panel">
-                <rect x="320" y="260" width="126" height="70" rx="18" fill="rgba(255,255,255,0.78)" stroke="rgba(20,184,166,0.15)" />
-                <rect x="348" y="284" width="64" height="8" rx="4" fill="rgba(20,184,166,0.2)" />
-                <rect x="348" y="302" width="52" height="8" rx="4" fill="rgba(148,163,184,0.22)" />
-              </g>
-            </svg>
+          <div className="grid grid-3">
+            {tests.map((test, index) => {
+              const meta = TRACK_META[test.key] || { code: test.name, icon: 'layers', tone: 'teal' }
+              return (
+                <article
+                  key={test.key}
+                  className={`track-card tone-${meta.tone} reveal ${test.ready ? '' : 'is-disabled'}`}
+                  style={{ '--delay': `${180 + index * 70}ms` }}
+                >
+                  <div className="track-card-top">
+                    <span className="track-icon"><ButtonIcon name={meta.icon} /></span>
+                    <span className={`chip ${test.ready ? 'chip-success' : 'chip-muted'}`}>{test.status}</span>
+                  </div>
+                  <span className="track-code">{meta.code}</span>
+                  <h3>{test.name}</h3>
+                  <p>{test.description}</p>
+                  {test.ready ? (
+                    <button className="btn btn-soft btn-block" onClick={() => onOpenTest(test.key)}>
+                      Open track <ButtonIcon name="arrowRight" />
+                    </button>
+                  ) : (
+                    <button className="btn btn-soft btn-block" disabled>
+                      <ButtonIcon name="clock" /> Coming soon
+                    </button>
+                  )}
+                </article>
+              )
+            })}
           </div>
-        </div>
+        </section>
 
-        <div className="feature-row">
-          <div className="feature-card">
-            <span>Study flow</span>
-            <strong>Learn question by question</strong>
-            <p>Review every available question with its correct answer shown.</p>
-          </div>
-          <div className="feature-card highlight-card">
-            <span>Focus</span>
-            <strong>Immediate feedback</strong>
-            <p>Review explanations fast and sharpen the concepts that matter most.</p>
-          </div>
-          <div className="feature-card">
-            <span>Progress</span>
-            <strong>Track confidence</strong>
-            <p>Measure your score, revisit weak areas, and keep momentum high.</p>
-          </div>
-        </div>
-
-        <div className="test-grid">
-          {tests.map((test) => (
-            <div key={test.key} className={`test-card ${test.ready ? 'ready' : 'coming-soon'}`}>
-              <div className="test-card-header">
-                <span className={`status-badge ${test.ready ? 'ready' : 'coming-soon'}`}>{test.status}</span>
+        <section className="feature-strip reveal" style={{ '--delay': '420ms' }}>
+          {FEATURES.map((feature) => (
+            <div className="feature" key={feature.title}>
+              <span className="feature-icon"><ButtonIcon name={feature.icon} /></span>
+              <div>
+                <strong>{feature.title}</strong>
+                <p>{feature.text}</p>
               </div>
-              <h2>{test.name}</h2>
-              <p>{test.description}</p>
-              {test.ready ? (
-                <button className="primary-button full-width" onClick={() => onOpenTest(test.key)}><ButtonIcon name="open" /> Open Test</button>
-              ) : (
-                <button className="secondary-button full-width disabled" disabled><ButtonIcon name="clock" /> Coming Soon</button>
-              )}
             </div>
           ))}
-        </div>
+        </section>
 
-        <div className="home-footer">
-          <p>{'Best score wins! \u2705 Pass with 80% or more.'}</p>
-        </div>
-      </div>
+        <footer className="footer-note">Best score wins — pass with 80% or more.</footer>
+      </main>
     </div>
   )
 }

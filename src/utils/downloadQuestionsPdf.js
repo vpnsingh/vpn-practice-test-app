@@ -11,76 +11,179 @@ export function downloadQuestionsPdf(questions, title) {
   const pageWidth = pdf.internal.pageSize.getWidth()
   const pageHeight = pdf.internal.pageSize.getHeight()
   const contentWidth = pageWidth - PAGE_MARGIN * 2
+  const contentBottom = pageHeight - PAGE_MARGIN - 8
+  const cardPadding = 5
   let y = PAGE_MARGIN
 
-  const addPageIfNeeded = (height) => {
-    if (y + height > pageHeight - PAGE_MARGIN) {
-      pdf.addPage()
-      y = PAGE_MARGIN
-    }
-  }
-
-  const addText = (text, { size = 10, bold = false, color = [31, 41, 55], indent = 0 } = {}) => {
+  const getLines = (text, size, bold, width) => {
     pdf.setFont('helvetica', bold ? 'bold' : 'normal')
     pdf.setFontSize(size)
-    pdf.setTextColor(...color)
-
-    const lines = pdf.splitTextToSize(String(text), contentWidth - indent)
-    const lineHeight = size * 0.48
-
-    lines.forEach((line) => {
-      addPageIfNeeded(lineHeight)
-      pdf.text(line, PAGE_MARGIN + indent, y)
-      y += lineHeight
-    })
+    return pdf.splitTextToSize(String(text), width)
   }
 
-  addText(title, { size: 18, bold: true, color: [49, 46, 129] })
-  y += 2
-  addText(`${questions.length} unique questions with answers`, { size: 10, color: [71, 85, 105] })
-  y += 5
-
-  questions.forEach((question, index) => {
-    const answers = Array.isArray(question.answer) ? question.answer : [question.answer]
-    addPageIfNeeded(12)
-    addText(`${index + 1}. ${question.question}`, { size: 11, bold: true, color: [15, 23, 42] })
-    y += 1
-
-    question.options.forEach((option, optionIndex) => {
-      const letter = String.fromCharCode(65 + optionIndex)
-      addText(`${letter}. ${option}`, {
-        size: 9.5,
-        color: [51, 65, 85],
-        indent: 3
-      })
+  const addPageHeader = () => {
+    const headerLines = getLines(title, 9, true, contentWidth)
+    pdf.setFont('helvetica', 'bold')
+    pdf.setFontSize(9)
+    pdf.setTextColor(71, 85, 105)
+    headerLines.forEach((line, index) => {
+      pdf.text(line, PAGE_MARGIN, PAGE_MARGIN + 4 + index * 4)
     })
+    const dividerY = PAGE_MARGIN + 7 + headerLines.length * 4
+    pdf.setDrawColor(226, 232, 240)
+    pdf.line(PAGE_MARGIN, dividerY, pageWidth - PAGE_MARGIN, dividerY)
+    y = dividerY + 7
+  }
 
-    if (question.explanation) {
-      y += 1
-      addText(`Explanation: ${question.explanation}`, {
-        size: 9,
-        color: [71, 85, 105],
-        indent: 3
-      })
+  const startNewPage = () => {
+    pdf.addPage()
+    addPageHeader()
+  }
+
+  const getOptionRows = (options, answers) => options.map((option, optionIndex) => {
+    const letter = String.fromCharCode(65 + optionIndex)
+    const correct = answers.includes(option)
+    const lines = getLines(option, 9.5, false, contentWidth - 19)
+    return {
+      letter,
+      correct,
+      lines,
+      height: Math.max(8, lines.length * 4.5 + 3)
     }
+  })
 
+  const getQuestionCardHeight = (questionLines, optionRows, explanationLines) => {
+    const optionsHeight = optionRows.reduce((height, row) => height + row.height + 1.5, 0)
+    const explanationHeight = explanationLines.length ? 12 + explanationLines.length * 4.3 : 0
+    return 28 + questionLines.length * 5 + optionsHeight + explanationHeight
+  }
+
+  const drawQuestionCard = (question, index) => {
+    const answers = Array.isArray(question.answer) ? question.answer : [question.answer]
     const correctAnswerLetters = question.options
       .flatMap((option, optionIndex) => answers.includes(option) ? [String.fromCharCode(65 + optionIndex)] : [])
-    addText(`Correct answer: ${correctAnswerLetters.join(', ')}`, {
-      size: 9.5,
-      bold: true,
-      color: [21, 128, 61],
-      indent: 3
+    const correctAnswerText = correctAnswerLetters.join(', ')
+    const questionLines = getLines(question.question, 11, true, contentWidth - cardPadding * 2)
+    const optionRows = getOptionRows(question.options, answers)
+    const explanationLines = question.explanation
+      ? getLines(question.explanation, 9, false, contentWidth - cardPadding * 2 - 8)
+      : []
+    const cardHeight = getQuestionCardHeight(questionLines, optionRows, explanationLines)
+
+    if (y + cardHeight > contentBottom) startNewPage()
+
+    const cardTop = y
+    pdf.setFillColor(255, 255, 255)
+    pdf.setDrawColor(226, 232, 240)
+    pdf.roundedRect(PAGE_MARGIN, cardTop, contentWidth, cardHeight, 2.5, 2.5, 'FD')
+
+    let cardY = cardTop + cardPadding
+    pdf.setFont('helvetica', 'bold')
+    pdf.setFontSize(8)
+    pdf.setTextColor(79, 70, 229)
+    pdf.text(`QUESTION ${String(index + 1).padStart(2, '0')}`, PAGE_MARGIN + cardPadding, cardY + 2)
+    if (answers.length > 1) {
+      pdf.setTextColor(100, 116, 139)
+      pdf.text(`SELECT ${answers.length}`, pageWidth - PAGE_MARGIN - cardPadding, cardY + 2, { align: 'right' })
+    }
+
+    cardY += 8
+    pdf.setFont('helvetica', 'bold')
+    pdf.setFontSize(11)
+    pdf.setTextColor(15, 23, 42)
+    questionLines.forEach((line, lineIndex) => {
+      pdf.text(line, PAGE_MARGIN + cardPadding, cardY + 4 + lineIndex * 5)
     })
-    y += 5
+    cardY += questionLines.length * 5 + 2
+
+    optionRows.forEach((row) => {
+      pdf.setFillColor(...(row.correct ? [240, 253, 244] : [248, 250, 252]))
+      pdf.roundedRect(PAGE_MARGIN + cardPadding, cardY, contentWidth - cardPadding * 2, row.height, 1.5, 1.5, 'F')
+
+      pdf.setFont('helvetica', 'bold')
+      pdf.setFontSize(8.5)
+      pdf.setTextColor(...(row.correct ? [21, 128, 61] : [100, 116, 139]))
+      pdf.text(row.letter, PAGE_MARGIN + cardPadding + 3, cardY + 5.2)
+
+      pdf.setFont('helvetica', 'normal')
+      pdf.setFontSize(9.5)
+      pdf.setTextColor(51, 65, 85)
+      row.lines.forEach((line, lineIndex) => {
+        pdf.text(line, PAGE_MARGIN + cardPadding + 10, cardY + 5.2 + lineIndex * 4.5)
+      })
+      cardY += row.height + 1.5
+    })
+
+    if (explanationLines.length) {
+      cardY += 1
+      const explanationHeight = 7 + explanationLines.length * 4.3 + 2
+      pdf.setFillColor(248, 250, 252)
+      pdf.roundedRect(PAGE_MARGIN + cardPadding, cardY, contentWidth - cardPadding * 2, explanationHeight, 1.5, 1.5, 'F')
+      pdf.setFont('helvetica', 'bold')
+      pdf.setFontSize(7.5)
+      pdf.setTextColor(100, 116, 139)
+      pdf.text('EXPLANATION', PAGE_MARGIN + cardPadding + 3, cardY + 4.5)
+      pdf.setFont('helvetica', 'normal')
+      pdf.setFontSize(9)
+      pdf.setTextColor(71, 85, 105)
+      explanationLines.forEach((line, lineIndex) => {
+        pdf.text(line, PAGE_MARGIN + cardPadding + 3, cardY + 9 + lineIndex * 4.3)
+      })
+      cardY += explanationHeight + 2
+    }
+
+    const answerHeight = 9
+    pdf.setFillColor(220, 252, 231)
+    pdf.roundedRect(PAGE_MARGIN + cardPadding, cardY, contentWidth - cardPadding * 2, answerHeight, 1.5, 1.5, 'F')
+    pdf.setFont('helvetica', 'bold')
+    pdf.setFontSize(7.5)
+    pdf.setTextColor(21, 128, 61)
+    pdf.text('CORRECT ANSWER', PAGE_MARGIN + cardPadding + 3, cardY + 5.8)
+    const answerLabelWidth = pdf.getTextWidth('CORRECT ANSWER')
+    pdf.setFontSize(9.5)
+    pdf.text(correctAnswerText, PAGE_MARGIN + cardPadding + 3 + answerLabelWidth + 4, cardY + 5.8)
+
+    y = cardTop + cardHeight + 5
+  }
+
+  const titleLines = getLines(title, 18, true, contentWidth)
+  pdf.setFont('helvetica', 'bold')
+  pdf.setFontSize(8)
+  pdf.setTextColor(79, 70, 229)
+  pdf.text('QUESTION & ANSWER GUIDE', PAGE_MARGIN, y + 3)
+  y += 8
+
+  pdf.setFont('helvetica', 'bold')
+  pdf.setFontSize(18)
+  pdf.setTextColor(49, 46, 129)
+  titleLines.forEach((line, index) => {
+    pdf.text(line, PAGE_MARGIN, y + 6 + index * 7.5)
+  })
+  y += titleLines.length * 7.5 + 2
+
+  pdf.setFont('helvetica', 'normal')
+  pdf.setFontSize(9.5)
+  pdf.setTextColor(71, 85, 105)
+  pdf.text(`${questions.length} questions  |  Answers and explanations included`, PAGE_MARGIN, y + 3)
+  y += 9
+
+  pdf.setDrawColor(226, 232, 240)
+  pdf.line(PAGE_MARGIN, y, pageWidth - PAGE_MARGIN, y)
+  y += 7
+
+  questions.forEach((question, index) => {
+    drawQuestionCard(question, index)
   })
 
   const pageCount = pdf.internal.getNumberOfPages()
   for (let page = 1; page <= pageCount; page += 1) {
     pdf.setPage(page)
+    pdf.setDrawColor(226, 232, 240)
+    pdf.line(PAGE_MARGIN, pageHeight - PAGE_MARGIN - 3, pageWidth - PAGE_MARGIN, pageHeight - PAGE_MARGIN - 3)
     pdf.setFont('helvetica', 'normal')
     pdf.setFontSize(8)
     pdf.setTextColor(100, 116, 139)
+    pdf.text('QUESTION & ANSWER GUIDE', PAGE_MARGIN, pageHeight - 9)
     pdf.text(`Page ${page} of ${pageCount}`, pageWidth - PAGE_MARGIN, pageHeight - 9, { align: 'right' })
   }
 

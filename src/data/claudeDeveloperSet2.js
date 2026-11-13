@@ -603,7 +603,7 @@ export const claudeDeveloperSet2Questions = [
   },
   {
     "id": 94,
-    "question": "Your Claude application produces good responses for typical inputs but struggles with edge cases. You have several labeled examples of edge-case inputs and the desired response for each. You want to use these examples to improve the model's handling of edge cases. Jhat is the best way to use these examples?",
+    "question": "Your Claude application produces good responses for typical inputs but struggles with edge cases. You have several labeled examples of edge-case inputs and the desired response for each. You want to use these examples to improve the model's handling of edge cases. What is the best way to use these examples?",
     "options": [
       "Embed the examples in a database for the model to find during inference.",
       "Add the labeled edge-case examples to the prompt as few-shot examples so the model can learn the pattern.",

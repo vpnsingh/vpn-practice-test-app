@@ -5,6 +5,7 @@ import QuizPage from './pages/QuizPage'
 import ResultsPage from './pages/ResultsPage'
 import SetSelectionPage from './pages/SetSelectionPage'
 import StudyPage from './pages/StudyPage'
+import { downloadQuestionsPdf, downloadQuizResultsPdf } from './utils/downloadQuestionsPdf'
 
 const shuffleQuestions = (questions) => {
   const copy = [...questions]
@@ -47,15 +48,13 @@ function App() {
   const selectedClaudeSets = selectedTest === 'claude-developer'
     ? CLAUDE_DEVELOPER_SETS
     : CLAUDE_ASSOCIATE_SETS
-  const downloadUniquePdf = async () => {
+  const downloadUniquePdf = () => {
     const questions = selectedPracticeTest.key === 'gh300'
       ? getGh300Questions('Unique')
       : selectedClaudeSets.find((set) => set.key === 'set-unique').questions
-    const { downloadQuestionsPdf } = await import('./utils/downloadQuestionsPdf')
     downloadQuestionsPdf(questions, `${selectedPracticeTest.name} Unique Questions and Answers`)
   }
-  const downloadResultsPdf = async () => {
-    const { downloadQuizResultsPdf } = await import('./utils/downloadQuestionsPdf')
+  const downloadResultsPdf = () => {
     downloadQuizResultsPdf({
       title: selectedPart,
       percentage,

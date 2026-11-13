@@ -8,6 +8,7 @@ import { claudeAssociateSet6Questions } from './claudeAssociateSet6'
 import { claudeAssociateUniqueQuestions } from './claudeAssociateUniqueSet'
 import { claudeDeveloperSet1Questions } from './claudeDeveloperSet1'
 import { claudeDeveloperSet2Questions } from './claudeDeveloperSet2'
+import { claudeDeveloperSet3Questions } from './claudeDeveloperSet3'
 import { claudeDeveloperUniqueQuestions } from './claudeDeveloperUniqueSet'
 
 export const PARTS = [
@@ -99,9 +100,16 @@ export const CLAUDE_DEVELOPER_SETS = [
     questions: claudeDeveloperSet2Questions
   },
   {
+    key: 'set-3',
+    label: 'Set 3',
+    description: 'Provided Claude Certified Developer Foundations (CCDV-F) question set.',
+    ready: true,
+    questions: claudeDeveloperSet3Questions
+  },
+  {
     key: 'set-unique',
     label: 'Unique Set',
-    description: 'Combined CCDV-F questions with repeated questions removed.',
+    description: 'Combined CCDV-F questions from Sets 1 through 3 with repeated questions removed.',
     ready: true,
     questions: claudeDeveloperUniqueQuestions
   }

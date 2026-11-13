@@ -37,7 +37,10 @@ function SetSelectionPage({
       : []
 
   const readyCount = items.filter((item) => item.ready).length
-  const totalQuestions = isGh300 ? 180 : items.reduce((sum, item) => sum + (item.ready ? item.count : 0), 0)
+  const totalQuestions = isGh300 ? 180 : items.reduce(
+    (sum, item) => sum + (item.ready && item.key !== 'set-unique' ? item.count : 0),
+    0
+  )
 
   const handleStart = (item) => {
     if (!item.ready) return

@@ -1,7 +1,10 @@
 import ButtonIcon from './ButtonIcon'
+import { getCorrectOptionLetters } from '../utils/getCorrectOptionLetters'
 
 function StudyQuestionCard({ question, questionNumber, delay = 0 }) {
   const answers = Array.isArray(question.answer) ? question.answer : [question.answer]
+  const correctOptionLetters = getCorrectOptionLetters(question)
+  const correctOptionLabel = correctOptionLetters.length === 1 ? 'Correct Option' : 'Correct Options'
 
   return (
     <article className="study-card reveal" style={{ '--delay': `${delay}ms` }}>
@@ -26,8 +29,9 @@ function StudyQuestionCard({ question, questionNumber, delay = 0 }) {
 
       {question.explanation && (
         <details className="study-explain" open>
-          <summary><ButtonIcon name="sparkle" /> Why this is correct</summary>
-          <p>{question.explanation}</p>
+          <summary><ButtonIcon name="sparkle" /> Explanation</summary>
+          <p><strong>{correctOptionLabel}:</strong> {correctOptionLetters.join(', ')}</p>
+          <p><strong>Why:</strong> {question.explanation}</p>
         </details>
       )}
     </article>

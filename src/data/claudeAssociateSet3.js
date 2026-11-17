@@ -11,7 +11,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "3,5,1,4,2"
     ],
-    "explanation": ""
+    "explanation": "Assessing audience and impact first, then data sensitivity, establishes the risks to compare with policy before making and documenting a decision."
   },
   {
     "id": 2,
@@ -25,7 +25,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Identify the elements of the work product that must be independently verified or corrected before delivery, and take ownership of those verifications as a professional accountability obligation."
     ],
-    "explanation": ""
+    "explanation": "Diligence keeps a human accountable for the work product by identifying what needs independent verification and taking responsibility for those checks."
   },
   {
     "id": 3,
@@ -41,7 +41,7 @@ export const claudeAssociateSet3Questions = [
       "Define the evaluation criteria that matter for the task at hand.",
       "Specify the threshold that distinguishes acceptable from unacceptable output."
     ],
-    "explanation": ""
+    "explanation": "Task-specific criteria define what quality means, and an acceptance threshold makes scoring decisions consistent."
   },
   {
     "id": 4,
@@ -55,7 +55,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Locate a primary or authoritative source for the event and use the date that source confirms."
     ],
-    "explanation": ""
+    "explanation": "A primary or authoritative record is the strongest basis for resolving conflicting dates."
   },
   {
     "id": 5,
@@ -69,7 +69,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Treat the assertion as unverified, and either source it from an authoritative reference or remove it."
     ],
-    "explanation": ""
+    "explanation": "An unsourced assertion has not been verified; substantiate it with an authoritative reference or omit it."
   },
   {
     "id": 6,
@@ -83,7 +83,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "a prompt that names a topic but does not state the task, audience, or required output structure"
     ],
-    "explanation": ""
+    "explanation": "A topic alone leaves the task, audience, and expected structure unclear, making vague or off-target responses more likely."
   },
   {
     "id": 7,
@@ -97,7 +97,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Review the Project's instructions and reference materials against current standards."
     ],
-    "explanation": ""
+    "explanation": "Reviewing Project instructions and references against current standards is a direct way to identify outdated or misaligned guidance."
   },
   {
     "id": 8,
@@ -111,7 +111,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "The request requires multiple distinct outputs: a process map, supporting materials, and a measurement plan."
     ],
-    "explanation": ""
+    "explanation": "A process map, supporting materials, and a measurement plan are distinct deliverables, so breaking the work into stages helps coordinate them."
   },
   {
     "id": 9,
@@ -125,7 +125,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "4,3,1,5,2"
     ],
-    "explanation": ""
+    "explanation": "Map the workflow, use measured time and queue data to locate its bottleneck, make a focused change, pilot it against the baseline, and then document the rollout."
   },
   {
     "id": 10,
@@ -141,7 +141,7 @@ export const claudeAssociateSet3Questions = [
       "a redacted job description that the model will adapt for a posting",
       "an anonymized summary of an HR policy that the model will rephrase"
     ],
-    "explanation": ""
+    "explanation": "A redacted job description and anonymized policy summary provide relevant material while limiting unnecessary personal or sensitive data."
   },
   {
     "id": 11,
@@ -155,7 +155,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Consolidate related steps into fewer cohesive sections that group naturally connected ideas."
     ],
-    "explanation": ""
+    "explanation": "Grouping connected steps into cohesive sections preserves natural relationships and makes the output easier to follow."
   },
   {
     "id": 12,
@@ -169,7 +169,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "4,5,1,3,2"
     ],
-    "explanation": ""
+    "explanation": "Identify specific claims, review the brief, verify them against sources, record unsupported items, and then decide whether to correct, re-prompt, or escalate."
   },
   {
     "id": 13,
@@ -183,7 +183,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "accuracy of facts against the charter, completeness against required reporting fields, and relevance to the audience receiving the report"
     ],
-    "explanation": ""
+    "explanation": "Accuracy against the charter, completeness of required fields, and relevance to the steering committee test whether the report meets its purpose."
   },
   {
     "id": 14,
@@ -197,7 +197,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Extract only the feedback content needed for the summary, redact or anonymize personal contact details, and submit the trimmed input."
     ],
-    "explanation": ""
+    "explanation": "Trim the input to relevant feedback and redact contact details that are unnecessary for the summary."
   },
   {
     "id": 15,
@@ -211,7 +211,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Choose Haiku to keep latency low and to handle a light reasoning load efficiently at scale."
     ],
-    "explanation": ""
+    "explanation": "A lightweight, fast model suits a workflow that needs quick turns and only modest reasoning."
   },
   {
     "id": 16,
@@ -225,7 +225,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Use Code Execution, which runs code in a sandbox to perform calculations on the uploaded file and produce verified outputs the associate can check."
     ],
-    "explanation": ""
+    "explanation": "Code Execution runs deterministic calculations on the spreadsheet, and the resulting figures can be checked against the uploaded data."
   },
   {
     "id": 17,
@@ -241,7 +241,7 @@ export const claudeAssociateSet3Questions = [
       "Verify the source of the Skill against the organization's approved-Skill list before enabling it within claude.ai or any Project the team uses for its work.",
       "Review the permissions and capabilities the Skill requests and confirm that the requested access is appropriate for the task the Skill is intended to perform."
     ],
-    "explanation": ""
+    "explanation": "Checking the Skill's provenance against the approved list establishes trust, while reviewing its requested access confirms it is appropriate for the task."
   },
   {
     "id": 18,
@@ -255,7 +255,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Address the two specific concerns directly, leave unrelated parts unchanged, and document the changes for the next review."
     ],
-    "explanation": ""
+    "explanation": "Addressing only the named concerns preserves accepted content, and documenting those changes supports the next review."
   },
   {
     "id": 19,
@@ -269,7 +269,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "The prompting strategy should be adapted to each task type because one template does not produce equally strong outputs across all tasks."
     ],
-    "explanation": ""
+    "explanation": "Prompt structure should match the task: different work benefits from different balances of exploration and constraint."
   },
   {
     "id": 20,
@@ -285,7 +285,7 @@ export const claudeAssociateSet3Questions = [
       "the standard structure and the length expectations for typical deliverables",
       "the brand voice and the tonal expectations the writing must follow"
     ],
-    "explanation": ""
+    "explanation": "Custom instructions can standardize recurring deliverable structure and length while setting the brand voice and tone."
   },
   {
     "id": 21,
@@ -299,7 +299,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "5,1,3,4,2"
     ],
-    "explanation": ""
+    "explanation": "Assess accuracy and completeness, establish audience and impact, compare the risk with escalation criteria, choose how to proceed, and document the reasoning."
   },
   {
     "id": 22,
@@ -313,7 +313,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "2,3,4,1,5"
     ],
-    "explanation": ""
+    "explanation": "Summarize the existing discussion, identify durable references, move them into project context, then start a focused chat and verify it is on track."
   },
   {
     "id": 23,
@@ -329,7 +329,7 @@ export const claudeAssociateSet3Questions = [
       "Confirm that the planned Code Execution task aligns with the organization's data classification policy and escalate to the appropriate contact if the data sensitivity exceeds approved use.",
       "Review the file for sensitive, confidential, or regulated fields before upload, and remove or redact any fields that are not required for the planned Code Execution analysis."
     ],
-    "explanation": ""
+    "explanation": "Check the task against data policy and escalate if its sensitivity exceeds approved use; inspect and redact unnecessary sensitive fields before upload."
   },
   {
     "id": 24,
@@ -343,7 +343,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "3,1,5,4,2"
     ],
-    "explanation": ""
+    "explanation": "Identify the underlying task first, then establish audience and decision needs, add relevant facts and constraints, specify format, and submit the structured prompt."
   },
   {
     "id": 25,
@@ -357,7 +357,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Define the purpose of the Project and the recurring tasks it must support."
     ],
-    "explanation": ""
+    "explanation": "Defining the Project's purpose and recurring work determines what instructions, sources, and access the configuration requires."
   },
   {
     "id": 26,
@@ -371,7 +371,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Revise the description to focus on observed behaviors rather than generalizations about people, and validate the revision against actual customer data."
     ],
-    "explanation": ""
+    "explanation": "Focusing on observed behavior avoids unsupported assumptions about a demographic group, and customer data can validate the revised description."
   },
   {
     "id": 27,
@@ -385,7 +385,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Decline the sole-decision-maker design and propose Claude assisting analysts who retain decision authority."
     ],
-    "explanation": ""
+    "explanation": "Credit approvals affect people materially and require human judgment and accountability, so Claude should assist rather than decide."
   },
   {
     "id": 28,
@@ -401,7 +401,7 @@ export const claudeAssociateSet3Questions = [
       "Export the current memories as a backup before making changes, so prior context can be restored if a maintenance edit unintentionally removes information the workflow still depends on.",
       "Identify and edit or delete entries that are stale, inaccurate, or no longer relevant, and add context Claude has not automatically captured but the workflow continues to need."
     ],
-    "explanation": ""
+    "explanation": "Backing up memory protects useful context, while correcting stale entries and adding missing relevant details keeps it reliable."
   },
   {
     "id": 29,
@@ -415,7 +415,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Specify the task scope, the required output format, the audience, and the relevant constraints with sufficient clarity that the prompt produces a useful, reliable output on the next run."
     ],
-    "explanation": ""
+    "explanation": "Clear scope, output format, audience, and constraints specify the task well enough to guide a useful response."
   },
   {
     "id": 30,
@@ -429,7 +429,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Opus, because it is positioned as the most capable for advanced reasoning on complex specialized tasks."
     ],
-    "explanation": ""
+    "explanation": "Opus is suited to complex specialized work that calls for the deepest multi-step reasoning in the model lineup."
   },
   {
     "id": 31,
@@ -443,7 +443,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "2,5,1,3,4"
     ],
-    "explanation": ""
+    "explanation": "Define the persona and scope, identify journey stages, map touchpoints, record pain points and opportunities, and synthesize the findings."
   },
   {
     "id": 32,
@@ -459,7 +459,7 @@ export const claudeAssociateSet3Questions = [
       "Define the goal of the campaign and the success metrics for the campaign.",
       "Define the brand voice and the audience the concepts will speak to."
     ],
-    "explanation": ""
+    "explanation": "The goal and success measures guide concept development, while audience and brand voice shape how the concepts should communicate."
   },
   {
     "id": 33,
@@ -475,7 +475,7 @@ export const claudeAssociateSet3Questions = [
       "Add a specific tone descriptor and a concrete audience to the prompt.",
       "Provide an example of an output that meets the desired standard."
     ],
-    "explanation": ""
+    "explanation": "A specific tone and audience clarify the desired style, while a representative example demonstrates the expected level of detail."
   },
   {
     "id": 34,
@@ -489,7 +489,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Articulate the problem the solution must address and the constraints in play."
     ],
-    "explanation": ""
+    "explanation": "Articulating the problem and constraints defines what the design must solve before concepts are generated or assessed."
   },
   {
     "id": 35,
@@ -505,7 +505,7 @@ export const claudeAssociateSet3Questions = [
       "The need for human creativity, empathy, or judgment in the step, which indicates whether the task is appropriate for AI delegation or requires the human capabilities Claude cannot provide.",
       "The reversibility of the task and the consequence of an error, which together indicate whether the step is safe to delegate to Claude or should be retained for human decision-making."
     ],
-    "explanation": ""
+    "explanation": "Human creativity, empathy, or judgment can make a step unsuitable for delegation; reversibility and error consequences indicate its risk."
   },
   {
     "id": 36,
@@ -519,7 +519,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "the step with the longest queue or the largest backlog of items waiting to enter it"
     ],
-    "explanation": ""
+    "explanation": "A long queue or growing backlog shows where work is accumulating and directly signals a bottleneck."
   },
   {
     "id": 37,
@@ -533,7 +533,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Configurations should be reviewed and updated periodically because policies, terminology, and source documents change over time, even when output quality has not visibly degraded."
     ],
-    "explanation": ""
+    "explanation": "Regular reviews keep Project settings aligned with evolving policies, terminology, and reference sources before drift becomes apparent."
   },
   {
     "id": 38,
@@ -547,7 +547,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Extract only the relevant sections from each document and include those, omitting unrelated chapters."
     ],
-    "explanation": ""
+    "explanation": "Including only applicable sections saves context capacity while retaining the material needed for the task."
   },
   {
     "id": 39,
@@ -561,7 +561,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "4,3,1,2,5"
     ],
-    "explanation": ""
+    "explanation": "Gather and label sources for traceability, submit them for structured extraction, group and flag findings, validate against originals, and document the final set."
   },
   {
     "id": 40,
@@ -575,7 +575,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "The recommendation reflects selective use of the source documents and should be re-prompted to address the transition costs and the service-level concern before it is used."
     ],
-    "explanation": ""
+    "explanation": "Leaving out relevant transition costs and service-level concerns presents only part of the evidence, so the recommendation needs to address them before use."
   },
   {
     "id": 41,
@@ -591,7 +591,7 @@ export const claudeAssociateSet3Questions = [
       "Confirm the Connector is on the approved-vendor list maintained by IT.",
       "Confirm the data classification of the source and the team’s permission to use it."
     ],
-    "explanation": ""
+    "explanation": "Confirming vendor approval establishes that the Connector is authorized, while data classification and permission checks ensure the source is appropriate to connect."
   },
   {
     "id": 42,
@@ -605,7 +605,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "3,5,1,4,2"
     ],
-    "explanation": ""
+    "explanation": "Assess the audience and impact, review fairness and accuracy, confirm transparency, make targeted revisions or escalate, and record the outcome."
   },
   {
     "id": 43,
@@ -619,7 +619,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Use Claude to synthesize stakeholder inputs and existing process documentation into a structured list of requirements with traceability to each source."
     ],
-    "explanation": ""
+    "explanation": "Synthesizing stakeholder input and process documents into traceable requirements uses Claude to organize discovery evidence while retaining source links."
   },
   {
     "id": 44,
@@ -635,7 +635,7 @@ export const claudeAssociateSet3Questions = [
       "Trim irrelevant material before submitting the request to keep context focused.",
       "Use clear section headers to separate different parts of the input material."
     ],
-    "explanation": ""
+    "explanation": "Trimming irrelevant material preserves context capacity, and section headers clearly distinguish parts of the input."
   },
   {
     "id": 45,
@@ -651,7 +651,7 @@ export const claudeAssociateSet3Questions = [
       "an honest description of where Claude assists and where humans retain decisions",
       "a clear statement of the limits and known failure modes of the integration"
     ],
-    "explanation": ""
+    "explanation": "Honest descriptions of Claude's role and human decision ownership, together with clear limitations, set accurate stakeholder expectations."
   },
   {
     "id": 46,
@@ -667,7 +667,7 @@ export const claudeAssociateSet3Questions = [
       "drafting an internal training summary from approved internal documentation",
       "synthesizing themes across approved customer feedback under aggregation rules"
     ],
-    "explanation": ""
+    "explanation": "Approved internal documentation and feedback aggregated under the applicable rules support bounded summarization and synthesis."
   },
   {
     "id": 47,
@@ -681,7 +681,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Flag the conflicts in the requirements document, document the source for each side, and route the conflicts back to the originating stakeholders for resolution."
     ],
-    "explanation": ""
+    "explanation": "Recording conflicting requirements with their sources preserves traceability, and the originating stakeholders must resolve incompatible needs."
   },
   {
     "id": 48,
@@ -695,7 +695,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Create a Project, which provides a persistent workspace with its own knowledge base and custom instructions shared across chats and members."
     ],
-    "explanation": ""
+    "explanation": "A Project keeps shared knowledge and instructions available across related chats and team members."
   },
   {
     "id": 49,
@@ -709,7 +709,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Can each specific claim be traced to a credible source or to the supplied input material?"
     ],
-    "explanation": ""
+    "explanation": "Tracing each claim to credible evidence checks what supports it rather than relying on confident or plausible wording."
   },
   {
     "id": 50,
@@ -723,7 +723,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "3,5,1,2,4"
     ],
-    "explanation": ""
+    "explanation": "Restate the acceptance criteria, read the case for an initial view, compare it with source data and required topics, record gaps, then decide whether to use, revise, or escalate."
   },
   {
     "id": 51,
@@ -739,7 +739,7 @@ export const claudeAssociateSet3Questions = [
       "Standardize the input file format the step expects, so each run of the Code Execution step receives consistent input and produces comparable, verifiable output across recurring weekly cycles.",
       "Define a brief output verification step in which the human reviewer confirms the computed result against an expected range or sanity check before the output advances to downstream consumers."
     ],
-    "explanation": ""
+    "explanation": "Consistent input formats support repeatable processing, and human verification against a range or sanity check can catch errors before downstream use."
   },
   {
     "id": 52,
@@ -755,7 +755,7 @@ export const claudeAssociateSet3Questions = [
       "a clear statement of the task that the model must perform",
       "relevant context such as the audience and the goal of the task"
     ],
-    "explanation": ""
+    "explanation": "A clear task states what the model should do, and audience and goal context help tailor the result."
   },
   {
     "id": 53,
@@ -769,7 +769,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "The prompt's task statement did not enumerate the three required questions explicitly enough for Claude to address each one in turn."
     ],
-    "explanation": ""
+    "explanation": "Explicitly enumerating each required question makes the expected coverage clear and helps prevent omissions."
   },
   {
     "id": 54,
@@ -783,7 +783,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Define evaluation criteria first, gather vendor data against those criteria, then score and rank."
     ],
-    "explanation": ""
+    "explanation": "Criteria established before research let vendor evidence be gathered consistently and then used to score and rank options."
   },
   {
     "id": 55,
@@ -799,7 +799,7 @@ export const claudeAssociateSet3Questions = [
       "Iteration is most productive when each change targets a specific diagnosed weakness.",
       "Output comparison against original criteria validates whether iteration helped."
     ],
-    "explanation": ""
+    "explanation": "Targeting a diagnosed weakness makes each change informative, and comparison with the original criteria reveals whether it improved the output."
   },
   {
     "id": 56,
@@ -815,7 +815,7 @@ export const claudeAssociateSet3Questions = [
       "factual accuracy of the claims made against the supplied source material",
       "alignment of the output with the requested format and length constraints"
     ],
-    "explanation": ""
+    "explanation": "Checking claims against sources tests factual accuracy, while checking format and length tests compliance with the requested deliverable."
   },
   {
     "id": 57,
@@ -829,7 +829,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Describe what Claude can reliably produce for the use case, the known limitations, and the human oversight that will remain in place, calibrated to the audience's familiarity with AI."
     ],
-    "explanation": ""
+    "explanation": "Audience-calibrated communication accurately describes reliable capabilities, known limits, and the human oversight that remains."
   },
   {
     "id": 58,
@@ -843,7 +843,7 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "More capable models generally consume more of the rate limit and run more slowly, while lighter models are faster and consume less of the rate limit."
     ],
-    "explanation": ""
+    "explanation": "More capable models generally use more rate limit and respond more slowly, while lighter models prioritize speed and efficiency."
   },
   {
     "id": 59,
@@ -859,7 +859,7 @@ export const claudeAssociateSet3Questions = [
       "asking clarifying questions when feedback is ambiguous before acting on it",
       "mapping each piece of feedback to the specific change made in the next draft"
     ],
-    "explanation": ""
+    "explanation": "Clarifying ambiguous comments ensures the intended change is understood, and mapping comments to revisions makes follow-through visible."
   },
   {
     "id": 60,
@@ -873,6 +873,6 @@ export const claudeAssociateSet3Questions = [
     "answer": [
       "Name Claude's role as a course designer, require alignment to the organization's instructional-design standards, and specify the preferred output structure for lesson outlines."
     ],
-    "explanation": ""
+    "explanation": "Naming the role and instructional standards sets the design expectations, while specifying the outline structure makes recurring outputs consistent."
   }
 ]

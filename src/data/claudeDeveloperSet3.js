@@ -11,7 +11,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "include explicit constraints describing the required JSON schema and an instruction to produce only output matching that schema."
     ],
-    "explanation": "Explicit schema constraints in the prompt directly guide the model to produce compliant output; the other options either introduce inconsistency, rely on fragile post-processing, or abdicate format control entirely."
+    "explanation": "Explicit schema constraints guide Claude to produce output that matches the required JSON shape."
   },
   {
     "id": 103,
@@ -25,7 +25,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Categorize errors by severity based on impact and recoverability, then route each category to the appropriate channel for paging or logging."
     ],
-    "explanation": "Categorizing errors by severity and impact enables proper triage, matching the requirement to differentiate paging vs. logging; the alternatives either over-alert, under-differentiate, or lose data."
+    "explanation": "Classifying errors by impact and recoverability lets the application route urgent failures for paging and lower-severity issues for logging."
   },
   {
     "id": 104,
@@ -39,7 +39,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Apply a context-management pattern that summarizes or prunes older tool outputs while preserving the active task state."
     ],
-    "explanation": "The core issue is context dilution/burying, which is directly addressed by summarization/pruning (context management), not merely by reducing tool call count or window size, which don't fix information getting buried."
+    "explanation": "Summarizing or pruning older tool outputs while preserving active task state keeps relevant information accessible as the conversation grows."
   },
   {
     "id": 105,
@@ -53,7 +53,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Initialize Claude Code in the repository and document the standards and project-specific context in a CLAUDE.md file at the repository root."
     ],
-    "explanation": "CLAUDE.md is Claude Code's designated mechanism for persistent, automatically-loaded project context and standards, ensuring consistency across all developers using the repo."
+    "explanation": "A repository-root CLAUDE.md provides shared, persistent project standards and context that Claude Code can load for team sessions."
   },
   {
     "id": 106,
@@ -67,7 +67,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "extended thinking, which lets the model reason through the differential diagnosis steps before producing the final recommendation."
     ],
-    "explanation": "Extended thinking is designed exactly for multi-step reasoning tasks requiring weighing evidence and showing intermediate steps, unlike the other options which sacrifice reasoning depth or simplicity at the cost of quality."
+    "explanation": "Extended thinking supports multi-step reasoning by allowing the model to weigh evidence across hypotheses before producing a recommendation."
   },
   {
     "id": 107,
@@ -81,7 +81,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Apply skepticism toward confident output by adding validation steps, sourcing requirements, or confidence calibration before treating outputs as ground truth."
     ],
-    "explanation": "Adding validation, sourcing, and confidence calibration systematically addresses the accuracy gap; manual review of everything doesn't scale, disclaimers alone don't fix the underlying gap, and temperature does not affect factual accuracy."
+    "explanation": "Validation, sourcing requirements, and confidence calibration help ensure outputs are checked before downstream systems rely on them as ground truth."
   },
   {
     "id": 108,
@@ -95,7 +95,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Apply compaction to summarize older portions of the conversation so the gist remains while the specifics carry less weight."
     ],
-    "explanation": "Compaction preserves useful gist while de-emphasizing stale specifics, directly countering drift, whereas resetting/truncating lose needed context and increasing window size does not fix weighting of stale info."
+    "explanation": "Compaction summarizes older conversation content, preserving useful context while reducing the influence of stale details."
   },
   {
     "id": 109,
@@ -109,7 +109,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Explain that LLMs generate output token by token, and variation in how prompt content appears in output is a property of generation, not a bug in request construction."
     ],
-    "explanation": "Output variability across identical prompts is an inherent property of LLM sampling/token-by-token generation, not a request-construction bug or purely a model-version issue; option D correctly identifies the root cause."
+    "explanation": "LLMs generate responses token by token, so prompt content may be repeated or paraphrased without indicating a request-construction bug."
   },
   {
     "id": 110,
@@ -123,7 +123,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Add Claude hooks that intercept database operations and apply deterministic checks, such as blocking destructive queries or requiring approval, before the queries execute."
     ],
-    "explanation": "Deterministic hooks that intercept and block/require approval for destructive queries provide a hard guarantee, unlike prompt instructions (probabilistic) or model choice/scheduling, which don't reliably prevent destructive actions."
+    "explanation": "Hooks can intercept database operations and apply deterministic checks, such as blocking destructive queries or requiring approval before execution."
   },
   {
     "id": 111,
@@ -137,7 +137,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Validate the tool_use block's arguments against the tool schema before dispatching the tool and handle invalid arguments as a recognized error path."
     ],
-    "explanation": "Explicit schema validation before dispatch with a defined error path is the robust engineering solution; blind retrying, unsafe dispatch, or abandoning tool calling are all worse approaches."
+    "explanation": "Validating tool arguments against the schema before dispatch, with a defined error path, prevents malformed calls from reaching downstream systems."
   },
   {
     "id": 112,
@@ -151,7 +151,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use the SDK's tool interface and let the SDK handle the loop, dispatch, and history."
     ],
-    "explanation": "Using the SDK's built-in loop, dispatch, and history management avoids reinventing agentic infrastructure, which is precisely what the SDK is designed to provide."
+    "explanation": "The Agent SDK can manage the tool-use loop, dispatch, and conversation history for structured multi-step work."
   },
   {
     "id": 113,
@@ -165,7 +165,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use prompt caching to reuse the static portions of the conversation context across turns instead of paying for them on every request the application sends."
     ],
-    "explanation": "Prompt caching directly reduces the token cost of resending unchanged conversation history without losing fidelity, unlike summarization (loses information), truncation (loses context), or batch API (wrong use case, not built for interactive turns)."
+    "explanation": "Prompt caching reuses unchanged conversation context across requests, reducing the cost of processing repeated input."
   },
   {
     "id": 114,
@@ -179,7 +179,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "a workflow for the standard path with an agent invoked at the decision point for unexpected formats."
     ],
-    "explanation": "Combining a deterministic workflow for the well-understood path with agent invocation only at the decision point matches the actual complexity profile; full autonomy or manager/subagent architectures are overengineered for mostly-standard work."
+    "explanation": "A workflow handles the well-understood invoice path, while an agent can make decisions when an unexpected format needs rerouting, clarification, or human review."
   },
   {
     "id": 115,
@@ -193,7 +193,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Establish a single source of truth for prompts, version-control them alongside code, and require code review for prompt changes."
     ],
-    "explanation": "Version-controlling prompts with mandatory code review directly fixes the inconsistency and the unreviewed-change problem; the other options either bypass review or make prompts harder to track."
+    "explanation": "Keeping prompts in one version-controlled source alongside code and reviewing changes makes prompt behavior traceable and governed."
   },
   {
     "id": 116,
@@ -207,7 +207,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Identify which property matters more for the application's actual use case and let that decision drive the chunking approach, then validate the choice against representative contracts."
     ],
-    "explanation": "The team hasn't decided which quality property (citation accuracy vs. cross-section reasoning) matters most for the use case — that decision must come first, then validate with representative contracts, rather than jumping straight to validating one specific approach."
+    "explanation": "Choose whether citation accuracy or cross-section reasoning matters more for the use case, then validate that processing approach on representative contracts."
   },
   {
     "id": 117,
@@ -221,7 +221,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "A smaller, faster Claude model, because the task is straightforward and the workload prioritizes latency and per-request cost at scale."
     ],
-    "explanation": "For straightforward, high-volume, latency- and cost-sensitive tasks, a smaller/faster model is the right fit — matching model capability to task complexity is a core best practice, not defaulting to biggest or most complex options."
+    "explanation": "A smaller, faster model fits straightforward classification when low latency and per-request cost matter at high volume."
   },
   {
     "id": 118,
@@ -235,7 +235,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Add explicit plugin version tracking to the project's configuration so the team can identify, pin, and upgrade plugin versions deliberately."
     ],
-    "explanation": "Explicit version tracking/pinning directly solves the root problem — inability to identify and roll back to a known-good version — without the cost of abandoning plugins or blindly auto-upgrading."
+    "explanation": "Tracking and pinning plugin versions lets the team identify known-good releases and manage upgrades deliberately."
   },
   {
     "id": 119,
@@ -249,7 +249,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "The batch API, which is designed for non-interactive workloads with flexible completion windows."
     ],
-    "explanation": "The batch API is purpose-built for exactly this scenario — large volume, non-interactive, flexible completion window — at lower cost than realtime processing."
+    "explanation": "The Batch API is designed for high-volume, non-interactive work with a flexible completion window."
   },
   {
     "id": 120,
@@ -263,7 +263,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "The SDK provides default retry behavior for many transient errors, and the application code can configure or extend that behavior as needed."
     ],
-    "explanation": "The Claude SDKs provide built-in, configurable default retry behavior for transient errors including rate limits and network issues, which the application can further customize."
+    "explanation": "The SDK retries many transient errors by default and allows the application to configure or extend that behavior."
   },
   {
     "id": 121,
@@ -277,7 +277,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "define a clear schema, structure the prompt to request output in that schema, and validate Claude's output against the schema before passing it downstream."
     ],
-    "explanation": "Defining a schema, prompting for it, and validating before passing downstream provides the full closed-loop safety needed when malformed JSON is rejected — validation must happen at the source, not left entirely to downstream systems."
+    "explanation": "Defining the schema, requesting that shape, and validating the response before downstream use provides a complete structured-output check."
   },
   {
     "id": 122,
@@ -291,7 +291,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Build a cost model that combines expected request volume, average input tokens, average output tokens, the chosen model's pricing, and any caching benefits."
     ],
-    "explanation": "A proper cost projection must account for all relevant factors given (volume, input/output tokens, pricing, caching) rather than omitting output tokens, deferring token estimates, or relying on an unrelated prior application's costs."
+    "explanation": "A cost projection should include expected volume, input and output tokens, model pricing, and applicable caching benefits."
   },
   {
     "id": 123,
@@ -305,7 +305,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Define the Skill in a Skills directory recognized by Claude Code, where Claude can discover and load it during sessions for the team's repositories."
     ],
-    "explanation": "Claude Code Skills are meant to live in a recognized Skills directory for automatic discovery and reuse, unlike ad hoc personal directories, source-code modules, or bloating CLAUDE.md with inline instructions."
+    "explanation": "A Claude Code Skills directory lets Claude discover and load reusable Skill instructions and supporting resources during sessions."
   },
   {
     "id": 124,
@@ -319,7 +319,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Introduce a orchestrator agent that delegates billing, shipping, and product sub-issues to a dedicated subagent."
     ],
-    "explanation": "An orchestrator delegating each independent sub-issue to a dedicated subagent cleanly separates state tracking per domain, resolving the confusion; larger context or prompting alone doesn't fix the structural issue, and a fixed sequence is too rigid for tickets that may not need every category."
+    "explanation": "An orchestrator can delegate billing, shipping, and product sub-issues to specialized subagents and track their progress separately."
   },
   {
     "id": 125,
@@ -333,7 +333,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Apply context engineering techniques such as tool output pruning or compaction to keep the active task state visible while reducing the volume of older content."
     ],
-    "explanation": "Pruning/compaction directly reduces noise while preserving essential task state, addressing focus loss without losing all history (as in restarting) or removing tool use altogether or relying on ever-larger windows."
+    "explanation": "Pruning or compacting older tool outputs while preserving active task state reduces context clutter and keeps important constraints visible."
   },
   {
     "id": 126,
@@ -347,7 +347,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use a CLAUDE.md hierarchy that scopes general standards broadly and project-specific context within each repository's local CLAUDE.md."
     ],
-    "explanation": "A hierarchical CLAUDE.md setup (broad/general + local/project-specific) eliminates duplication while preserving both shared standards and per-repo context, unlike abandoning CLAUDE.md or external docs or cross-linking a single repo's file."
+    "explanation": "A CLAUDE.md hierarchy applies general standards broadly and keeps repository-specific guidance in each project?s local file."
   },
   {
     "id": 127,
@@ -361,7 +361,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Add output validation that parses Claude's response against the expected schema and treats malformed output as a recognized error path with retry or fallback handling."
     ],
-    "explanation": "Schema validation with defined retry/fallback error handling directly and scalably addresses occasional malformed output, unlike manual review (doesn't scale), blind retry loops (no guarantee, adds latency), or abandoning structured output entirely."
+    "explanation": "Schema validation with a defined retry or fallback path catches malformed output before downstream processing."
   },
   {
     "id": 128,
@@ -375,7 +375,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Restructure the tool set by consolidating overlapping tools, removing unused tools, and clarifying tool descriptions so each tool has a distinct purpose."
     ],
-    "explanation": "Consolidating overlapping tools and clarifying distinct purposes directly reduces selection ambiguity; adding more tools worsens overlap, and removing all tools discards needed functionality."
+    "explanation": "Consolidating overlapping tools, removing unused ones, and clarifying each remaining tool?s purpose reduces selection ambiguity."
   },
   {
     "id": 129,
@@ -389,7 +389,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Consolidate behavioral and format instructions in the system prompt and keep user messages focused on the user's input."
     ],
-    "explanation": "Consolidating behavioral/format instructions in the system prompt (with user messages carrying only the actual input) is standard prompt engineering practice that eliminates the scattering/duplication causing inconsistency."
+    "explanation": "Centralizing stable behavior and format instructions in the system prompt, while keeping user messages focused on input, creates a consistent separation of roles."
   },
   {
     "id": 130,
@@ -403,7 +403,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Author the server with clearly defined resources, tools, and prompts, choose a communication pattern, and deploy to an accessible hosting environment."
     ],
-    "explanation": "Properly authoring an MCP server with well-defined resources/tools/prompts and deploying to an accessible shared environment is the correct approach for multi-application reuse, unlike per-developer-only deployment, ad hoc scoping, or bypassing MCP entirely."
+    "explanation": "Clearly defining MCP resources, tools, and prompts, selecting a suitable communication pattern, and deploying accessibly supports reuse by multiple applications."
   },
   {
     "id": 131,
@@ -417,7 +417,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "operating and maintaining the system, including monitoring, responding to issues, and planning evolution."
     ],
-    "explanation": "After shipping, the natural next lifecycle phase is ongoing operation and maintenance — monitoring, incident response, and iterative improvement — not a one-time review, full handoff, or retirement."
+    "explanation": "After launch, the application enters ongoing operation and maintenance, including monitoring, incident response, and planned improvements."
   },
   {
     "id": 132,
@@ -431,7 +431,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "validated and sanitized before being incorporated into prompts, and treated as data the model should not interpret as instructions."
     ],
-    "explanation": "Treating untrusted input as data (not instructions) and validating/sanitizing it is the standard security best practice against prompt injection, unlike offloading risk elsewhere, blocking all external input, or treating it as equally trusted."
+    "explanation": "Treating untrusted input as data, and validating and sanitizing it before use, helps reduce prompt-injection risk."
   },
   {
     "id": 133,
@@ -445,7 +445,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Examine production traces to identify whether the issue is hallucination by the model, context loss, prompt injection, or another failure mode before recommending a fix."
     ],
-    "explanation": "Diagnosing the actual root cause via production traces before acting is the correct debugging discipline — jumping to a fix (RAG, bigger model, prompt tweak) without confirming the failure mode risks solving the wrong problem."
+    "explanation": "Inspecting production traces first helps identify the actual failure mode before selecting a corrective change."
   },
   {
     "id": 134,
@@ -459,7 +459,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use the Claude SDK's async client and structure Claude calls as awaitable operations alongside the rest of the service's async code."
     ],
-    "explanation": "Using the SDK's async client keeps calls consistent with the existing async architecture without blocking the event loop, unlike synchronous blocking calls, an unnecessary rewrite, or an unneeded separate thread pool."
+    "explanation": "The SDK?s async client keeps Claude requests awaitable within the existing asynchronous service without blocking its event loop."
   },
   {
     "id": 135,
@@ -473,7 +473,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Define the application boundary explicitly, identify what content can leave the boundary for Claude, and add filtering or redaction at the boundary."
     ],
-    "explanation": "Explicitly defining the trust boundary and applying filtering/redaction there prevents sensitive data from ever reaching Claude, which is more robust than reactive log review, iterative-only pattern coverage, or relying on prompt instructions (which don't prevent data transmission)."
+    "explanation": "Defining the trust boundary and filtering or redacting sensitive content there prevents it from being sent to Claude."
   },
   {
     "id": 136,
@@ -487,7 +487,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Consolidate the configuration into a version-controlled system documenting model version pinning, prompt versioning, and plugin dependencies for each environment."
     ],
-    "explanation": "Consolidating scattered configuration into a documented, version-controlled system directly resolves the tracking/consistency problem, unlike unpinning versions, hardcoding, or forcing identical configs across environments with legitimately different needs."
+    "explanation": "A version-controlled configuration documents and tracks model, prompt, and plugin versions for each environment."
   },
   {
     "id": 137,
@@ -501,7 +501,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Store the keys in a secrets manager or environment-specific configuration that is not checked into source code, and load them at runtime."
     ],
-    "explanation": "A secrets manager or environment-based configuration kept out of source control is standard secure credential management, unlike shared keys, committing secrets to the repo, or ad hoc emailing of keys."
+    "explanation": "A secrets manager or environment-specific configuration keeps API keys out of source control and makes them available at runtime."
   },
   {
     "id": 138,
@@ -515,7 +515,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Ask the product team to specify quality, latency, and cost targets, then select the model whose tradeoffs best fit those targets."
     ],
-    "explanation": "Model selection requires clarifying the actual quality/latency/cost tradeoffs rather than guessing; the other options substitute assumptions or generic benchmarks for the missing requirements."
+    "explanation": "Quality, latency, and cost targets clarify the tradeoffs needed to select a suitable model."
   },
   {
     "id": 139,
@@ -529,7 +529,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "adjust the prompts to constrain output format, re-run evals against the expected parsing layer schema, then roll out the model out with a feature flag and the option to revert per workflow."
     ],
-    "explanation": "Proactively adjusting prompts and validating against the parsing schema before a controlled, reversible rollout addresses the known formatting risk directly, unlike never upgrading, upgrading blind and fixing reactively, or a broader rewrite that doesn't address the immediate compatibility issue."
+    "explanation": "Constrain the prompts, validate the new model against the downstream schema, and use a feature-flagged rollout with per-workflow rollback."
   },
   {
     "id": 140,
@@ -543,7 +543,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Apply a checkpointing pattern that persists the agent's intermediate state and reloads that state when resuming an interrupted task."
     ],
-    "explanation": "Checkpointing that persists and reloads intermediate state is the direct implementation of the requested resumability, unlike hoping interruptions won't happen, wasting all progress on restart, or costly redundant parallel runs."
+    "explanation": "Checkpointing persists intermediate state so an interrupted task can resume from its latest saved checkpoint."
   },
   {
     "id": 141,
@@ -557,7 +557,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use the Claude Python SDK and let it handle authentication, retries, and response parsing through its standard documented patterns for Python integrations."
     ],
-    "explanation": "Using the official SDK's built-in handling of auth, retries, and parsing is the standard, most maintainable approach, unlike bypassing it via shell commands, raw HTTP, or an unrelated provider's SDK with translation overhead."
+    "explanation": "The Claude Python SDK provides documented integration patterns and handles common concerns such as authentication, retries, and response parsing."
   },
   {
     "id": 142,
@@ -571,7 +571,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use separate Claude calls for triage and response, because each stage has distinct inputs, outputs, and success criteria that benefit from focused prompts."
     ],
-    "explanation": "Separating distinct stages with different inputs/outputs/success criteria into focused calls typically improves quality and maintainability, versus forcing one call to do both, unnecessary parallel drafting/selection, or replacing generation with rigid rules unsuited to drafting replies."
+    "explanation": "Separate triage and response calls can use focused prompts, outputs, validation, and success criteria for their distinct objectives."
   },
   {
     "id": 143,
@@ -585,7 +585,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "interpret the functional and infrastructure requirements implied by the business goal."
     ],
-    "explanation": "Translating a vague business goal into functional/infrastructure requirements is the necessary first step before looking at precedents, asking users, or evaluating specific model tiers, all of which are premature without first defining the requirements."
+    "explanation": "Translate the business goal into functional and infrastructure requirements before defining the technical approach."
   },
   {
     "id": 144,
@@ -599,7 +599,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Self-hosting under BYOC to satisfy the data residency requirement, while working with the infrastructure team to reduce the operational overhead of managing the deployment."
     ],
-    "explanation": "Data residency is a hard compliance requirement that BYOC satisfies directly; deploying on hosted infrastructure now and dealing with compliance later, or trying to change policy to avoid the requirement, both risk violating existing constraints."
+    "explanation": "BYOC supports the required data residency control; the infrastructure team can help manage the operational overhead."
   },
   {
     "id": 145,
@@ -613,7 +613,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Explain that temperature controls sampling randomness and is unrelated to context capacity, then address the context issue through summarization or chunking."
     ],
-    "explanation": "Temperature affects output randomness, not context window capacity — the correct response corrects this misconception and points to actual context-management solutions like summarization or chunking."
+    "explanation": "Temperature controls sampling randomness, not context capacity; summarization or chunking addresses long-transcript context pressure."
   },
   {
     "id": 146,
@@ -627,7 +627,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Identify the failure mode as format drift, examine how the conversation context evolves over turns, and address the drift through context management or output validation."
     ],
-    "explanation": "Correctly identifying this as format drift tied to conversation context growth, then applying context management/validation, addresses the root cause, unlike swapping models, truncating output destructively, or restarting every turn (which loses conversation continuity)."
+    "explanation": "Examining how conversation context changes over turns helps diagnose format drift and guide context management or output validation."
   },
   {
     "id": 147,
@@ -641,7 +641,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Define the tool with a clear schema, write a precise description for when to call it, and handle pricing service errors explicitly."
     ],
-    "explanation": "Clear schemas, precise descriptions, and explicit error handling are foundational tool-design best practices; omitting error handling, descriptions, or schema precision all increase failure risk."
+    "explanation": "A clear schema and tool description guide use, while explicit error handling manages pricing-service failures."
   },
   {
     "id": 148,
@@ -655,7 +655,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "automated tests of the Claude integration, linting, and any other standard quality gates the team applies to its other services."
     ],
-    "explanation": "Treating the Claude integration as just another component subject to the team's normal CI quality gates (tests, linting, etc.) is the standard, scalable approach, unlike omitting linting, making integration testing manual, or an excessive full production deploy per PR."
+    "explanation": "CI checks should include Claude integration tests, linting, and the team?s other standard quality gates."
   },
   {
     "id": 149,
@@ -669,7 +669,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "As a Skill or MCP server because both are purpose-built for cross-team reuse independently by each consuming team."
     ],
-    "explanation": "Skills and MCP servers are specifically designed for reusable, independently-invokable capabilities across teams/agents, unlike a copy-pasted embedded tool or a shared library requiring each team to manage updates."
+    "explanation": "A Skill or MCP server can expose a reusable capability for independent use across teams."
   },
   {
     "id": 150,
@@ -683,7 +683,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Use subagents or multi-step workflows so each research step receives only the context it needs for its reasoning."
     ],
-    "explanation": "Using subagents/multi-step workflows to give each step exactly the context it needs precisely matches the stated requirement (some steps need everything, others need only the current question) — a one-size lookback window or summary-for-everyone doesn't respect this per-step distinction."
+    "explanation": "Subagents or multi-step workflows let each research step receive only the context it needs."
   },
   {
     "id": 151,
@@ -697,7 +697,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "layer multiple guardrails so a single guardrail failure does not expose the application to unsafe behavior."
     ],
-    "explanation": "Defense-in-depth via layered guardrails ensures no single point of failure exposes the application, directly matching the stated requirement, unlike relying on one comprehensive guardrail, one layer only (output), or model built-ins alone."
+    "explanation": "Layered guardrails provide defense in depth so one guardrail failure does not expose unsafe behavior."
   },
   {
     "id": 152,
@@ -711,7 +711,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Add token usage tracking by feature to the application's logging so the team can identify which features drive cost before recommending changes."
     ],
-    "explanation": "Adding per-feature tracking directly addresses the stated lack of visibility, enabling informed decisions, unlike blind uniform cuts, blanket model downgrades, or declaring investigation pointless."
+    "explanation": "Per-feature token tracking reveals which parts of the application drive costs and informs targeted optimization."
   },
   {
     "id": 153,
@@ -725,7 +725,7 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "matches the use case's scope, reuse needs, and integration context."
     ],
-    "explanation": "Choosing based on the use case's actual scope, reuse needs, and integration context is the principled approach, rather than picking based on novelty, ease, or familiarity alone, which can lead to a mismatched architecture."
+    "explanation": "The appropriate capability depends on the use case?s scope, reuse needs, and integration context."
   },
   {
     "id": 154,
@@ -739,6 +739,6 @@ export const claudeDeveloperSet3Questions = [
     "answer": [
       "Audit the prompt for overlap, contradiction, and obsolete content, then refactor so each instruction is clear, current, and non-redundant."
     ],
-    "explanation": "A full audit and refactor to remove overlap, contradiction, and obsolete content directly fixes the root problem, unlike splitting the prompt (doesn't resolve contradictions), adding more instructions (worsens bloat), or partial fixes that leave other issues unaddressed."
+    "explanation": "Auditing and refactoring the prompt to remove overlap, contradictions, and obsolete instructions makes its guidance clear and current."
   }
 ]

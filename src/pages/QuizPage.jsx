@@ -1,6 +1,7 @@
 import AppHeader from '../components/AppHeader'
 import ArtifactPanel from '../components/ArtifactPanel'
 import ButtonIcon from '../components/ButtonIcon'
+import { getCorrectOptionLetters } from '../utils/getCorrectOptionLetters'
 
 function QuizPage({
   selectedPart,
@@ -25,6 +26,8 @@ function QuizPage({
   const selectionLimitReached = selectedAnswers.length >= maxSelectableAnswers
   const isLast = currentIndex >= totalQuestions - 1
   const progress = ((currentIndex + 1) / totalQuestions) * 100
+  const correctOptionLetters = getCorrectOptionLetters(currentQuestion)
+  const correctOptionLabel = correctOptionLetters.length === 1 ? 'Correct Option' : 'Correct Options'
   const statusTone = currentChecked ? (currentChecked.isCorrect ? 'success' : 'danger') : 'muted'
   const statusText = currentChecked ? (currentChecked.isCorrect ? 'Correct' : 'Review needed') : 'In progress'
 
@@ -34,10 +37,20 @@ function QuizPage({
         onHome={onHome}
         crumbs={[selectedPart]}
         actions={
-          <div className="score-badge" aria-label={`Score ${percentage}%`}>
-            <span>Score</span>
-            <strong>{percentage}%</strong>
-          </div>
+          <>
+            <button
+              className="btn btn-ghost btn-sm"
+              onClick={onHome}
+              aria-label="Return to home"
+              title="Home"
+            >
+              <ButtonIcon name="home" /> <span className="hide-sm">Home</span>
+            </button>
+            <div className="score-badge" aria-label={`Score ${percentage}%`}>
+              <span>Score</span>
+              <strong>{percentage}%</strong>
+            </div>
+          </>
         }
       />
 
@@ -120,7 +133,7 @@ function QuizPage({
               onClick={onCheckAnswer}
               disabled={!selectedAnswers.length || !!currentChecked}
             >
-              <ButtonIcon name="check" /> Check
+              <ButtonIcon name="check" /> Check Answer
             </button>
             <div className="btn-row">
               <button className="btn btn-ghost" onClick={onPrevious} disabled={currentIndex === 0} aria-label="Previous question">
@@ -148,8 +161,9 @@ function QuizPage({
                 <ButtonIcon name={currentChecked.isCorrect ? 'check' : 'x'} />
                 {currentChecked.isCorrect ? 'Correct answer' : 'Review this one'}
               </h2>
+              <p><strong>{correctOptionLabel}:</strong> {correctOptionLetters.join(', ')}</p>
               <p>
-                {currentQuestion.explanation ||
+                <strong>Why:</strong> {currentQuestion.explanation ||
                   (currentChecked.isCorrect
                     ? 'Nice work — this one is correct.'
                     : 'Review the highlighted correct option and keep going.')}

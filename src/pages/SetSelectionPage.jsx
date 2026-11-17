@@ -1,6 +1,34 @@
 import AppHeader from '../components/AppHeader'
 import ButtonIcon from '../components/ButtonIcon'
 
+const STUDY_COURSE_LINKS = [
+  {
+    testKey: 'gh300',
+    label: 'GitHub Copilot Fundamentals',
+    href: 'https://learn.microsoft.com/en-us/credentials/certifications/github-copilot/?practice-assessment-type=certification'
+  },
+  {
+    testKey: 'gh300',
+    label: 'GH-300 Study Guide',
+    href: 'https://learn.microsoft.com/en-us/credentials/certifications/resources/study-guides/gh-300'
+  },
+  {
+    testKey: 'claude-associate',
+    label: 'Claude Associate Path',
+    href: 'https://anthropic-partners.skilljar.com/path/claude-associate'
+  },
+  {
+    testKey: 'claude-developer',
+    label: 'Claude Developer Path',
+    href: 'https://anthropic-partners.skilljar.com/path/claude-developer'
+  },
+  {
+    testKey: 'claude',
+    label: 'Anthropic Courses',
+    href: 'https://anthropic.skilljar.com/'
+  }
+]
+
 function SetSelectionPage({
   test,
   mode,
@@ -17,6 +45,9 @@ function SetSelectionPage({
   const isClaudeCertification = test.key === 'claude-associate' || isClaudeDeveloper
   const isStudy = mode === 'study'
   const trackCode = isGh300 ? 'GH-300' : isClaudeDeveloper ? 'CCDV-F' : 'Claude Associate'
+  const courseLinks = STUDY_COURSE_LINKS.filter((course) =>
+    course.testKey === test.key || (course.testKey === 'claude' && isClaudeCertification)
+  )
 
   const items = isGh300
     ? parts.map((part) => ({
@@ -96,16 +127,45 @@ function SetSelectionPage({
               <ButtonIcon name="play" /> Practice quiz
             </button>
             <button aria-pressed={isStudy} className={isStudy ? 'active' : ''} onClick={() => onModeChange('study')}>
-              <ButtonIcon name="book" /> Study questions
+              <ButtonIcon name="book" /> Study Materials
             </button>
           </div>
-
-          {isStudy && (
-            <button className="btn btn-secondary btn-sm" onClick={onDownloadUniquePdf}>
-              <ButtonIcon name="download" /> Q&amp;A PDF
-            </button>
-          )}
         </div>
+
+        {isStudy && (
+          <>
+            <section className="stack" aria-labelledby="course-links-heading">
+              <div className="section-head">
+                <h2 id="course-links-heading">Courses Links</h2>
+              </div>
+              {courseLinks.length > 0 && (
+                <div className="grid study-course-links">
+                  {courseLinks.map((course) => (
+                    <a
+                      className="study-course-link"
+                      href={course.href}
+                      key={course.href}
+                      rel="noopener noreferrer"
+                      target="_blank"
+                    >
+                      <span>{course.label}</span>
+                      <ButtonIcon name="open" />
+                    </a>
+                  ))}
+                </div>
+              )}
+            </section>
+
+            <section className="stack" aria-labelledby="study-pdf-heading">
+              <div className="section-head">
+                <h2 id="study-pdf-heading">Download Question Answer PDF</h2>
+              </div>
+              <button className="btn btn-secondary btn-sm study-pdf-button" onClick={onDownloadUniquePdf}>
+                <ButtonIcon name="download" /> Download Complete Q&amp;A Sets PDF
+              </button>
+            </section>
+          </>
+        )}
 
         {items.length ? (
           <section className="stack" aria-labelledby="set-list-heading">

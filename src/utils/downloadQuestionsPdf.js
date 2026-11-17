@@ -1,4 +1,5 @@
 import { jsPDF } from 'jspdf'
+import { getCorrectOptionLetters } from './getCorrectOptionLetters'
 
 const PAGE_MARGIN = 18
 
@@ -60,13 +61,16 @@ export function downloadQuestionsPdf(questions, title) {
 
   const drawQuestionCard = (question, index) => {
     const answers = Array.isArray(question.answer) ? question.answer : [question.answer]
-    const correctAnswerLetters = question.options
-      .flatMap((option, optionIndex) => answers.includes(option) ? [String.fromCharCode(65 + optionIndex)] : [])
+    const correctAnswerLetters = getCorrectOptionLetters(question)
     const correctAnswerText = correctAnswerLetters.join(', ')
+    const correctOptionLabel = correctAnswerLetters.length === 1 ? 'Correct Option' : 'Correct Options'
     const questionLines = getLines(question.question, 11, true, contentWidth - cardPadding * 2)
     const optionRows = getOptionRows(question.options, answers)
     const explanationLines = question.explanation
-      ? getLines(question.explanation, 9, false, contentWidth - cardPadding * 2 - 8)
+      ? [
+          ...getLines(`${correctOptionLabel}: ${correctAnswerText}`, 9, true, contentWidth - cardPadding * 2 - 8),
+          ...getLines(`Why: ${question.explanation}`, 9, false, contentWidth - cardPadding * 2 - 8)
+        ]
       : []
     const cardHeight = getQuestionCardHeight(questionLines, optionRows, explanationLines)
 
@@ -119,15 +123,11 @@ export function downloadQuestionsPdf(questions, title) {
       const explanationHeight = 7 + explanationLines.length * 4.3 + 2
       pdf.setFillColor(248, 250, 252)
       pdf.roundedRect(PAGE_MARGIN + cardPadding, cardY, contentWidth - cardPadding * 2, explanationHeight, 1.5, 1.5, 'F')
-      pdf.setFont('helvetica', 'bold')
-      pdf.setFontSize(7.5)
-      pdf.setTextColor(100, 116, 139)
-      pdf.text('EXPLANATION', PAGE_MARGIN + cardPadding + 3, cardY + 4.5)
-      pdf.setFont('helvetica', 'normal')
-      pdf.setFontSize(9)
-      pdf.setTextColor(71, 85, 105)
       explanationLines.forEach((line, lineIndex) => {
-        pdf.text(line, PAGE_MARGIN + cardPadding + 3, cardY + 9 + lineIndex * 4.3)
+        pdf.setFont('helvetica', lineIndex === 0 ? 'bold' : 'normal')
+        pdf.setFontSize(9)
+        pdf.setTextColor(71, 85, 105)
+        pdf.text(line, PAGE_MARGIN + cardPadding + 3, cardY + 5 + lineIndex * 4.3)
       })
       cardY += explanationHeight + 2
     }
@@ -138,8 +138,9 @@ export function downloadQuestionsPdf(questions, title) {
     pdf.setFont('helvetica', 'bold')
     pdf.setFontSize(7.5)
     pdf.setTextColor(21, 128, 61)
-    pdf.text('CORRECT ANSWER', PAGE_MARGIN + cardPadding + 3, cardY + 5.8)
-    const answerLabelWidth = pdf.getTextWidth('CORRECT ANSWER')
+    const answerLabel = correctAnswerLetters.length === 1 ? 'CORRECT OPTION' : 'CORRECT OPTIONS'
+    pdf.text(answerLabel, PAGE_MARGIN + cardPadding + 3, cardY + 5.8)
+    const answerLabelWidth = pdf.getTextWidth(answerLabel)
     pdf.setFontSize(9.5)
     pdf.text(correctAnswerText, PAGE_MARGIN + cardPadding + 3 + answerLabelWidth + 4, cardY + 5.8)
 

@@ -9,7 +9,7 @@
       "D": "5,3,1,4,2"
     },
     "answer": "B",
-    "explanation": "Correct: B."
+    "explanation": "Assessing the audience and impact first, then the data involved, makes it possible to review policy constraints before deciding whether to proceed and recording the rationale."
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@
       "D": "Identify the elements of the work product that must be independently verified or corrected before delivery, and take ownership of those verifications as a professional accountability obligation."
     },
     "answer": "D",
-    "explanation": "Correct: D. Identify the elements of the work product that must be independently verified or corrected before delivery, and take ownership of those verifications as a professional accountability obligation."
+    "explanation": "Diligence keeps responsibility with the human: identify what needs checking or correction, verify it independently, and own the final work product."
   },
   {
     "id": 3,
@@ -34,7 +34,7 @@
       "E": "Document the final score and the reviewer comments for the audit trail."
     },
     "answer": ["B", "C"],
-    "explanation": "Correct choices: B, C. Define the evaluation criteria that matter for the task at hand. Specify the threshold that distinguishes acceptable from unacceptable output."
+    "explanation": "Task-specific criteria define what to assess, and an acceptance threshold makes the judgment of whether output meets the bar consistent."
   },
   {
     "id": 4,
@@ -46,7 +46,7 @@
       "D": "Choose the more recent date on the basis that later sources typically reflect updated or corrected information."
     },
     "answer": "C",
-    "explanation": "Correct: C. Locate a primary or authoritative source for the event and use the date that source confirms."
+    "explanation": "A primary or authoritative record provides the strongest basis for resolving conflicting dates."
   },
   {
     "id": 5,
@@ -58,7 +58,7 @@
       "D": "Treat the assertion as unverified, and either source it from an authoritative reference or remove it."
     },
     "answer": "D",
-    "explanation": "Correct: D. Treat the assertion as unverified, and either source it from an authoritative reference or remove it."
+    "explanation": "An unsourced claim has not been verified; support it with an authoritative reference or omit it."
   },
   {
     "id": 6,
@@ -70,7 +70,7 @@
       "D": "a prompt that adds clear constraints on length and tone"
     },
     "answer": "A",
-    "explanation": "Correct: A. a prompt that names a topic but does not state the task, audience, or required output structure"
+    "explanation": "Without a defined task, audience, and output structure, the model has too little direction to produce focused, useful output."
   },
   {
     "id": 7,
@@ -82,7 +82,7 @@
       "D": "Continue using the Project and accept the drift as the new baseline of behavior."
     },
     "answer": "C",
-    "explanation": "Correct: C. Review the Project's instructions and reference materials against current standards."
+    "explanation": "Comparing Project instructions and references with current standards is a direct first step for identifying outdated or misaligned guidance."
   },
   {
     "id": 8,
@@ -94,7 +94,7 @@
       "D": "The request involves a single well-defined output with a clear input and a familiar format."
     },
     "answer": "B",
-    "explanation": "Correct: B. The request requires multiple distinct outputs: a process map, supporting materials, and a measurement plan."
+    "explanation": "A process map, supporting materials, and a measurement plan are distinct deliverables with dependencies, so planning and producing them in stages improves coherence."
   },
   {
     "id": 9,
@@ -106,7 +106,7 @@
       "D": "3,4,1,5,2"
     },
     "answer": "A",
-    "explanation": "Correct: A. 4, 3, 1, 5, 2."
+    "explanation": "Map the current steps before using time and queue data to locate a bottleneck; optimize that step, test the change with a measured pilot, and then document and roll it out."
   },
   {
     "id": 10,
@@ -119,7 +119,7 @@
       "E": "employee ID numbers and hire dates for the team roster included to help Claude personalize onboarding communications"
     },
     "answer": ["A", "B"],
-    "explanation": "Correct choices: A, B. a redacted job description that the model will adapt for a posting; an anonymized summary of an HR policy that the model will rephrase."
+    "explanation": "The redacted job description and anonymized policy summary provide the task-relevant material while minimizing identifying or sensitive employee data."
   },
   {
     "id": 11,
@@ -131,7 +131,7 @@
       "D": "Combine the original request back into one unstructured sentence."
     },
     "answer": "B",
-    "explanation": "Correct: B. Consolidate related steps into fewer cohesive sections that group naturally connected ideas."
+    "explanation": "Grouping related steps into cohesive sections preserves natural connections and makes the resulting work less fragmented."
   },
   {
     "id": 13,
@@ -143,7 +143,7 @@
       "D": "accuracy of facts against the charter, completeness against required reporting fields, and relevance to the audience receiving the report"
     },
     "answer": "D",
-    "explanation": "Correct: D. accuracy of facts against the charter, completeness against required reporting fields, and relevance to the audience receiving the report"
+    "explanation": "Checking facts against the charter, required fields for completeness, and relevance to the steering committee tests the report against its purpose and source of truth."
   },
   {
     "id": 14,
@@ -155,7 +155,7 @@
       "D": "Extract only the feedback content needed for the summary, redact or anonymize personal contact details, and submit the trimmed input."
     },
     "answer": "D",
-    "explanation": "Correct: D. Extract only the feedback content needed for the summary, redact or anonymize personal contact details, and submit the trimmed input."
+    "explanation": "Using only relevant feedback keeps the input focused, while redacting contact details protects personal information that the summary does not require."
   },
   {
     "id": 15,
@@ -167,7 +167,7 @@
       "D": "Choose Opus to maximize reasoning depth despite higher latency."
     },
     "answer": "A",
-    "explanation": "Correct: A. Choose Haiku to keep latency low and to handle a light reasoning load efficiently at scale."
+    "explanation": "A fast, lightweight model fits an interactive task with simple per-turn reasoning and a need for low latency."
   },
   {
     "id": 16,
@@ -179,7 +179,7 @@
       "D": "Use Code Execution, which runs code in a sandbox to perform calculations on the uploaded file and produce verified outputs the associate can check."
     },
     "answer": "D",
-    "explanation": "Correct: D. Use Code Execution, which runs code in a sandbox to perform calculations on the uploaded file and produce verified outputs the associate can check."
+    "explanation": "Code Execution can run repeatable calculations across spreadsheet tabs, and its results can be checked against the uploaded data."
   },
   {
     "id": 17,
@@ -192,7 +192,7 @@
       "E": "Skip permission review on the assumption that the Skill cannot exceed the boundaries of the workflow, even though Skills can request access that the task does not require."
     },
     "answer": ["A", "B"],
-    "explanation": "Correct choices: A, B. Verify the source of the Skill against the organization's approved-Skill list before enabling it within claude.ai or any Project the team uses for its work. Review the permissions and capabilities the Skill requests and confirm that the requested access is appropriate for the task the Skill is intended to perform."
+    "explanation": "Verifying the Skill's source against approved providers establishes provenance, while reviewing requested permissions ensures its access is appropriate for the intended task."
   },
   {
     "id": 18,
@@ -204,7 +204,7 @@
       "D": "Address the two specific concerns directly, leave unrelated parts unchanged, and document the changes for the next review."
     },
     "answer": "D",
-    "explanation": "Correct: D. Address the two specific concerns directly, leave unrelated parts unchanged, and document the changes for the next review."
+    "explanation": "Targeting the two identified concerns preserves accepted material, and documenting edits makes the next review traceable."
   },
   {
     "id": 19,
@@ -216,7 +216,7 @@
       "D": "Task type has no effect on the appropriate prompting strategy."
     },
     "answer": "A",
-    "explanation": "Correct: A. The prompting strategy should be adapted to each task type because one template does not produce equally strong outputs across all tasks."
+    "explanation": "Different tasks need different levels of structure and exploration, so prompts should be matched to the work rather than reused unchanged."
   },
   {
     "id": 20,
@@ -229,7 +229,7 @@
       "E": "a representative sample of past writing that reflects the team's preferred style and structure"
     },
     "answer": ["B", "C"],
-    "explanation": "Correct choices: B, C. the standard structure and the length expectations for typical deliverables; the brand voice and the tonal expectations the writing must follow."
+    "explanation": "Standard structure and length give recurring deliverables a consistent shape, while brand voice and tone keep the writing aligned with organizational expectations."
   },
   {
     "id": 21,
@@ -241,7 +241,7 @@
       "D": "1,5,3,4,2"
     },
     "answer": "B",
-    "explanation": "Correct: B. 5, 1, 3, 4, 2."
+    "explanation": "Assess the output's accuracy and completeness, establish its audience and impact, compare the risk to escalation criteria, decide how to proceed, and document the rationale."
   },
   {
     "id": 22,
@@ -253,7 +253,7 @@
       "D": "3,4,1,2,5"
     },
     "answer": "B",
-    "explanation": "Correct: B. 2, 3, 4, 1, 5."
+    "explanation": "Summarize the existing work, identify references that must persist, move them to durable project context, then start a focused chat and confirm it is on track."
   },
   {
     "id": 23,
@@ -266,7 +266,7 @@
       "E": "Review the file for sensitive, confidential, or regulated fields before upload, and remove or redact any fields that are not required for the planned Code Execution analysis."
     },
     "answer": ["B", "E"],
-    "explanation": "Correct choices: B, E. Confirm that the planned Code Execution task aligns with the organization's data classification policy and escalate to the appropriate contact if the data sensitivity exceeds approved use. Review the file for sensitive, confidential, or regulated fields before upload, and remove or redact any fields that are not required for the planned Code Execution analysis."
+    "explanation": "Checking policy alignment and escalating data beyond approved use respects classification rules; inspecting and redacting unnecessary sensitive fields minimizes exposure before upload."
   },
   {
     "id": 25,
@@ -278,7 +278,7 @@
       "D": "Invite collaborators to the Project and confirm the appropriate access levels."
     },
     "answer": "A",
-    "explanation": "Correct: A. Define the purpose of the Project and the recurring tasks it must support."
+    "explanation": "A clear purpose and workload scope determine which reference materials, instructions, and access settings the Project needs."
   },
   {
     "id": 26,
@@ -290,7 +290,7 @@
       "D": "Add a disclaimer to the description, noting that the generalization may not apply to all individuals in the segment, and keep the underlying description unchanged."
     },
     "answer": "B",
-    "explanation": "Correct: B. Revise the description to focus on observed behaviors rather than generalizations about people, and validate the revision against actual customer data."
+    "explanation": "Descriptions grounded in observed behavior avoid unsupported demographic assumptions, and checking them against customer data tests their validity."
   },
   {
     "id": 27,
@@ -302,7 +302,7 @@
       "D": "Expand the design so Claude both evaluates applications and issues final approval notices to customers directly."
     },
     "answer": "C",
-    "explanation": "Correct: C. Decline the sole-decision-maker design and propose Claude assisting analysts who retain decision authority."
+    "explanation": "Credit approvals have consequential effects and require accountable human judgment, so Claude can support analysts without owning the final decision."
   },
   {
     "id": 28,
@@ -315,7 +315,7 @@
       "E": "Identify and edit or delete entries that are stale, inaccurate, or no longer relevant, and add context Claude has not automatically captured but the workflow continues to need."
     },
     "answer": ["B", "E"],
-    "explanation": "Correct choices: B, E. Export the current memories as a backup before making changes, so prior context can be restored if a maintenance edit unintentionally removes information the workflow still depends on. Identify and edit or delete entries that are stale, inaccurate, or no longer relevant, and add context Claude has not automatically captured but the workflow continues to need."
+    "explanation": "Backing up memory preserves recoverable context, while removing stale entries and adding missing relevant information keeps future context accurate and useful."
   },
   {
     "id": 29,
@@ -327,7 +327,7 @@
       "D": "Add length to the prompt by inserting filler text that does not specify task scope, output format, audience, or constraints, leaving the original specification gaps in the underperforming prompt unaddressed."
     },
     "answer": "B",
-    "explanation": "Correct: B. Specify the task scope, the required output format, the audience, and the relevant constraints with sufficient clarity that the prompt produces a useful, reliable output on the next run."
+    "explanation": "Stating scope, format, audience, and constraints gives the model the task specification needed for a useful and reliable response."
   },
   {
     "id": 30,
@@ -339,7 +339,7 @@
       "D": "A non-Anthropic model, because the Claude lineup has no option for complex reasoning."
     },
     "answer": "C",
-    "explanation": "Correct: C. Opus, because it is positioned as the most capable for advanced reasoning on complex specialized tasks."
+    "explanation": "A complex, specialized problem requiring extended multi-step reasoning calls for the model tier with the greatest reasoning capability."
   },
   {
     "id": 31,
@@ -351,7 +351,7 @@
       "D": "2,1,5,3,4"
     },
     "answer": "A",
-    "explanation": "Correct: A. 2, 5, 1, 3, 4."
+    "explanation": "Define the persona and scope, establish journey stages, identify their touchpoints, capture associated pain points and opportunities, then synthesize the map."
   },
   {
     "id": 32,
@@ -364,7 +364,7 @@
       "E": "Schedule the campaign launch and the rollout dates with the agency."
     },
     "answer": ["A", "D"],
-    "explanation": "Correct choices: A, D. Define the goal of the campaign and the success metrics for the campaign. Define the brand voice and the audience the concepts will speak to."
+    "explanation": "The campaign goal and success measures guide the concepts, while the audience and brand voice shape who they address and how they communicate."
   },
   {
     "id": 33,
@@ -377,7 +377,7 @@
       "E": "Increase the temperature setting and resubmit the unchanged prompt."
     },
     "answer": ["A", "B"],
-    "explanation": "Correct choices: A, B. Add a specific tone descriptor and a concrete audience to the prompt. Provide an example of an output that meets the desired standard."
+    "explanation": "A specific tone and audience clarify the desired voice, and a representative example demonstrates the expected level of detail and quality."
   },
   {
     "id": 34,
@@ -389,7 +389,7 @@
       "D": "Produce detailed mock-ups of the chosen solution for stakeholder review."
     },
     "answer": "C",
-    "explanation": "Correct: C. Articulate the problem the solution must address and the constraints in play."
+    "explanation": "Defining the problem and constraints sets the design space that candidate solutions must address before concepts are generated."
   },
   {
     "id": 35,
@@ -402,7 +402,7 @@
       "E": "The reversibility of the task and the consequence of an error, which together indicate whether the step is safe to delegate to Claude or should be retained for human decision-making."
     },
     "answer": ["B", "E"],
-    "explanation": "Correct choices: B, E. The need for human creativity, empathy, or judgment in the step, which indicates whether the task is appropriate for AI delegation or requires the human capabilities Claude cannot provide. The reversibility of the task and the consequence of an error, which together indicate whether the step is safe to delegate to Claude or should be retained for human decision-making."
+    "explanation": "Tasks needing human creativity, empathy, or judgment may require people, and reversibility together with error consequences indicates how much risk delegation would carry."
   },
   {
     "id": 36,
@@ -414,7 +414,7 @@
       "D": "the step most recently added to the workflow, based on the assumption that process changes introduce the most friction"
     },
     "answer": "A",
-    "explanation": "Correct: A. the step with the longest queue or the largest backlog of items waiting to enter it"
+    "explanation": "A persistent queue or backlog shows where work is accumulating, making it a direct signal of a process bottleneck."
   },
   {
     "id": 37,
@@ -426,7 +426,7 @@
       "D": "Configurations should be updated on a fixed schedule regardless of whether the underlying policies and source documents have changed, since regular maintenance prevents drift."
     },
     "answer": "C",
-    "explanation": "Correct: C. Configurations should be reviewed and updated periodically because policies, terminology, and source documents change over time, even when output quality has not visibly degraded."
+    "explanation": "Periodic reviews keep Project guidance aligned as policies, terminology, and reference sources change, even before output problems become visible."
   },
   {
     "id": 38,
@@ -438,7 +438,7 @@
       "D": "Skip the documents entirely and rely on Claude to invent the missing context."
     },
     "answer": "A",
-    "explanation": "Correct: A. Extract only the relevant sections from each document and include those, omitting unrelated chapters."
+    "explanation": "Including only applicable sections preserves context capacity for the task while retaining the source material needed for the analysis."
   },
   {
     "id": 39,
@@ -450,7 +450,7 @@
       "D": "4,3,1,2,5"
     },
     "answer": "D",
-    "explanation": "Correct: D. 4, 3, 1, 2, 5."
+    "explanation": "Gather and label sources for traceability, submit them with a structured prompt, group findings and flag conflicts, validate against originals, then document the final set."
   },
   {
     "id": 40,
@@ -462,7 +462,7 @@
       "D": "The recommendation reflects selective use of the source documents and should be re-prompted to address the transition costs and the service-level concern before it is used."
     },
     "answer": "D",
-    "explanation": "Correct: D. The recommendation reflects selective use of the source documents and should be re-prompted to address the transition costs and the service-level concern before it is used."
+    "explanation": "Omitting transition costs and service-level concerns from relevant sources leaves the recommendation incomplete, so those factors need to be addressed before use."
   },
   {
     "id": 41,
@@ -475,7 +475,7 @@
       "E": "Migrate every existing report off the prior data source onto the new Connector."
     },
     "answer": ["A", "D"],
-    "explanation": "Correct choices: A, D. Confirm the Connector is on the approved-vendor list maintained by IT. Confirm the data classification of the source and the team's permission to use it."
+    "explanation": "Checking vendor approval establishes that the Connector is authorized, and confirming data classification and access rights ensures the source is permitted for the team's use."
   },
   {
     "id": 43,
@@ -487,7 +487,7 @@
       "D": "Use Claude to conduct the stakeholder interviews directly, with the analyst reviewing the recordings afterward to confirm the requirements Claude extracted."
     },
     "answer": "C",
-    "explanation": "Correct: C. Use Claude to synthesize stakeholder inputs and existing process documentation into a structured list of requirements with traceability to each source."
+    "explanation": "Synthesizing interviews and process documents into traceable requirements uses Claude for organization while preserving links to the evidence."
   },
   {
     "id": 44,
@@ -499,7 +499,7 @@
       "D": "A governance framework defines the training every employee must complete before using AI tools, with separate requirements for each tool the organization licenses."
     },
     "answer": "B",
-    "explanation": "Correct: B. A governance framework defines approved tools, allowed data, required reviews, and reporting paths so AI is used consistently and accountably."
+    "explanation": "Governance makes day-to-day AI use accountable by setting tool and data boundaries, review expectations, and escalation paths."
   },
   {
     "id": 45,
@@ -512,7 +512,7 @@
       "E": "a vague reassurance that \"the AI is taking care of it\" without further detail"
     },
     "answer": ["C", "D"],
-    "explanation": "Correct choices: C, D. an honest description of where Claude assists and where humans retain decisions; a clear statement of the limits and known failure modes of the integration."
+    "explanation": "Explaining Claude's role alongside human decision ownership sets realistic expectations, and describing limits and failure modes makes the integration's risks transparent."
   },
   {
     "id": 46,
@@ -525,7 +525,7 @@
       "E": "drafting a legal summary that an attorney will review and edit before sharing with a client"
     },
     "answer": ["B", "C"],
-    "explanation": "Correct choices: B, C. drafting an internal training summary from approved internal documentation; synthesizing themes across approved customer feedback under aggregation rules."
+    "explanation": "Approved training documents and properly aggregated, approved feedback provide bounded source material for summarization without assigning consequential decisions to Claude."
   },
   {
     "id": 47,
@@ -537,7 +537,7 @@
       "D": "Select the requirement that has the strongest business justification in the source notes, set the conflicting requirements aside, and proceed with the selected one."
     },
     "answer": "C",
-    "explanation": "Correct: C. Flag the conflicts in the requirements document, document the source for each side, and route the conflicts back to the originating stakeholders for resolution."
+    "explanation": "Recording both sides with their sources preserves traceability, while the stakeholders who set the requirements must resolve the conflict."
   },
   {
     "id": 48,
@@ -549,7 +549,7 @@
       "D": "Attach all three documents to each chat as needed, since per-chat attachments give the chat direct access to the documents without additional setup."
     },
     "answer": "B",
-    "explanation": "Correct: B. Create a Project, which provides a persistent workspace with its own knowledge base and custom instructions shared across chats and members."
+    "explanation": "A Project keeps shared knowledge and instructions available across related chats and collaborators in a persistent workspace."
   },
   {
     "id": 49,
@@ -561,7 +561,7 @@
       "D": "Does the response use varied sentence structure across sections?"
     },
     "answer": "A",
-    "explanation": "Correct: A. Can each specific claim be traced to a credible source or to the supplied input material?"
+    "explanation": "Tracing claims to credible sources or supplied material checks evidence directly rather than relying on how plausible or confident the report sounds."
   },
   {
     "id": 51,
@@ -574,7 +574,7 @@
       "E": "Define a brief output verification step in which the human reviewer confirms the computed result against an expected range or sanity check before the output advances to downstream consumers."
     },
     "answer": ["A", "E"],
-    "explanation": "Correct choices: A, E. Standardize the input file format the step expects, so each run of the Code Execution step receives consistent input and produces comparable, verifiable output across recurring weekly cycles. Define a brief output verification step in which the human reviewer confirms the computed result against an expected range or sanity check before the output advances to downstream consumers."
+    "explanation": "A standardized input format makes recurring runs consistent, and a human sanity check helps catch incorrect results before they reach downstream users."
   },
   {
     "id": 52,
@@ -587,7 +587,7 @@
       "E": "a short personal anecdote to make the prompt feel more conversational"
     },
     "answer": ["A", "B"],
-    "explanation": "Correct choices: A, B. a clear statement of the task that the model must perform; relevant context such as the audience and the goal of the task."
+    "explanation": "A clear task states what the model should do, and relevant audience and goal context help shape an appropriate response."
   },
   {
     "id": 54,
@@ -599,7 +599,7 @@
       "D": "Rank vendors before any data is collected."
     },
     "answer": "A",
-    "explanation": "Correct: A. Define evaluation criteria first, gather vendor data against those criteria, then score and rank."
+    "explanation": "Setting criteria first gives vendor research a consistent basis, allowing scores and rankings to reflect comparable evidence."
   },
   {
     "id": 55,
@@ -612,7 +612,7 @@
       "E": "Output comparison against original criteria validates whether iteration helped."
     },
     "answer": ["C", "E"],
-    "explanation": "Correct choices: C, E. Iteration is most productive when each change targets a specific diagnosed weakness. Output comparison against original criteria validates whether iteration helped."
+    "explanation": "Targeting a diagnosed weakness makes each iteration informative, and checking the output against the original criteria shows whether the change helped."
   },
   {
     "id": 56,
@@ -625,7 +625,7 @@
       "E": "presence of an executive summary section as a structural completeness check"
     },
     "answer": ["A", "C"],
-    "explanation": "Correct choices: A, C. factual accuracy of the claims made against the supplied source material; alignment of the output with the requested format and length constraints."
+    "explanation": "Accuracy against source material tests factual reliability, while format and length checks establish whether the brief meets its explicit requirements."
   },
   {
     "id": 57,
@@ -637,7 +637,7 @@
       "D": "Overstate Claude's capabilities to secure stakeholder support, even though Description principles require accurate framing of what Claude can and cannot reliably produce for the proposed use case."
     },
     "answer": "C",
-    "explanation": "Correct: C. Describe what Claude can reliably produce for the use case, the known limitations, and the human oversight that will remain in place, calibrated to the audience's familiarity with AI."
+    "explanation": "Accurate, audience-calibrated communication explains reliable capabilities, known limits, and the human oversight that remains part of the workflow."
   },
   {
     "id": 58,
@@ -649,7 +649,7 @@
       "D": "Speed and rate-limit consumption are independent of model capability; the difference between Haiku, Sonnet, and Opus is reasoning depth alone."
     },
     "answer": "B",
-    "explanation": "Correct: B. More capable models generally consume more of the rate limit and run more slowly, while lighter models are faster and consume less of the rate limit."
+    "explanation": "Greater capability generally comes with higher latency and rate-limit use, while lighter models trade some depth for speed and efficiency."
   },
   {
     "id": 59,
@@ -662,7 +662,7 @@
       "E": "declining to revise sections that were generated by Claude on the basis that the model's output should be trusted as written"
     },
     "answer": ["C", "D"],
-    "explanation": "Correct choices: C, D. asking clarifying questions when feedback is ambiguous before acting on it; mapping each piece of feedback to the specific change made in the next draft."
+    "explanation": "Clarifying ambiguous feedback prevents misinterpretation, and mapping comments to revisions makes it possible to confirm that concerns were addressed."
   },
   {
     "id": 60,
@@ -674,7 +674,7 @@
       "D": "Name Claude's role as a course designer; let each chat's prompt specify the standards and output structure for that lesson, since lessons vary widely."
     },
     "answer": "A",
-    "explanation": "Correct: A. Name Claude's role as a course designer, require alignment to the organization's instructional-design standards, and specify the preferred output structure for lesson outlines."
+    "explanation": "Role and standards establish the design expectations, while a specified outline structure makes recurring course-design outputs consistent."
   }
 ]
 

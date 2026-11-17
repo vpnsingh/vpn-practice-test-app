@@ -9,7 +9,7 @@ export const quizQuestions = [
       "Inclusiveness"
     ],
     "answer": "Fairness",
-    "explanation": ""
+    "explanation": "Fairness focuses on avoiding unjustified differences in how an AI system treats people, including across demographic groups."
   },
   {
     "id": 2,
@@ -21,7 +21,7 @@ export const quizQuestions = [
       "Improve on the computational efficiency and speed."
     ],
     "answer": "Use diverse data, fairness metrics, and human oversight.",
-    "explanation": ""
+    "explanation": "Representative data, fairness measurements, and human review help reveal and reduce systematic bias throughout development."
   },
   {
     "id": 3,
@@ -33,7 +33,7 @@ export const quizQuestions = [
       "Ensuring code security supports the development of more advanced AI features."
     ],
     "answer": "Ensuring code security prevents unauthorized access and potential data breaches.",
-    "explanation": ""
+    "explanation": "Secure code and systems limit unauthorized access, reducing the chance that protected information is exposed or altered."
   },
   {
     "id": 4,
@@ -45,7 +45,7 @@ export const quizQuestions = [
       "By focusing on user satisfaction with the content filtering"
     ],
     "answer": "By providing clear explanations about the types of content the AI is designed to filter and how it arrives at its conclusion.",
-    "explanation": ""
+    "explanation": "Transparency means explaining what the filtering system is intended to detect and how its decisions are made so users can understand its operation."
   },
   {
     "id": 5,
@@ -57,7 +57,7 @@ export const quizQuestions = [
       "It primarily uses search results from Bing to generate responses."
     ],
     "answer": "It combines its training data set, code in user repositories, and external sources like Bing to generate responses.",
-    "explanation": ""
+    "explanation": "Copilot Chat can use the model’s learned knowledge together with relevant repository context and, where available, connected external information to answer a coding question."
   },
   {
     "id": 6,
@@ -69,7 +69,7 @@ export const quizQuestions = [
       "Inclusiveness"
     ],
     "answer": "Transparency",
-    "explanation": ""
+    "explanation": "Transparency calls for making an AI system’s operation and decision basis understandable to the people affected by it."
   },
   {
     "id": 7,
@@ -81,7 +81,7 @@ export const quizQuestions = [
       "AI systems can sometimes make decisions that are difficult to interpret."
     ],
     "answer": "AI systems can sometimes make decisions that are difficult to interpret.",
-    "explanation": ""
+    "explanation": "Complex or opaque model behavior can make it difficult for people to understand how an AI system reached a decision."
   },
   {
     "id": 8,
@@ -96,7 +96,7 @@ export const quizQuestions = [
       "Hate speech or discriminatory language (e.g., racial slurs, offensive stereotypes)",
       "Sexually suggestive or explicit content"
     ],
-    "explanation": ""
+    "explanation": "Toxicity filters target harmful language such as hate speech and sexually explicit material."
   },
   {
     "id": 9,
@@ -108,7 +108,7 @@ export const quizQuestions = [
       "Focusing on collecting large datasets for training will ensure fairness."
     ],
     "answer": "Training AI data and algorithms to be free from biases will ensure fairness.",
-    "explanation": ""
+    "explanation": "Fairness is supported by identifying and reducing bias in the data and algorithms that shape an AI system’s outputs."
   },
   {
     "id": 10,
@@ -123,7 +123,7 @@ export const quizQuestions = [
       "GitHub Copilot may introduce security vulnerabilities by suggesting code with known exploits.",
       "GitHub Copilot’s suggestions may not always reflect best practices or the latest coding standards."
     ],
-    "explanation": ""
+    "explanation": "Generated code can contain exploitable defects or unsafe patterns, and may not follow current engineering practices, so it needs review."
   },
   {
     "id": 11,
@@ -135,7 +135,7 @@ export const quizQuestions = [
       "The Gen AI tool is being overloaded with too many requests at once."
     ],
     "answer": "The training data might contain biases or inconsistencies.",
-    "explanation": ""
+    "explanation": "Inconsistent or biased training examples can lead a generative model to produce unreliable or skewed responses."
   },
   {
     "id": 12,
@@ -147,7 +147,7 @@ export const quizQuestions = [
       "GitHub Copilot’s suggestions are based on statistical trends and may not always apply accurately to specific datasets."
     ],
     "answer": "GitHub Copilot’s suggestions are based on statistical trends and may not always apply accurately to specific datasets.",
-    "explanation": ""
+    "explanation": "Suggestions reflect learned patterns, so statistical assumptions and results must be validated against the particular dataset."
   },
   {
     "id": 13,
@@ -159,7 +159,7 @@ export const quizQuestions = [
       "Enhances the performance of the selected code by analyzing its runtime complexity."
     ],
     "answer": "Enhances the performance of the selected code by analyzing its runtime complexity.",
-    "explanation": ""
+    "explanation": "The command asks Copilot to examine selected code for potential efficiency improvements; its recommendations still need measurement and review."
   },
   {
     "id": 14,
@@ -171,7 +171,7 @@ export const quizQuestions = [
       "GitHub Copilot Individual"
     ],
     "answer": "GitHub Copilot for Azure DevOps",
-    "explanation": ""
+    "explanation": "The Azure DevOps offering is the plan identified for organizations that need Copilot with Azure DevOps without buying a GitHub Enterprise license."
   },
   {
     "id": 15,
@@ -183,7 +183,7 @@ export const quizQuestions = [
       "Apply policies through the GitHub Actions configuration"
     ],
     "answer": "Configure the policies in the organization settings",
-    "explanation": ""
+    "explanation": "Organization settings provide administrators a central place to set Copilot policies and control which repositories are eligible."
   },
   {
     "id": 16,
@@ -198,7 +198,7 @@ export const quizQuestions = [
       "List all GitHub Copilot seat assignments for an organization",
       "Get a summary of GitHub Copilot usage for organization members"
     ],
-    "explanation": ""
+    "explanation": "The subscription API exposes organization seat assignments and aggregated member usage information, enabling administrators to manage and assess adoption."
   },
   {
     "id": 17,
@@ -210,7 +210,7 @@ export const quizQuestions = [
       "The Settings menu in the GitHub Mobile app."
     ],
     "answer": "Use the emojis in the Copilot Chat interface.",
-    "explanation": ""
+    "explanation": "The in-chat emoji reactions provide a direct way to rate a Copilot Chat response and share feedback from the mobile interface."
   },
   {
     "id": 18,
@@ -222,7 +222,7 @@ export const quizQuestions = [
       "Initiates a code review with static analysis tools for security and logic errors."
     ],
     "answer": "Proposes changes for detected issues, suggesting corrections for syntax errors and programming mistakes.",
-    "explanation": ""
+    "explanation": "The /fix command uses the selected code and issue context to propose a correction, which the developer can inspect and apply."
   },
   {
     "id": 19,
@@ -237,7 +237,7 @@ export const quizQuestions = [
       "GitHub Copilot Business",
       "GitHub Copilot Enterprise"
     ],
-    "explanation": ""
+    "explanation": "Business and Enterprise plans provide organizational data protections that exclude prompts and suggestions from model training by default."
   },
   {
     "id": 20,
@@ -252,7 +252,7 @@ export const quizQuestions = [
       "Explain code and suggest improvements",
       "Generate unit tests"
     ],
-    "explanation": ""
+    "explanation": "IDE chat can explain code and propose improvements, and can draft unit tests using the selected code as context."
   },
   {
     "id": 21,
@@ -267,7 +267,7 @@ export const quizQuestions = [
       "Chat",
       "Inline suggestions"
     ],
-    "explanation": ""
+    "explanation": "In supported IDEs, Copilot Enterprise includes chat and inline code completions; enterprise knowledge and pull-request features are delivered in other experiences."
   },
   {
     "id": 22,
@@ -282,7 +282,7 @@ export const quizQuestions = [
       "Organization settings → Copilot → Policies",
       "Enterprise settings → Copilot → Policies"
     ],
-    "explanation": ""
+    "explanation": "Duplicate-detection policies can be managed centrally at both enterprise and organization scope, allowing either level to govern matching public-code suggestions."
   },
   {
     "id": 23,
@@ -298,7 +298,7 @@ export const quizQuestions = [
       "The API can track the number of code suggestions accepted and used in the organization.",
       "The API can provide Copilot Chat specific suggestions acceptance metrics."
     ],
-    "explanation": ""
+    "explanation": "Usage metrics report accepted and used code suggestions, including Chat-related acceptance data, helping teams assess adoption."
   },
   {
     "id": 24,
@@ -310,7 +310,7 @@ export const quizQuestions = [
       "Use ‘gh copilot suggest’ → Write the command you want → Select the best suggestion from the list."
     ],
     "answer": "Use ‘gh copilot suggest’ → Write the command you want → Select the best suggestion from the list.",
-    "explanation": ""
+    "explanation": "The CLI command accepts a natural-language description of a shell task and offers a command that the user can inspect before using."
   },
   {
     "id": 25,
@@ -326,7 +326,7 @@ export const quizQuestions = [
       "You can use keyboard shortcuts to accept the next word in a suggestion",
       "Alternative code suggestions can be shown in a new tab"
     ],
-    "explanation": ""
+    "explanation": "Editor shortcuts can accept a suggestion incrementally, and the completions panel lets a developer browse alternative completions."
   },
   {
     "id": 26,
@@ -343,7 +343,7 @@ export const quizQuestions = [
       "Your programming language is not supported",
       "You do not have a valid GitHub Copilot license"
     ],
-    "explanation": ""
+    "explanation": "Suggestions require connectivity to the service, a supported language, and an active entitlement; each is a prerequisite for the editor integration."
   },
   {
     "id": 27,
@@ -358,7 +358,7 @@ export const quizQuestions = [
       "Detailed analysis of GitHub Copilot’s suggestions vs. manual coding.",
       "Insights on the types of coding languages where GitHub Copilot is most helpful."
     ],
-    "explanation": ""
+    "explanation": "Usage data can help compare adoption and suggestion acceptance with development activity and identify languages where Copilot is useful."
   },
   {
     "id": 28,
@@ -370,7 +370,7 @@ export const quizQuestions = [
       "By posting on the GitHub forums."
     ],
     "answer": "Through the “Share Feedback” button in the Copilot Chat panel.",
-    "explanation": ""
+    "explanation": "The chat panel’s feedback control lets a user submit feedback about the response directly from the IDE."
   },
   {
     "id": 29,
@@ -385,7 +385,7 @@ export const quizQuestions = [
       "Usage analytics",
       "The default execution confirmation"
     ],
-    "explanation": ""
+    "explanation": "The CLI settings cover whether usage analytics are collected and whether generated commands require execution confirmation."
   },
   {
     "id": 30,
@@ -402,7 +402,7 @@ export const quizQuestions = [
       "design patterns",
       "documentation"
     ],
-    "explanation": ""
+    "explanation": "Knowledge bases retrieve information from indexed textual material such as code, design-pattern guidance, and documentation."
   },
   {
     "id": 31,
@@ -414,7 +414,7 @@ export const quizQuestions = [
       "N/A - Copilot Individual is a free service for all open source projects"
     ],
     "answer": "N/A - Copilot Individual is a free service for all open source projects",
-    "explanation": ""
+    "explanation": "Eligible maintainers of popular open-source projects may qualify for complimentary Copilot access; working on any open-source project alone does not establish eligibility."
   },
   {
     "id": 32,
@@ -426,7 +426,7 @@ export const quizQuestions = [
       "To monitor administrator activities and actions within the organization"
     ],
     "answer": "To monitor administrator activities and actions within the organization",
-    "explanation": ""
+    "explanation": "Organization audit logs record administrative events, making it possible to review who changed settings or performed organization-level actions."
   },
   {
     "id": 33,
@@ -441,7 +441,7 @@ export const quizQuestions = [
       "Prompts and Suggestion: Retained for 28 days",
       "User Engagement Data: Kept for Two Years"
     ],
-    "explanation": ""
+    "explanation": "The keyed figures distinguish prompt/suggestion content retained for 28 days from user-engagement data retained for two years; these exact periods are product-policy details that may change."
   },
   {
     "id": 34,
@@ -456,7 +456,7 @@ export const quizQuestions = [
       "It generates a prose summary and bulleted list of key changes for pull requests.",
       "It can answer questions about the changeset of the pull request."
     ],
-    "explanation": ""
+    "explanation": "Copilot Enterprise can summarize a pull request’s changes and answer questions grounded in its changeset, helping reviewers understand the work."
   },
   {
     "id": 35,
@@ -468,7 +468,7 @@ export const quizQuestions = [
       "By asking for multiple suggestions using comments in your code"
     ],
     "answer": "By opening the completions panel in your editor",
-    "explanation": ""
+    "explanation": "The completions panel presents alternate inline completions so the developer can compare and choose among suggestions."
   },
   {
     "id": 36,
@@ -480,7 +480,7 @@ export const quizQuestions = [
       "GitHub Copilot Professional"
     ],
     "answer": "GitHub Copilot Enterprise",
-    "explanation": ""
+    "explanation": "Company knowledge bases are an Enterprise capability that grounds Copilot responses in organizational material."
   },
   {
     "id": 37,
@@ -495,7 +495,7 @@ export const quizQuestions = [
       "Chat",
       "Code suggestions"
     ],
-    "explanation": ""
+    "explanation": "The supported IDE extension provides conversational assistance and inline completions, enabling questions and code suggestions in the editor."
   },
   {
     "id": 38,
@@ -508,7 +508,7 @@ export const quizQuestions = [
       "GitHub Copilot Business for non-GHE Customers"
     ],
     "answer": "GitHub Copilot Individual",
-    "explanation": ""
+    "explanation": "For an independent contractor without centralized company administration requirements, an Individual subscription supports personal use across client projects."
   },
   {
     "id": 39,
@@ -519,7 +519,7 @@ export const quizQuestions = [
       "Suggestions matching public code to ‘blocked’. You need to check code suggestions yourself before accepting"
     ],
     "answer": "Suggestions matching public code to ‘blocked’. You need to check code suggestions yourself before accepting",
-    "explanation": ""
+    "explanation": "The public-code matching policy can suppress suggestions identified as matching public code; enabling it reduces the need to inspect such matches manually."
   },
   {
     "id": 40,
@@ -531,7 +531,7 @@ export const quizQuestions = [
       "GitHub Copilot Enterprise"
     ],
     "answer": "GitHub Copilot Enterprise",
-    "explanation": ""
+    "explanation": "Enterprise provides organization-level data controls, but current individual paid-plan settings also allow prompt and suggestion collection or retention choices, so the keyed plan is not exclusive as worded."
   },
   {
     "id": 41,
@@ -543,7 +543,7 @@ export const quizQuestions = [
       "By answering questions about the code and generating explanations."
     ],
     "answer": "By answering questions about the code and generating explanations.",
-    "explanation": ""
+    "explanation": "Copilot Chat can use questions about code to describe its behavior and explain how parts of a repository fit together."
   },
   {
     "id": 42,
@@ -558,7 +558,7 @@ export const quizQuestions = [
       "Annually as a subscription",
       "Monthly as a subscription"
     ],
-    "explanation": ""
+    "explanation": "Individual subscriptions are available as recurring monthly or annual plans."
   },
   {
     "id": 43,
@@ -574,7 +574,7 @@ export const quizQuestions = [
       "Add teams to the Copilot subscription for an organization.",
       "Remove teams from the Copilot subscription for an organization."
     ],
-    "explanation": ""
+    "explanation": "The organization Copilot subscription API supports team-based seat assignment changes, including adding and removing teams."
   },
   {
     "id": 44,
@@ -586,7 +586,7 @@ export const quizQuestions = [
       "Navigate to the Security tab in the organization’s GitHub settings"
     ],
     "answer": "Use the Audit log section in the organization’s GitHub settings",
-    "explanation": ""
+    "explanation": "Organization administrators can review Copilot-related administrative events from the organization’s audit log."
   },
   {
     "id": 45,
@@ -598,7 +598,7 @@ export const quizQuestions = [
       "It is an Enterprise feature"
     ],
     "answer": "It is an Enterprise feature",
-    "explanation": ""
+    "explanation": "Knowledge Bases are an Enterprise capability that provides access to organization-curated source material."
   },
   {
     "id": 46,
@@ -610,7 +610,7 @@ export const quizQuestions = [
       "By using chat capabilities in NeoVim"
     ],
     "answer": "By using chat capabilities in NeoVim",
-    "explanation": ""
+    "explanation": "The supported Neovim chat integration provides a way to ask Copilot questions from that editor environment."
   },
   {
     "id": 47,
@@ -622,7 +622,7 @@ export const quizQuestions = [
       "GitHub Copilot Business for non-GHE customers"
     ],
     "answer": "GitHub Copilot Business for non-GHE customers",
-    "explanation": ""
+    "explanation": "This plan is intended for organizations using an external code host that still need business-level seat and identity-provider administration."
   },
   {
     "id": 48,
@@ -634,7 +634,7 @@ export const quizQuestions = [
       "Suggest code snippets that reflect the most common practices in the training data."
     ],
     "answer": "Suggest code snippets that reflect the most common practices in the training data.",
-    "explanation": ""
+    "explanation": "A model trained on frequent patterns is more likely to reproduce common idioms and approaches reflected in its examples."
   },
   {
     "id": 49,
@@ -646,7 +646,7 @@ export const quizQuestions = [
       "GitHub Copilot automatically updates deprecated features in its suggestions to the latest version."
     ],
     "answer": "GitHub Copilot may suggest deprecated syntax or features if they are present in its training data.",
-    "explanation": ""
+    "explanation": "Because training data can include older code, suggestions may reflect deprecated APIs; developers should check current language and library guidance."
   },
   {
     "id": 50,
@@ -662,7 +662,7 @@ export const quizQuestions = [
       "Generate suggestions",
       "Capturing the user’s context"
     ],
-    "explanation": ""
+    "explanation": "The suggestion flow uses relevant editor context to generate candidate code tailored to the current editing task."
   },
   {
     "id": 51,
@@ -674,7 +674,7 @@ export const quizQuestions = [
       "It directly generates a response based on the user’s input prompt."
     ],
     "answer": "It enriches the input prompt with additional context before passing it to the language model.",
-    "explanation": ""
+    "explanation": "Pre-processing can combine the user's prompt with relevant context from the editor or repository so the model can produce a more grounded response."
   },
   {
     "id": 52,
@@ -689,7 +689,7 @@ export const quizQuestions = [
       "Compatibility with user-specific settings",
       "Suggestions matching public code (optional based on settings)"
     ],
-    "explanation": ""
+    "explanation": "Response checks can apply configured user or organization settings and, when enabled, inspect suggestions for matches with public code before returning them."
   },
   {
     "id": 53,
@@ -704,7 +704,7 @@ export const quizQuestions = [
       "Ability to handle complex code structures",
       "Limited training data"
     ],
-    "explanation": ""
+    "explanation": "Chat may have difficulty reasoning across complex structures or when relevant knowledge is absent from its available context and training."
   },
   {
     "id": 54,
@@ -716,7 +716,7 @@ export const quizQuestions = [
       "Ignores both the prefix and suffix of the code, focusing only on user comments for context."
     ],
     "answer": "Improves suggestions by considering both the prefix and suffix of the code, filling in the middle part more accurately.",
-    "explanation": ""
+    "explanation": "Fill-In-the-Middle uses code before and after a gap as context, allowing the model to propose code that fits between them."
   },
   {
     "id": 55,
@@ -731,7 +731,7 @@ export const quizQuestions = [
       "Real-time user input helps generate context-aware code suggestions.",
       "Prompt data is used to train machine learning models for better code suggestions."
     ],
-    "explanation": ""
+    "explanation": "The current prompt supplies context for a suggestion; for cloud-hosted individual plans, prompts and outputs may also be used to improve models when permitted by the applicable settings and policy."
   },
   {
     "id": 56,
@@ -743,7 +743,7 @@ export const quizQuestions = [
       "The open tabs in the IDE and the current folder of the terminal."
     ],
     "answer": "Information from the IDE like open tabs, cursor location, selected code.",
-    "explanation": ""
+    "explanation": "The extension can use editor state such as open files, the cursor position, and selected code to determine what is relevant to a request."
   },
   {
     "id": 57,
@@ -755,7 +755,7 @@ export const quizQuestions = [
       "Neighboring or related files within a project"
     ],
     "answer": "Neighboring or related files within a project",
-    "explanation": ""
+    "explanation": "Related project files can provide definitions, conventions, or interfaces needed to make a response fit the current code."
   },
   {
     "id": 58,
@@ -767,7 +767,7 @@ export const quizQuestions = [
       "Responses use practices and patterns in your repositories"
     ],
     "answer": "Responses use practices and patterns in your repositories",
-    "explanation": ""
+    "explanation": "A repository-trained custom model can reflect the organization’s code patterns and conventions, making suggestions more aligned with its projects."
   },
   {
     "id": 59,
@@ -782,7 +782,7 @@ export const quizQuestions = [
       "Implementing safeguards to detect and avoid suggesting verbatim snippets from public code",
       "Filtering out suggestions that match code from public repositories"
     ],
-    "explanation": ""
+    "explanation": "Public-code safeguards can identify matching snippets and apply the configured policy so verbatim matches are handled appropriately."
   },
   {
     "id": 60,
@@ -794,7 +794,7 @@ export const quizQuestions = [
       "By using chat history to offer personalized code snippets based on previous prompts."
     ],
     "answer": "By using chat history to offer personalized code snippets based on previous prompts.",
-    "explanation": ""
+    "explanation": "Relevant conversation history supplies context about the developer’s ongoing task, allowing later suggestions to build on earlier prompts."
   },
   {
     "id": 61,
@@ -806,7 +806,7 @@ export const quizQuestions = [
       "To detect and block suggestions that match public code snippets on GitHub if they contain about 150 characters."
     ],
     "answer": "To detect and block suggestions that match public code snippets on GitHub if they contain about 150 characters.",
-    "explanation": ""
+    "explanation": "The filter checks generated suggestions for sufficiently long matches to public GitHub code and can suppress a match according to the configured policy."
   },
   {
     "id": 62,
@@ -818,7 +818,7 @@ export const quizQuestions = [
       "Google Cloud Platform"
     ],
     "answer": "Microsoft Azure",
-    "explanation": ""
+    "explanation": "The service architecture described for this proxy places it on Microsoft Azure."
   },
   {
     "id": 63,
@@ -830,7 +830,7 @@ export const quizQuestions = [
       "By identifying and fixing potential requirement conflicts when using /help."
     ],
     "answer": "By providing templates and code snippets that help in documenting requirements.",
-    "explanation": ""
+    "explanation": "Templates and snippets can help structure requirements notes or turn documented requirements into implementation-oriented examples, while stakeholders still validate the requirements."
   },
   {
     "id": 64,
@@ -845,7 +845,7 @@ export const quizQuestions = [
       "By adding variables (#selection) to your prompt",
       "By adding the full file paths to your prompt of important files"
     ],
-    "explanation": ""
+    "explanation": "A selection variable supplies the code under discussion, while explicit paths identify relevant project files for Copilot to consult."
   },
   {
     "id": 65,
@@ -857,7 +857,7 @@ export const quizQuestions = [
       "Write the prompt in natural language without any programming language."
     ],
     "answer": "Provide examples of expected input and output within the prompt.",
-    "explanation": ""
+    "explanation": "Input/output examples make the desired behavior concrete, helping Copilot generate code that matches the expected contract."
   },
   {
     "id": 66,
@@ -870,7 +870,7 @@ export const quizQuestions = [
       "Telling GitHub Copilot it needs to show only the correct answer"
     ],
     "answer": "Only giving GitHub Copilot a question as a prompt and no examples",
-    "explanation": ""
+    "explanation": "Zero-shot prompting asks the model to perform a task from the instruction alone, without supplying worked examples."
   },
   {
     "id": 67,
@@ -885,7 +885,7 @@ export const quizQuestions = [
       "Engage with chat participants such as @workspace to incorporate collaborative context into the responses.",
       "Utilize chat variables like #file and #editors to anchor the conversation within the specific context of the files or editors in use."
     ],
-    "explanation": ""
+    "explanation": "The workspace participant can draw on project context, while file and editor variables explicitly anchor a request to relevant source."
   },
   {
     "id": 68,
@@ -897,7 +897,7 @@ export const quizQuestions = [
       "Limit the number of concurrent users accessing GitHub Copilot Chat"
     ],
     "answer": "Apply prompt engineering techniques to be more specific",
-    "explanation": ""
+    "explanation": "Specific prompts reduce ambiguity about the desired task and output, which tends to produce more relevant and actionable responses."
   },
   {
     "id": 69,
@@ -909,7 +909,7 @@ export const quizQuestions = [
       "Telling GitHub Copilot about the mechanism you want it to use and how to incorporate that into the response"
     ],
     "answer": "Telling GitHub Copilot about the mechanism you want it to use and how to incorporate that into the response",
-    "explanation": ""
+    "explanation": "Few-shot prompting means giving the model a small number of examples to demonstrate the desired pattern; the keyed choice instead describes procedural instructions, so this answer key is inconsistent with standard terminology."
   },
   {
     "id": 70,
@@ -921,7 +921,7 @@ export const quizQuestions = [
       "Chat history is used to train the GitHub Copilot model in real-time."
     ],
     "answer": "Chat history provides context to GitHub Copilot, improving the relevance and accuracy of its code suggestions.",
-    "explanation": ""
+    "explanation": "Earlier turns preserve task details and constraints, helping a follow-up suggestion respond to the established conversation."
   },
   {
     "id": 71,
@@ -936,7 +936,7 @@ export const quizQuestions = [
       "Provide specific success criteria",
       "Provide links to supporting documentation"
     ],
-    "explanation": ""
+    "explanation": "Success criteria clarify what a useful result must satisfy, and supporting documentation gives Copilot authoritative domain details to incorporate."
   },
   {
     "id": 72,
@@ -948,7 +948,7 @@ export const quizQuestions = [
       "Giving GitHub Copilot multiple examples of the form of the data you want to use"
     ],
     "answer": "Describing in your prompt what your role is to get a better suggestion",
-    "explanation": ""
+    "explanation": "Role prompting frames the request from a perspective such as the developer’s responsibilities, helping tailor the level and focus of the response."
   },
   {
     "id": 73,
@@ -963,7 +963,7 @@ export const quizQuestions = [
       "By providing suggestions for improving code readability and maintainability based on best practices.",
       "By offering code transformation examples that enhance performance and reduce complexity."
     ],
-    "explanation": ""
+    "explanation": "Copilot can propose clearer structure and naming for maintainability, and show transformations that may reduce complexity or improve performance."
   },
   {
     "id": 74,
@@ -975,7 +975,7 @@ export const quizQuestions = [
       "Avoid using Copilot for complex tasks."
     ],
     "answer": "Regularly review and refactor the code suggested by Copilot.",
-    "explanation": ""
+    "explanation": "Reviewing and refactoring generated code lets developers verify behavior, maintainability, and fit with project conventions before relying on it."
   },
   {
     "id": 75,
@@ -987,7 +987,7 @@ export const quizQuestions = [
       "GitHub Copilot can manage design team collaboration and version control."
     ],
     "answer": "GitHub Copilot can suggest design patterns and best practices relevant to the project.",
-    "explanation": ""
+    "explanation": "Project context helps Copilot suggest established design patterns and practices that are relevant to the system being built."
   },
   {
     "id": 76,
@@ -999,7 +999,7 @@ export const quizQuestions = [
       "GitHub Copilot can only be used with a limited set of programming languages."
     ],
     "answer": "GitHub Copilot may not always produce optimized or best-practice code for refactoring.",
-    "explanation": ""
+    "explanation": "A refactoring suggestion can be plausible without being optimal or following the project’s conventions, so developers must evaluate it."
   },
   {
     "id": 77,
@@ -1011,7 +1011,7 @@ export const quizQuestions = [
       "GitHub Copilot can automatically handle project management tasks."
     ],
     "answer": "GitHub Copilot allows developers to stay in their IDE.",
-    "explanation": ""
+    "explanation": "IDE-integrated assistance lets developers ask questions and receive suggestions without leaving the editor for another tool."
   },
   {
     "id": 78,
@@ -1023,7 +1023,7 @@ export const quizQuestions = [
       "GitHub Copilot might not fully understand the context and dependencies within a large codebase."
     ],
     "answer": "GitHub Copilot might not fully understand the context and dependencies within a large codebase.",
-    "explanation": ""
+    "explanation": "Large projects have many interacting files and dependencies, and Copilot may not have enough context to reason about all of them at once."
   },
   {
     "id": 79,
@@ -1035,7 +1035,7 @@ export const quizQuestions = [
       "GitHub Copilot cannot assist in writing documentation or comments."
     ],
     "answer": "GitHub Copilot can suggest summaries or descriptions based on the code’s functionality.",
-    "explanation": ""
+    "explanation": "By examining code and its apparent behavior, Copilot can draft a summary or description that the developer can verify and refine."
   },
   {
     "id": 80,
@@ -1047,7 +1047,7 @@ export const quizQuestions = [
       "By predicting future coding requirements and pre-emptively generating boilerplate code"
     ],
     "answer": "By suggesting code snippets that can be reused across different parts of the project.",
-    "explanation": ""
+    "explanation": "Copilot can complete recurring patterns and propose reusable snippets, reducing the need to type routine scaffolding repeatedly."
   },
   {
     "id": 81,
@@ -1062,7 +1062,7 @@ export const quizQuestions = [
       "Create a documentation file for the newly created code base.",
       "A developer is added to a new project and would like to understand the current software code."
     ],
-    "explanation": ""
+    "explanation": "Copilot can draft documentation from code context and help explain an unfamiliar codebase, supporting both onboarding and documentation work."
   },
   {
     "id": 82,
@@ -1074,7 +1074,7 @@ export const quizQuestions = [
       "By providing detailed reports on the security vulnerabilities present in the codebase."
     ],
     "answer": "By annotating the given suggestions with known vulnerability patterns.",
-    "explanation": ""
+    "explanation": "Chat can explain code context and highlight recognized vulnerability patterns, helping a developer investigate potential security issues."
   },
   {
     "id": 83,
@@ -1086,7 +1086,7 @@ export const quizQuestions = [
       "A complete replacement for developers generating code."
     ],
     "answer": "A productivity tool that provides suggestions, but relying on human judgement.",
-    "explanation": ""
+    "explanation": "Copilot accelerates development with suggestions, but developers remain responsible for judging, testing, and accepting them."
   },
   {
     "id": 84,
@@ -1101,7 +1101,7 @@ export const quizQuestions = [
       "“Suggest ways to enhance the maintainability of this code segment.”",
       "“Show me how to improve the readability of this function.”"
     ],
-    "explanation": ""
+    "explanation": "Prompts that target maintainability or readability give Copilot concrete refactoring goals it can address in the selected code."
   },
   {
     "id": 85,
@@ -1113,7 +1113,7 @@ export const quizQuestions = [
       "GitHub Copilot can directly convert legacy applications into cloud-native architectures."
     ],
     "answer": "GitHub Copilot can suggest modern programming patterns based on your code.",
-    "explanation": ""
+    "explanation": "It can use existing code as context to recommend current idioms or patterns, while modernization decisions and migrations remain developer-led."
   },
   {
     "id": 86,
@@ -1125,7 +1125,7 @@ export const quizQuestions = [
       "GitHub Copilot can automatically rewrite code to follow best practices."
     ],
     "answer": "GitHub Copilot can suggest refactoring improvements for better code quality.",
-    "explanation": ""
+    "explanation": "Refactoring assistance consists of proposing changes that improve code structure or quality; the developer reviews and applies suitable suggestions."
   },
   {
     "id": 87,
@@ -1137,7 +1137,7 @@ export const quizQuestions = [
       "GitHub Copilot can provide contextualized code suggestions and answer sources from an organization’s documentation."
     ],
     "answer": "GitHub Copilot Chat can provide guidance and support for common coding tasks and challenges in the targeted programming language.",
-    "explanation": ""
+    "explanation": "Chat can explain syntax, common patterns, and solutions to everyday tasks in a language, providing interactive guidance as a learner practices."
   },
   {
     "id": 88,
@@ -1152,7 +1152,7 @@ export const quizQuestions = [
       "Leveraging GitHub Copilot’s suggestions to create a data based on API documentation in the repository.",
       "Utilizing GitHub Copilot’s ability to create fictions information from patterns in training data."
     ],
-    "explanation": ""
+    "explanation": "Repository API documentation can ground sample values in the documented schema, while learned patterns can produce fictional synthetic records for testing."
   },
   {
     "id": 89,
@@ -1168,7 +1168,7 @@ export const quizQuestions = [
       "By using the “/fix” command in GitHub Copilot in-line chat.",
       "By adding comments to your code and triggering a suggestion."
     ],
-    "explanation": ""
+    "explanation": "Inline chat can propose a fix for selected code, while a comment describing desired behavior can provide context for an inline completion."
   },
   {
     "id": 90,
@@ -1180,7 +1180,7 @@ export const quizQuestions = [
       "GitHub Copilot’s reliance on pattern-based responses without verifying computation accuracy."
     ],
     "answer": "GitHub Copilot’s reliance on pattern-based responses without verifying computation accuracy.",
-    "explanation": ""
+    "explanation": "Generated mathematical code or results are pattern-based and may be plausible but wrong, so calculations should be independently checked."
   },
   {
     "id": 91,
@@ -1192,7 +1192,7 @@ export const quizQuestions = [
       "By using specific prompt examples in your chat request."
     ],
     "answer": "By using specific prompt examples in your chat request.",
-    "explanation": ""
+    "explanation": "Providing examples that reflect company testing conventions gives Copilot concrete patterns to follow when drafting tests."
   },
   {
     "id": 92,
@@ -1204,7 +1204,7 @@ export const quizQuestions = [
       "Close all the tabs in your IDE that do not have tests in them."
     ],
     "answer": "Ensuring that the correct context is available to GitHub Copilot.",
-    "explanation": ""
+    "explanation": "Copilot’s test suggestions depend on the code and related files it can see; relevant implementation and test context helps it identify meaningful gaps."
   },
   {
     "id": 93,
@@ -1216,7 +1216,7 @@ export const quizQuestions = [
       "By writing the implementation code for the function based on context"
     ],
     "answer": "By identifying a pattern in the way you write tests and suggesting similar patterns for future tests.",
-    "explanation": ""
+    "explanation": "Showing existing tests gives Copilot examples of the project’s structure, naming, and assertion style to follow in new tests."
   },
   {
     "id": 94,
@@ -1228,7 +1228,7 @@ export const quizQuestions = [
       "/init-tests"
     ],
     "answer": "/tests",
-    "explanation": ""
+    "explanation": "The /tests command is intended to draft tests for the code in context, which developers can then edit and run."
   },
   {
     "id": 95,
@@ -1240,7 +1240,7 @@ export const quizQuestions = [
       "It replaces the need for developers in the software development process."
     ],
     "answer": "It increases productivity by automating repetitive coding tasks.",
-    "explanation": ""
+    "explanation": "Automating repetitive implementation work can free developers to focus on design, validation, and other higher-level tasks."
   },
   {
     "id": 96,
@@ -1255,7 +1255,7 @@ export const quizQuestions = [
       "Creation of end-to-end performance testing scenarios for a web application",
       "Creation of a unit test scenario for newly developed Python code"
     ],
-    "explanation": ""
+    "explanation": "Copilot can draft end-to-end performance scenarios from an application’s context and unit tests from newly written code, with developers validating coverage and execution."
   },
   {
     "id": 97,
@@ -1267,7 +1267,7 @@ export const quizQuestions = [
       "Because GitHub Copilot’s generated test cases may not cover all possible scenarios."
     ],
     "answer": "Because GitHub Copilot’s generated test cases may not cover all possible scenarios.",
-    "explanation": ""
+    "explanation": "Generated tests can miss edge cases, important state transitions, or failure conditions, so review is needed to assess coverage and correctness."
   },
   {
     "id": 98,
@@ -1279,7 +1279,7 @@ export const quizQuestions = [
       "Integrates with external testing frameworks."
     ],
     "answer": "Creates unit tests for the selected code.",
-    "explanation": ""
+    "explanation": "The /tests command drafts unit tests from the selected code, giving developers test cases to review and run."
   },
   {
     "id": 99,
@@ -1291,7 +1291,7 @@ export const quizQuestions = [
       "GitHub Copilot can generate all types of unit tests, including those for edge cases and complex integration scenarios."
     ],
     "answer": "GitHub Copilot primarily suggest basic unit tests that focus on core functionalities, often requiring additional input from developers for comprehensive coverage.",
-    "explanation": ""
+    "explanation": "Generated tests often cover straightforward behavior but may omit edge cases and interactions, requiring developers to add cases for adequate coverage."
   },
   {
     "id": 100,
@@ -1303,7 +1303,7 @@ export const quizQuestions = [
       "The GitHub Copilot icon in the status bar of the editor will display a message"
     ],
     "answer": "The GitHub Copilot icon in the status bar of the editor will display a message",
-    "explanation": ""
+    "explanation": "The editor’s Copilot status indicator can signal when content exclusions prevent suggestions, making it a place to diagnose blocked context."
   },
   {
     "id": 101,
@@ -1315,7 +1315,7 @@ export const quizQuestions = [
       "If the contents of an excluded file are referenced in code that is not excluded, for example function calls."
     ],
     "answer": "If the contents of an excluded file are referenced in code that is not excluded, for example function calls.",
-    "explanation": ""
+    "explanation": "Exclusions prevent the specified file from being supplied directly as context, but references or copied information in an included file can still expose related details."
   },
   {
     "id": 102,
@@ -1327,7 +1327,7 @@ export const quizQuestions = [
       "Allowing public code matches"
     ],
     "answer": "Blocking public code matches",
-    "explanation": ""
+    "explanation": "Blocking public-code matches applies the configured filter to suggestions identified as matching code available in public repositories."
   },
   {
     "id": 103,
@@ -1339,7 +1339,7 @@ export const quizQuestions = [
       "Content exclusions can only be configured by an enterprise administrator."
     ],
     "answer": "Content exclusions can be worked around as it is only available for Git repositories.",
-    "explanation": ""
+    "explanation": "Content-exclusion changes are administrative configuration events, which the organization audit log can record for review."
   },
   {
     "id": 104,
@@ -1356,7 +1356,7 @@ export const quizQuestions = [
       "Files",
       "Folders"
     ],
-    "explanation": ""
+    "explanation": "The stated propagation window is up to 30 minutes, so recently changed exclusions may not take effect immediately across clients."
   },
   {
     "id": 105,
@@ -1369,7 +1369,7 @@ export const quizQuestions = [
       "Use the #file Chat variable to exclude the files"
     ],
     "answer": "Upgrade to Copilot Business",
-    "explanation": ""
+    "explanation": "Copilot can reason about visible code and suggest alternative algorithms or data structures that may be more efficient; profiling is still needed to verify gains."
   },
   {
     "id": 106,
@@ -1384,7 +1384,7 @@ export const quizQuestions = [
       "If the user is in an organization that has content exclusions configured.",
       "If the content exclusion settings changed in the last 30 minutes or before that."
     ],
-    "explanation": ""
+    "explanation": "Administrators can configure content exclusions through Copilot settings so selected files are not used as context or receive inline suggestions."
   },
   {
     "id": 107,
@@ -1401,7 +1401,7 @@ export const quizQuestions = [
       "Clearly defining the problem or task",
       "Providing examples of desired output"
     ],
-    "explanation": ""
+    "explanation": "An exclusion removes the selected content as direct prompt context and disables inline completions in those files, though indirect references may remain."
   },
   {
     "id": 108,
@@ -1413,7 +1413,7 @@ export const quizQuestions = [
       "Reviewing and validating the generated output for accuracy and completeness."
     ],
     "answer": "Reviewing and validating the generated output for accuracy and completeness.",
-    "explanation": ""
+    "explanation": "Toxicity detection is intended to identify sexually explicit material and hateful or discriminatory language."
   },
   {
     "id": 109,
@@ -1425,7 +1425,7 @@ export const quizQuestions = [
       "By writing the implementation code for the function."
     ],
     "answer": "By suggesting assertions based on the code’s context and semantics.",
-    "explanation": ""
+    "explanation": "The gh copilot suggest command converts a natural-language request into candidate CLI commands that the developer can review."
   },
   {
     "id": 110,
@@ -1437,7 +1437,7 @@ export const quizQuestions = [
       "Analyzing the context and structure of the code being written"
     ],
     "answer": "Running code suggestions through filters designed to detect public code",
-    "explanation": ""
+    "explanation": "Assertions express expected behavior, and Copilot can propose them from the function’s visible inputs, outputs, and semantics for developers to validate."
   },
   {
     "id": 111,
@@ -1449,7 +1449,7 @@ export const quizQuestions = [
       "GitHub Copilot Chat in GitHub Mobile"
     ],
     "answer": "GitHub Copilot duplication detection filter",
-    "explanation": ""
+    "explanation": "A maintainability goal and a readability goal give Copilot specific quality criteria for proposing focused code changes."
   },
   {
     "id": 112,
@@ -1461,7 +1461,7 @@ export const quizQuestions = [
       "Suggestions blocked by duplication detection filtering"
     ],
     "answer": "Changes to content exclusion settings",
-    "explanation": ""
+    "explanation": "Suggestions for more efficient algorithms or data structures can point to possible performance improvements for the code under review."
   },
   {
     "id": 113,
@@ -1473,7 +1473,7 @@ export const quizQuestions = [
       "24 hours"
     ],
     "answer": "Up to 30 minutes",
-    "explanation": ""
+    "explanation": "Examples make the desired result concrete, a clear task defines what to solve, and meaningful names make the code’s intent legible to the model."
   },
   {
     "id": 114,
@@ -1485,7 +1485,7 @@ export const quizQuestions = [
       "By automatically rewriting the codebase to use more efficient code."
     ],
     "answer": "By analyzing the codebase and suggesting more efficient algorithms or data structures.",
-    "explanation": ""
+    "explanation": "Emoji reactions attached to a Copilot Chat response offer an in-product way to rate and provide feedback on that interaction."
   },
   {
     "id": 115,
@@ -1497,7 +1497,7 @@ export const quizQuestions = [
       "Add the specific files to a copilot .ignore file"
     ],
     "answer": "Use the GitHub Copilot settings in the user interface to exclude files",
-    "explanation": ""
+    "explanation": "Enterprise pull-request assistance can summarize a changeset and answer questions about it, giving reviewers a concise way to understand the proposed changes."
   },
   {
     "id": 116,
@@ -1512,7 +1512,7 @@ export const quizQuestions = [
       "The excluded content is not directly available to GitHub Copilot to use a context.",
       "GitHub Copilot suggestions are no longer available in the excluded files."
     ],
-    "explanation": ""
+    "explanation": "The Enterprise plan provides organizational controls for prompt and suggestion collection; whether collection is enabled and how data is retained depends on configuration and policy."
   },
   {
     "id": 117,
@@ -1527,7 +1527,7 @@ export const quizQuestions = [
       "Sexually suggestive or explicit content",
       "Hate speech or discriminatory language (e.g., racial slurs, offensive stereotypes)"
     ],
-    "explanation": ""
+    "explanation": "Opening the completions panel lets the developer inspect and select from multiple candidate completions."
   },
   {
     "id": 118,
@@ -1539,7 +1539,7 @@ export const quizQuestions = [
       "Describe the project's architecture → Use the copilot generate command → Accept the generated suggestions"
     ],
     "answer": "Use gh copilot suggest → Write the command you want → Select the best suggestion",
-    "explanation": ""
+    "explanation": "GitHub Copilot Knowledge Bases are an Enterprise feature used to ground responses in selected organizational content."
   },
   {
     "id": 119,
@@ -1551,7 +1551,7 @@ export const quizQuestions = [
       "By suggesting assertions based on the code's context and semantics"
     ],
     "answer": "By suggesting assertions based on the code's context and semantics",
-    "explanation": ""
+    "explanation": "A custom model trained on organizational repositories can learn their coding conventions and recurring patterns to tailor suggestions."
   },
   {
     "id": 120,
@@ -1566,7 +1566,7 @@ export const quizQuestions = [
       "\"Suggest ways to enhance the maintainability of this code segment.\"",
       "\"Show me how to improve the readability of this function.\""
     ],
-    "explanation": ""
+    "explanation": "A generated test suite is only a starting point and can omit edge cases or important behaviors that a developer must identify."
   },
   {
     "id": 121,
@@ -1578,7 +1578,7 @@ export const quizQuestions = [
       "By analyzing the codebase and suggesting more efficient algorithms or data structures."
     ],
     "answer": "By analyzing the codebase and suggesting more efficient algorithms or data structures.",
-    "explanation": ""
+    "explanation": "Copilot can recommend refactoring changes that improve code quality, while developers evaluate and apply appropriate changes."
   },
   {
     "id": 122,
@@ -1595,7 +1595,7 @@ export const quizQuestions = [
       "Clearly defining the problem or task",
       "Using meaningful variable names"
     ],
-    "explanation": ""
+    "explanation": "The organization audit log is the administrative record for organization-level Copilot events, including settings changes."
   },
   {
     "id": 123,
@@ -1607,7 +1607,7 @@ export const quizQuestions = [
       "The feedback section on the GitHub website."
     ],
     "answer": "Use the emojis in the Copilot Chat interface.",
-    "explanation": ""
+    "explanation": "The CLI suggest command takes a natural-language description of a command-line task and returns a candidate command for review."
   },
   {
     "id": 124,
@@ -1622,7 +1622,7 @@ export const quizQuestions = [
       "It generates a prose summary and a bulleted list of key changes for pull requests",
       "It can answer questions about the changeset of the pull request"
     ],
-    "explanation": ""
+    "explanation": "The completions panel exposes alternative suggestions for the current editing context so the user can choose an appropriate one."
   },
   {
     "id": 125,
@@ -1634,7 +1634,7 @@ export const quizQuestions = [
       "GitHub Copilot Codespace"
     ],
     "answer": "GitHub Copilot Enterprise",
-    "explanation": ""
+    "explanation": "Exclusions apply to Git repository content, and references in included material can still make related information available indirectly."
   },
   {
     "id": 126,
@@ -1646,7 +1646,7 @@ export const quizQuestions = [
       "By opening the completions panel in your editor"
     ],
     "answer": "By opening the completions panel in your editor",
-    "explanation": ""
+    "explanation": "Organizational knowledge bases are part of Copilot Enterprise and can ground responses in company documentation and code."
   },
   {
     "id": 127,
@@ -1658,7 +1658,7 @@ export const quizQuestions = [
       "All repos are indexed"
     ],
     "answer": "It is an Enterprise feature",
-    "explanation": ""
+    "explanation": "Role prompting supplies a perspective or responsibility that shapes the response toward relevant tasks and expertise."
   },
   {
     "id": 128,
@@ -1670,7 +1670,7 @@ export const quizQuestions = [
       "Responses are faster to produce and appear sooner"
     ],
     "answer": "Responses use practices and patterns in your repositories",
-    "explanation": ""
+    "explanation": "Conversation history carries prior task details forward, helping subsequent code suggestions stay relevant to the ongoing work."
   },
   {
     "id": 129,
@@ -1682,7 +1682,7 @@ export const quizQuestions = [
       "Because GitHub Copilot generates the best code possible for the test scenario."
     ],
     "answer": "Because GitHub Copilot's generated test cases may not cover all possible scenarios.",
-    "explanation": ""
+    "explanation": "Questions grounded in code let Copilot describe its behavior and explain relationships in the existing project."
   },
   {
     "id": 130,
@@ -1694,7 +1694,7 @@ export const quizQuestions = [
       "GitHub Copilot can remove unnecessary files from the project directory."
     ],
     "answer": "GitHub Copilot can suggest refactoring improvements for better code quality.",
-    "explanation": ""
+    "explanation": "An excluded file is not sent directly as context, but an included file can still expose related information through references or copied details."
   },
   {
     "id": 131,
@@ -1706,7 +1706,7 @@ export const quizQuestions = [
       "Navigate to the Insights tab in the repository settings"
     ],
     "answer": "Use the Audit log section in the organization's GitHub settings",
-    "explanation": ""
+    "explanation": "The mobile chat’s emoji reactions let users quickly rate a response and send product feedback from within the conversation."
   },
   {
     "id": 132,
@@ -1718,7 +1718,7 @@ export const quizQuestions = [
       "Use 'gh copilot suggest' → Write the command you want → Select the best suggestion from the list."
     ],
     "answer": "Use 'gh copilot suggest' → Write the command you want → Select the best suggestion from the list.",
-    "explanation": ""
+    "explanation": "Documentation links provide supporting facts or conventions, while explicit success criteria tell Copilot how to judge the requested result."
   },
   {
     "id": 133,
@@ -1730,7 +1730,7 @@ export const quizQuestions = [
       "By using @workspace in the chat window"
     ],
     "answer": "By opening the completions panel in your editor",
-    "explanation": ""
+    "explanation": "Copilot can reproduce plausible mathematical patterns without executing or independently checking the calculation, so numerical results require verification."
   },
   {
     "id": 134,
@@ -1742,7 +1742,7 @@ export const quizQuestions = [
       "Content exclusions can be worked around as it is only available for Git repositories."
     ],
     "answer": "Content exclusions can be worked around as it is only available for Git repositories.",
-    "explanation": ""
+    "explanation": "Describing a mechanism tells Copilot how to process input and can shape the response; however, few-shot prompting conventionally means providing examples, so this keyed answer is questionable."
   },
   {
     "id": 135,
@@ -1754,7 +1754,7 @@ export const quizQuestions = [
       "GitHub Copilot Business"
     ],
     "answer": "GitHub Copilot Enterprise",
-    "explanation": ""
+    "explanation": "Earlier discussion can supply context for a follow-up, allowing suggestions to reflect the ongoing task and previously stated constraints."
   },
   {
     "id": 136,
@@ -1766,7 +1766,7 @@ export const quizQuestions = [
       "Giving GitHub Copilot multiple examples of the form of the data you want to use"
     ],
     "answer": "Describing in your prompt what your role is to get a better suggestion",
-    "explanation": ""
+    "explanation": "A prior project or conversation context can help tailor a code snippet to patterns and preferences established during that work."
   },
   {
     "id": 137,
@@ -1778,7 +1778,7 @@ export const quizQuestions = [
       "Chat history is irrelevant to GitHub Copilot and does not affect its functionality."
     ],
     "answer": "Chat history provides context to GitHub Copilot, improving the relevance and accuracy of its code suggestions",
-    "explanation": ""
+    "explanation": "Copilot Chat can identify and annotate recognized vulnerability patterns in suggestions, helping developers review risky code."
   },
   {
     "id": 138,
@@ -1790,7 +1790,7 @@ export const quizQuestions = [
       "By automatically refactoring code to improve readability."
     ],
     "answer": "By answering questions about the code and generating explanations.",
-    "explanation": ""
+    "explanation": "Checking that the organization has exclusions configured and allowing for their propagation period addresses both missing policy scope and delayed updates."
   },
   {
     "id": 139,
@@ -1802,7 +1802,7 @@ export const quizQuestions = [
       "If the content exclusion was configured at the enterprise level, and is overwritten at the organization level."
     ],
     "answer": "If the contents of an excluded file are referenced in code that is not excluded, for example function calls.",
-    "explanation": ""
+    "explanation": "Reusable suggested snippets let developers avoid re-entering common scaffolding while adapting it to each use."
   },
   {
     "id": 140,
@@ -1814,7 +1814,7 @@ export const quizQuestions = [
       "The feedback section on the GitHub website."
     ],
     "answer": "Use the emojis in the Copilot Chat interface.",
-    "explanation": ""
+    "explanation": "Existing tests provide local examples of naming, arrangement, and assertion style that Copilot can mirror when drafting additional tests."
   },
   {
     "id": 141,
@@ -1829,7 +1829,7 @@ export const quizQuestions = [
       "Provide links to supporting documentation",
       "Provide specific success criteria"
     ],
-    "explanation": ""
+    "explanation": "Repository context can help Copilot recommend design patterns and practices that fit the project’s existing architecture."
   },
   {
     "id": 142,
@@ -1841,7 +1841,7 @@ export const quizQuestions = [
       "GitHub Copilot's ability to execute and veri fy mathematical results in real-time."
     ],
     "answer": "GitHub Copilot's reliance on pattern-based responses, without verifying computation accuracy.",
-    "explanation": ""
+    "explanation": "Pre-processing can enrich a prompt with relevant editor or repository context before the language model generates an answer."
   },
   {
     "id": 143,
@@ -1853,7 +1853,7 @@ export const quizQuestions = [
       "Telling GitHub Copilot to iterate several times on the answer before returning to you."
     ],
     "answer": "Telling GitHub Copilot about the mechanism you want it to use and how it processes the input.",
-    "explanation": ""
+    "explanation": "Few-shot prompting means giving the model a small number of examples to demonstrate the desired pattern; the keyed choice instead describes procedural instructions, so this answer key is inconsistent with standard terminology."
   },
   {
     "id": 144,
@@ -1865,7 +1865,7 @@ export const quizQuestions = [
       "By logging chat history to monitor user activity and ensure compliance with coding standards."
     ],
     "answer": "By using chat history to offer personalized code snippets based on previous projects.",
-    "explanation": ""
+    "explanation": "Transparency is the principle of making AI behavior and decision-making understandable through clear information."
   },
   {
     "id": 145,
@@ -1877,7 +1877,7 @@ export const quizQuestions = [
       "By annotating the given suggestions with known vulnerability patterns."
     ],
     "answer": "By annotating the given suggestions with known vulnerability patterns.",
-    "explanation": ""
+    "explanation": "The organization-level duplication-detection policy can filter suggestions that match publicly available code according to its configured behavior."
   },
   {
     "id": 146,
@@ -1892,7 +1892,7 @@ export const quizQuestions = [
       "If the user is in an organization that has content exclusions configured.",
       "If the content exclusion settings changed in the last 30 minutes or before that."
     ],
-    "explanation": ""
+    "explanation": "Chat can struggle with large or intricate code structures and with topics for which its available context or learned information is limited."
   },
   {
     "id": 147,
@@ -1904,7 +1904,7 @@ export const quizQuestions = [
       "By predicting future coding requirements and pre-emptively generating boilerplate code."
     ],
     "answer": "By suggesting code snippets that can be reused across different parts of the project.",
-    "explanation": ""
+    "explanation": "The Neovim Copilot Chat integration allows users to interact with Copilot from within that editor."
   },
   {
     "id": 148,
@@ -1916,7 +1916,7 @@ export const quizQuestions = [
       "By providing documentation references based on industry best practices."
     ],
     "answer": "By identifying a pattern in the way you write tests and suggesting similar patterns for new tests.",
-    "explanation": ""
+    "explanation": "Copilot Chat can combine model knowledge with relevant repository context and connected external sources when available to answer coding questions."
   },
   {
     "id": 149,
@@ -1928,7 +1928,7 @@ export const quizQuestions = [
       "GitHub Copilot can independently create a complete software design."
     ],
     "answer": "GitHub Copilot can suggest design patterns and best practices based on the project's context and existing codebase.",
-    "explanation": ""
+    "explanation": "Opening relevant tabs makes their code available in the IDE context, while adding snippets directly gives Copilot concrete material for the request."
   },
   {
     "id": 150,
@@ -1940,7 +1940,7 @@ export const quizQuestions = [
       "It enriches the input prompt with additional context before passing it to the language model."
     ],
     "answer": "It enriches the input prompt with additional context before passing it to the language model.",
-    "explanation": ""
+    "explanation": "Copilot often drafts straightforward tests from available context, but complex edge cases and integration behavior require additional developer guidance and coverage."
   },
   {
     "id": 151,
@@ -1955,7 +1955,7 @@ export const quizQuestions = [
       "The excluded content is not directly available to GitHub Copilot to use as context.",
       "GitHub Copilot suggestions are no longer available in the excluded files."
     ],
-    "explanation": ""
+    "explanation": "Exclusions keep a file from being supplied directly as context and suppress inline suggestions in that file, protecting its contents within the configured scope."
   },
   {
     "id": 152,
@@ -1967,7 +1967,7 @@ export const quizQuestions = [
       "Accountability"
     ],
     "answer": "Transparency",
-    "explanation": ""
+    "explanation": "Transparency means making an AI system’s behavior and decision basis understandable through clear information."
   },
   {
     "id": 153,
@@ -1979,7 +1979,7 @@ export const quizQuestions = [
       "GitHub Copilot access to Bing"
     ],
     "answer": "GitHub Copilot duplication detection filter",
-    "explanation": ""
+    "explanation": "The organization-level duplication-detection filter can apply policy to suggestions matching code that is publicly available."
   },
   {
     "id": 154,
@@ -1994,7 +1994,7 @@ export const quizQuestions = [
       "Limited training data",
       "Ability to handle complex code structures"
     ],
-    "explanation": ""
+    "explanation": "Limited available training or context can leave knowledge gaps, and complicated structures can exceed the model’s ability to reason reliably."
   },
   {
     "id": 155,
@@ -2006,7 +2006,7 @@ export const quizQuestions = [
       "From a web browser at https://github.copilot.com"
     ],
     "answer": "By using chat capabilities in NeoVim",
-    "explanation": ""
+    "explanation": "The supported Neovim chat integration lets a developer ask Copilot questions and receive assistance from within the editor."
   },
   {
     "id": 156,
@@ -2018,7 +2018,7 @@ export const quizQuestions = [
       "It uses user-provided documentation exclusively to generate responses."
     ],
     "answer": "It combines its training data set, code in user repositories, and external sources like Bing to generate responses.",
-    "explanation": ""
+    "explanation": "Responses can draw on learned model knowledge, relevant repository context, and connected sources such as web search when that capability is available."
   },
   {
     "id": 157,
@@ -2033,7 +2033,7 @@ export const quizQuestions = [
       "By opening the relevant tabs in your IDE",
       "By adding relevant code snippets to your prompt"
     ],
-    "explanation": ""
+    "explanation": "Open relevant tabs and include relevant snippets to expose the code Copilot needs to answer with project-specific context."
   },
   {
     "id": 158,
@@ -2045,7 +2045,7 @@ export const quizQuestions = [
       "GitHub Copilot's limitations in generating unit tests can vary based on the IDE version you are using."
     ],
     "answer": "GitHub Copilot primarily suggests basic unit tests that focus on core functionalities, often requiring additional input from developers for comprehensive coverage.",
-    "explanation": ""
+    "explanation": "Copilot can draft basic tests from visible code, but comprehensive edge-case and integration coverage usually requires developers to supply more context and review."
   },
   {
     "id": 159,
@@ -2058,7 +2058,7 @@ export const quizQuestions = [
       "GitHub Copilot Teams"
     ],
     "answer": "GitHub Copilot Individual",
-    "explanation": ""
+    "explanation": "An Individual plan fits a contractor using Copilot personally across projects when centralized organizational controls are not required."
   },
   {
     "id": 160,
@@ -2070,7 +2070,7 @@ export const quizQuestions = [
       "Suggest completely novel projects, while reducing time on a project."
     ],
     "answer": "Suggest code snippets that reflect the most common practices in the training data.",
-    "explanation": ""
+    "explanation": "Training on frequent coding patterns makes suggestions likely to resemble common idioms and approaches in the training examples."
   },
   {
     "id": 161,
@@ -2082,7 +2082,7 @@ export const quizQuestions = [
       "GitHub Copilot can refactor applications to align with upcoming standards."
     ],
     "answer": "GitHub Copilot can suggest modern programming patterns based on your code.",
-    "explanation": ""
+    "explanation": "Copilot can use existing code as context to recommend newer language idioms and patterns, while developers decide and implement the modernization."
   },
   {
     "id": 162,
@@ -2094,7 +2094,7 @@ export const quizQuestions = [
       "Training AI data and algorithms to be free from biases will ensure fairness."
     ],
     "answer": "Regularly monitoring the AI tool's performance will ensure fairness in its outputs.",
-    "explanation": ""
+    "explanation": "Fairness monitoring can reveal disparities in outcomes over time, including effects that emerge after deployment as data and usage change."
   },
   {
     "id": 163,
@@ -2106,7 +2106,7 @@ export const quizQuestions = [
       "Rename the files to include the suffix _no_copilot."
     ],
     "answer": "Use the GitHub Copilot settings in the user interface to exclude files.",
-    "explanation": ""
+    "explanation": "The supported interface for Copilot Business content exclusions lets administrators specify files that should not inform suggestions."
   },
   {
     "id": 164,
@@ -2118,7 +2118,7 @@ export const quizQuestions = [
       "The training data might contain biases or inconsistencies."
     ],
     "answer": "The training data might contain biases or inconsistencies.",
-    "explanation": ""
+    "explanation": "Inconsistent or biased training examples can lead a generative model to produce unreliable or skewed results."
   },
   {
     "id": 165,
@@ -2135,7 +2135,7 @@ export const quizQuestions = [
       "Folders",
       "Repositories"
     ],
-    "explanation": ""
+    "explanation": "Repositories, their files, and folders can be selected as exclusion scopes so their contents are not used in Copilot’s context."
   },
   {
     "id": 166,
@@ -2147,7 +2147,7 @@ export const quizQuestions = [
       "Executes test cases to find issues with the code."
     ],
     "answer": "Creates unit tests for the selected code.",
-    "explanation": ""
+    "explanation": "The /tests command drafts unit tests for selected code; the developer still needs to inspect and run the generated tests."
   },
   {
     "id": 167,
@@ -2159,7 +2159,7 @@ export const quizQuestions = [
       "24 hours"
     ],
     "answer": "Up to 30 minutes",
-    "explanation": ""
+    "explanation": "The stated rollout interval is up to 30 minutes, so an exclusion change may take time to reach clients."
   },
   {
     "id": 168,
@@ -2171,7 +2171,7 @@ export const quizQuestions = [
       "All file types are indexed"
     ],
     "answer": "It is an Enterprise feature",
-    "explanation": ""
+    "explanation": "Knowledge Bases are an Enterprise feature that supplies organization-specific context to Copilot."
   },
   {
     "id": 169,
@@ -2183,7 +2183,7 @@ export const quizQuestions = [
       "A tool solely designed for debugging and error correction."
     ],
     "answer": "A productivity tool that provides suggestions, but relying on human judgment.",
-    "explanation": ""
+    "explanation": "Copilot assists developers with suggestions that they assess, test, and adapt as part of their work."
   },
   {
     "id": 170,
@@ -2195,7 +2195,7 @@ export const quizQuestions = [
       "Google Cloud Platform"
     ],
     "answer": "Microsoft Azure",
-    "explanation": ""
+    "explanation": "The architecture described for this proxy service places it on Microsoft Azure."
   },
   {
     "id": 171,
@@ -2208,7 +2208,7 @@ export const quizQuestions = [
       "Giving GitHub Copilot examples of the algorithm and outcome you want to use"
     ],
     "answer": "Only giving GitHub Copilot a question as a prompt and no examples",
-    "explanation": ""
+    "explanation": "Zero-shot prompting asks for a task to be completed without providing example demonstrations."
   },
   {
     "id": 172,
@@ -2220,7 +2220,7 @@ export const quizQuestions = [
       "Translates code into a more performant language."
     ],
     "answer": "Enhances the performance of the selected code by analyzing its runtime complexity.",
-    "explanation": ""
+    "explanation": "The command examines selected code for possible efficiency improvements, which developers should validate with tests and profiling."
   },
   {
     "id": 173,
@@ -2236,7 +2236,7 @@ export const quizQuestions = [
       "By adding comments to your code and triggering a suggestion.",
       "By highlighting the code you want to fix, right-clicking, and selecting \"Refactor using GitHub Copilot.\""
     ],
-    "explanation": ""
+    "explanation": "A behavioral comment can cue an inline completion, and refactoring selected code through the editor action gives Copilot the target to transform."
   },
   {
     "id": 174,
@@ -2248,7 +2248,7 @@ export const quizQuestions = [
       "AI replaces the need for developer opportunities in most fields."
     ],
     "answer": "AI systems can sometimes make decisions that are difficult to interpret.",
-    "explanation": ""
+    "explanation": "AI decisions can be difficult to interpret, making it challenging to understand the factors behind an outcome."
   },
   {
     "id": 175,
@@ -2260,7 +2260,7 @@ export const quizQuestions = [
       "Suggestions blocked by duplication detection filtering"
     ],
     "answer": "Changes to content exclusion settings",
-    "explanation": ""
+    "explanation": "The organization audit log records administrative configuration events such as changes to content-exclusion settings."
   },
   {
     "id": 176,
@@ -2272,7 +2272,7 @@ export const quizQuestions = [
       "Reviewing the user's browsing history to identify public repositories"
     ],
     "answer": "Running code suggestions through filters designed to detect public code",
-    "explanation": ""
+    "explanation": "A public-code filter checks generated suggestions for matches and applies the configured handling policy when a match is detected."
   },
   {
     "id": 177,
@@ -2284,7 +2284,7 @@ export const quizQuestions = [
       "Replaces the need for any code review process"
     ],
     "answer": "Encourages code consistency by offering similar suggestions to team members",
-    "explanation": ""
+    "explanation": "Shared suggestions can reflect common team conventions and patterns, which can support consistency across contributions."
   },
   {
     "id": 178,
@@ -2299,7 +2299,7 @@ export const quizQuestions = [
       "GitHub Copilot can provide real-time guidance and support to help the developers learn the syntax and best practices of the new language.",
       "GitHub Copilot Chat can provide guidance and support for common coding tasks and challenges in the targeted programming language."
     ],
-    "explanation": ""
+    "explanation": "Copilot can offer immediate syntax and best-practice guidance while Chat can explain common tasks and challenges in the new language."
   },
   {
     "id": 179,
@@ -2314,7 +2314,7 @@ export const quizQuestions = [
       "GitHub Copilot may introduce security vulnerabilities by suggesting code with known exploits.",
       "GitHub Copilot’s suggestions may not always reflect best practices or the latest coding standards."
     ],
-    "explanation": ""
+    "explanation": "Suggestions may include unsafe implementations or omit current best practices, so developers must review, test, and update generated code."
   },
   {
     "id": 180,
@@ -2330,6 +2330,6 @@ export const quizQuestions = [
       "GitHub Copilot's suggestions may contain licensed code without providing necessary attribution.",
       "GitHub Copilot may suggest code that contains security vulnerabilities."
     ],
-    "explanation": ""
+    "explanation": "Potential risks include exposure of embedded secrets, licensing and attribution concerns for code resembling licensed material, and vulnerabilities in suggested implementations."
   }
 ]
